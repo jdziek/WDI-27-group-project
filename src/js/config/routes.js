@@ -8,7 +8,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
 
   $stateProvider
   .state('postsIndex', {
-    url: '/posts',
+    url: '/',
     templateUrl: 'js/views/index.html'
   })
   .state('postsNew', {
@@ -25,6 +25,6 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   });
 
 
-  $urlRouterProvider.otherwise('/posts');
+  $urlRouterProvider.otherwise('/');
 
 }

@@ -1,6 +1,4 @@
 # Project 3 Starter Code
-Simon Amor
-James Clarke
-Jakub Dziekan
-
-Bootstrap-Grid Added
+##Simon Amor
+##James Clarke
+##Jakub Dziekan

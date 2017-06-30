@@ -11,4 +11,6 @@ const postSchema = new mongoose.Schema({
   timestamps: true
 });
 
+postSchema.set('toJSON', { getters: true, virtuals: false });
+
 module.exports = mongoose.model('Post', postSchema);
