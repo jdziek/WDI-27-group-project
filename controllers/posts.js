@@ -3,6 +3,7 @@ const Post = require('../models/post');
 function postIndex(req, res, next) {
   Post
     .find()
+    .populate('createdBy')
     .exec()
     .then(posts => res.status(201).json(posts))
     .catch(next);
