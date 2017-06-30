@@ -17,6 +17,10 @@
   "dependencies": {
     "angular": "^1.5.8",
     "angular-ui-router": "^1.0.5",
+<<<<<<< HEAD
     "angular-resource": "^1.6.4"
+=======
+    "satellizer": "^0.15.5"
+>>>>>>> development
   }
 }
