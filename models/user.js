@@ -16,11 +16,11 @@ const userSchema = new mongoose.Schema({
   boi: { type: String }
 });
 
-userSchema
-  .virtual('passwordConfirmation')
-  .set(function setPasswordConfirmation(passwordConfirmation) {
-    this._passwordConfirmation = passwordConfirmation;
-  });
+// userSchema
+//   .virtual('passwordConfirmation')
+//   .set(function setPasswordConfirmation(passwordConfirmation) {
+//     this._passwordConfirmation = passwordConfirmation;
+//   });
 
 userSchema
   .virtual('imageSRC')
