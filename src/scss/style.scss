@@ -3,9 +3,9 @@
 @import 'bootstrap/bootstrap-grid';
 
 // SASS Variabels
-$highLight: #3eacba;
+$highLight: #FDC848;
 $borderColor: #f5f5f5;
-$textColor: #333c4e;
+$textColor: #484848;
 
 
 //OVERALL STYLES
@@ -17,14 +17,28 @@ body{
 
 h1 {
   font-size: 48px;
+  font-weight: 700;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 48px;
+  font-weight: 300;
+}
+
+p{
+  font-size: 14px;
 }
 
 a{
   text-decoration: none;
+}
+
+.shadow{
+  box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.1);
+}
+
+span{
+  color: $highLight;
 }
 
 //NAV STYLES
@@ -32,27 +46,55 @@ a{
 nav{
   height: 64px;
   padding: 24px;
-  border-bottom: 1px solid $borderColor;
 }
 
 nav ul li {
   display: inline;
-  padding: 0px 8px;
+  padding: 8px 8px;
   font-size: 16px;
   font-weight: 500;
   float: right;
+  font-weight: 400;
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: 900;
-  color: #3eacba;
+  height: 40px;
+  width: 40px;
+  background-image: url('https://image.ibb.co/dxrrf5/logo.png');
+  background-size: contain;
   float: left;
 }
 
 .menu{
   display: none;
 }
+
+//headder
+
+.mainHeader{
+  margin: 42px auto;
+}
+
+//SEARCH STUFF
+
+.search {
+  background-color: white;
+  padding: 16px;
+  height: 200px;
+  border: 1px solid $borderColor;
+  border-radius: 4px;
+  margin: 62px auto;
+}
+
+// index stuff
+
+.feed {
+  margin: 0 auto;
+  padding: 16px;
+  background-color: white;
+
+}
+
 
 
 @media only screen and (max-width: 760px) {
