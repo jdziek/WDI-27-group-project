@@ -11,8 +11,6 @@ const Posts = require('../models/post');
 User.collection.drop();
 Posts.collection.drop();
 
-
-
 User
 .create([{
   firstName: 'Simon',

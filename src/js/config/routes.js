@@ -9,19 +9,23 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
   .state('postsIndex', {
     url: '/',
-    templateUrl: 'js/views/index.html'
+    templateUrl: 'js/views/index.html',
+    controller: 'PostsIndexCtrl as postsIndex'
   })
   .state('postsNew', {
     url: '/posts/new',
-    templateUrl: 'js/views/new.html'
+    templateUrl: 'js/views/new.html',
+    controller: 'PostsNewCtrl as postsNew'
   })
   .state('postsEdit', {
     url: '/posts/:id/edit',
-    templateUrl: 'js/views/edit.html'
+    templateUrl: 'js/views/edit.html',
+    controller: 'PostsEditCtrl as postsEdit'
   })
   .state('postsShow', {
     url: '/posts/:id',
-    templateUrl: 'js/views/show.html'
+    templateUrl: 'js/views/show.html',
+    controller: 'PostsShowCtrl as postsShow'
   });
 
 
