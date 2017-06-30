@@ -27,17 +27,55 @@ nav{
   border-bottom: 1px solid $borderColor;
 }
 
-.logo {
-  font-size: 16px;
-  font-weight: 900;
-  color: #3eacba;
-}
-nav ul li{
+nav ul li {
   display: inline;
-  padding: 16px 8px;
+  padding: 0px 8px;
   font-size: 16px;
   font-weight: 500;
-}
-.float-right{
   float: right;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 900;
+  color: #3eacba;
+  float: left;
+}
+
+.menu{
+  display: none;
+}
+
+
+@media only screen and (max-width: 760px) {
+
+  nav li{
+    position: relative;
+    float: none;
+    display: block;
+    padding-top: 20px;
+    background-color: white;
+    position: relative;
+  }
+
+
+  .menu{
+    padding: 0px;
+    float: right;
+    display: block;
+    font-size: 20px;
+    position: relative;
+  }
+
+
+  .dropdown{
+    padding: 30px 0px 30px 30px;
+    background-color: white;
+    text-align: right;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 44px;
+    z-index: 2;
+  }
 }
