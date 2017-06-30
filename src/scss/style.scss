@@ -1,3 +1,81 @@
 // Import all of your scss files here
-
+@import 'reset-css/reset';
 @import 'bootstrap/bootstrap-grid';
+
+// SASS Variabels
+$highLight: #3eacba;
+$borderColor: #f5f5f5;
+$textColor: #333c4e;
+
+
+//OVERALL STYLES
+
+body{
+  font-family: 'Yantramanav', sans-serif;
+  color: $textColor;
+}
+
+a{
+  text-decoration: none;
+}
+
+//NAV STYLES
+
+nav{
+  height: 64px;
+  padding: 24px;
+  border-bottom: 1px solid $borderColor;
+}
+
+nav ul li {
+  display: inline;
+  padding: 0px 8px;
+  font-size: 16px;
+  font-weight: 500;
+  float: right;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 900;
+  color: #3eacba;
+  float: left;
+}
+
+.menu{
+  display: none;
+}
+
+
+@media only screen and (max-width: 760px) {
+
+  nav li{
+    position: relative;
+    float: none;
+    display: block;
+    padding-top: 20px;
+    background-color: white;
+    position: relative;
+  }
+
+
+  .menu{
+    padding: 0px;
+    float: right;
+    display: block;
+    font-size: 20px;
+    position: relative;
+  }
+
+
+  .dropdown{
+    padding: 30px 0px 30px 30px;
+    background-color: white;
+    text-align: right;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 44px;
+    z-index: 2;
+  }
+}

@@ -1,39 +1,30 @@
 <!DOCTYPE html>
+
 <html ng-app="groupProject">
-  <head>
-    <meta charset="utf-8">
+<head>
+  <meta charset="utf-8">
     <base href="/">
-    <title>WDI Project 3</title>
-    <!-- inject:js -->
-    <!-- endinject -->
-    <!-- inject:css -->
-    <!-- endinject -->
-  </head>
-  <body>
-
+  <title>WDI Project 3</title>
+  <link href="https://fonts.googleapis.com/css?family=Yantramanav:100,300,400,500,700,900" rel="stylesheet">
+  <!-- inject:js -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
+</head>
+<body>
+  <nav>
+    <div class="logo"> INFOX </div>
+    <ul>
+      <li class="menu"> &#9776; </li>
+      <div class="dropdown">
+        <li> LOG IN </li>
+        <li> REGISTER </li>
+        <li> POST </li>
+        <li> PROFILE </li>
+        <li> HOME </li>
+      </div>
+    </ul>
+  </nav>
     <main ui-view></main>
-
-    <p>If 4 === {{ 2+2 }} is true, angular is working! #boolean</p>
-    <!-- <div class="container">
-  <div class="row">
-    <div class="col col-md-6">
-      1 of 2
-    </div>
-    <div class="col col-md-6">
-      1 of 2
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      1 of 3
-    </div>
-    <div class="col">
-      1 of 3
-    </div>
-    <div class="col">
-      1 of 3
-    </div>
-  </div>
-</div> -->
-  </body>
+</body>
 </html>
