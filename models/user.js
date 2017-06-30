@@ -36,7 +36,7 @@ userSchema.pre('remove', function removeImage(next) {
 
 userSchema.pre('validate', function checkPassword(next) {
   if(this.isModified('password')) {
-    if(!this.password && !this.instagramId) {
+    if(!this.password) {
       this.invalidate('password', 'required');
     }
 
