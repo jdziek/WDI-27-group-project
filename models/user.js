@@ -9,18 +9,17 @@ const userSchema = new mongoose.Schema({
   username: { type: String },
   email: { type: String },
   password: { type: String },
-  passwordConfirmation: { type: String },
   postcode: { type: String },
   travelDistance: { type: Number },
   jobTitle: { type: String },
   boi: { type: String }
 });
 
-// userSchema
-//   .virtual('passwordConfirmation')
-//   .set(function setPasswordConfirmation(passwordConfirmation) {
-//     this._passwordConfirmation = passwordConfirmation;
-//   });
+userSchema
+  .virtual('passwordConfirmation')
+  .set(function setPasswordConfirmation(passwordConfirmation) {
+    this._passwordConfirmation = passwordConfirmation;
+  });
 
 userSchema
   .virtual('imageSRC')

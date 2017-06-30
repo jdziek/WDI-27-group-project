@@ -51,6 +51,7 @@
     }
   },
   "dependencies": {
+    "auth-provider": "^0.6.2",
     "bcrypt": "^1.0.2",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
@@ -59,7 +60,8 @@
     "gulp": "^3.9.1",
     "jsonwebtoken": "^7.4.1",
     "mongoose": "^4.11.0",
-    "morgan": "^1.8.2"
+    "morgan": "^1.8.2",
+    "satellizer": "^0.15.5"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",

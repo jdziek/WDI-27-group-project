@@ -5,7 +5,7 @@ mongoose.Promise = require('bluebird');
 mongoose.connect(dbURI);
 
 const User = require('../models/user');
-const Posts = require('../models/post');
+const Posts = require('../models/posts');
 
 
 User.collection.drop();
@@ -54,7 +54,6 @@ User
 }])
 .then((users) => {
   console.log(`${users.length} users created`);
-
   return Posts
   .create([{
     postType: 'Teaching',
@@ -62,7 +61,7 @@ User
     info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.',
     location: 'Somewhere',
     date: '12/12/2018',
-    time: 12,
+    time: '12:30',
     image: 'an Image',
     createdBy: users[0]
   },{
@@ -71,14 +70,14 @@ User
     info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.',
     location: 'Somewhere',
     date: '12/12/2018',
-    time: 12,
+    time: '19:15',
     image: 'an Image',
     createdBy: users[0]
   }])
   .then((posts) => {
-    console.log(`${posts.length} posts created`);
+    console.log(`${posts.length} groups created`);
   });
 })
-
+.then((posts) => console.log(`${posts.length} posts created`))
 .catch((err) => console.log(err))
 .finally(() => mongoose.connection.close());

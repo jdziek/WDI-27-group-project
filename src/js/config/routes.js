@@ -22,6 +22,16 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   .state('postsShow', {
     url: '/posts/:id',
     templateUrl: 'js/views/show.html'
+  })
+  .state('login', {
+    url: '/login',
+    templateUrl: 'js/views/auth/login.html',
+    controller: 'LoginCtrl as login'
+  })
+  .state('register', {
+    url: '/register',
+    templateUrl: 'js/views/auth/register.html',
+    controller: 'RegisterCtrl as register'
   });
 
 
