@@ -9,22 +9,22 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
   .state('postsIndex', {
     url: '/',
-    templateUrl: 'js/views/index.html',
+    templateUrl: 'js/views/posts/index.html',
     controller: 'PostsIndexCtrl as postsIndex'
   })
   .state('postsNew', {
     url: '/posts/new',
-    templateUrl: 'js/views/new.html',
+    templateUrl: 'js/views/posts/new.html',
     controller: 'PostsNewCtrl as postsNew'
   })
   .state('postsEdit', {
     url: '/posts/:id/edit',
-    templateUrl: 'js/views/edit.html',
+    templateUrl: 'js/views/posts/edit.html',
     controller: 'PostsEditCtrl as postsEdit'
   })
   .state('postsShow', {
     url: '/posts/:id',
-    templateUrl: 'js/views/show.html',
+    templateUrl: 'js/views/posts/show.html',
     controller: 'PostsShowCtrl as postsShow'
   })
   .state('login', {
@@ -36,6 +36,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     url: '/register',
     templateUrl: 'js/views/auth/register.html',
     controller: 'RegisterCtrl as register'
+  })
+  .state('profile', {
+    url: '/profile',
+    templateUrl: 'js/views/auth/profile.html',
+    controller: 'ProfileCtrl as profile'
   });
 
 

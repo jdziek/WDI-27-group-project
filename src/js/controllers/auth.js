@@ -15,8 +15,6 @@ function RegisterCtrl($auth, $state) {
   vm.submit = submit;
 }
 
-
-
 LoginCtrl.$inject = ['$auth', '$state'];
 function LoginCtrl($auth, $state) {
   const vm = this;
@@ -26,6 +24,13 @@ function LoginCtrl($auth, $state) {
     $auth.login(vm.credentials)
     .then(() => $state.go('postsIndex'));
   }
+  // this is for oauth with facebook
+  function authenticate(provider) {
+    $auth.authenticate(provider)
+    .then(() => $state.go('profile'));
+  }
+  // this is for oauth with facebook
+  vm.authenticate = authenticate;
 
   vm.submit = submit;
 

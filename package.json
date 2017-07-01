@@ -63,8 +63,8 @@
     "moment": "^2.18.1",
     "mongoose": "^4.11.0",
     "morgan": "^1.8.2",
-    "satellizer": "^0.15.5",
-    "time-ago": "^0.1.0"
+    "request-promise": "^4.2.1",
+    "satellizer": "^0.15.5"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
