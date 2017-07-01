@@ -60,9 +60,11 @@
     "express-api": "^0.1.0",
     "gulp": "^3.9.1",
     "jsonwebtoken": "^7.4.1",
+    "moment": "^2.18.1",
     "mongoose": "^4.11.0",
     "morgan": "^1.8.2",
-    "satellizer": "^0.15.5"
+    "satellizer": "^0.15.5",
+    "time-ago": "^0.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",

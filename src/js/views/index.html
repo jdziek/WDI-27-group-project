@@ -4,14 +4,44 @@
   <h2> Teaching & learning in your local area </h2>
 </div>
 
-<div class="col col-10 search shadow">THIS IS A SEARCH BOX</div>
-<div class="col col-10 feed shadow" ng-repeat="post in postsIndex.all">
-      <h1>{{ post.postType }}</h1>
-      <h2>title</h2> <p>{{ post.tite }}</p>
-    <h2>info</h2>  <p>{{ post.info }}</p>
-    <h2>location</h2>  <p>{{ post.location }}</p>
-    <h2>date</h2>  <p>{{ post.date }}</p>
-    <h2>time</h2>  <p>{{ post.time }}</p>
-    <h2>image</h2>  <p>{{ post.image }}</p>
-    <h2>createdBy</h2>  <p>{{ post.createdBy.firstName }}</p>
+
+
+<div class="col col-10 search shadow">THIS IS A SEARCH BOX
+
+
+
+</div>
+
+<div class="container col-10">
+  <div class="row">
+    <div class="col-md-4 col-sm-6" ng-repeat="post in postsIndex.all">
+      <div class="card shadow">
+        <div class="postType">
+          {{ post.postType }}</p>
+        </div>
+        <div class="cardContent">
+          <h3>{{ post.title }}</h3>
+          <p> {{ post.createdAt | date}} <span>{{ post.createdBy.firstName }}<span></p>
+          <div class="cardLocationAndTime">
+
+            <div class="cardLocation">
+              {{ post.location }} <h4>m from you</h4>
+            </div>
+
+            <div class="cardInfo">
+              <h4>date</h4>  <p>{{ post.date }}</p>
+            </div>
+
+            <div class="cardInfo">
+              <h4>time</h4>  <p>{{ post.time }}</p>
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
   </div>
+</div>
