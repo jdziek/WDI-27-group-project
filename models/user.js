@@ -12,7 +12,8 @@ const userSchema = new mongoose.Schema({
   postcode: { type: String },
   travelDistance: { type: Number },
   jobTitle: { type: String },
-  boi: { type: String }
+  boi: { type: String },
+  facebookId: { type: Number }
 });
 
 userSchema
@@ -36,7 +37,7 @@ userSchema.pre('remove', function removeImage(next) {
 
 userSchema.pre('validate', function checkPassword(next) {
   if(this.isModified('password')) {
-    if(!this.password) {
+    if(!this.password && !this.facebookId) {
       this.invalidate('password', 'required');
     }
 

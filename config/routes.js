@@ -1,7 +1,9 @@
 const router = require('express').Router();
 const postsController = require('../controllers/posts');
 const auth = require('../controllers/auth');
+const oauth = require('../controllers/oauth');
 const secureRoute = require('../lib/secureRoute');
+const users = require('../controllers/users');
 
 router.route('/posts')
 .get(postsController.index)
@@ -18,6 +20,12 @@ router.route('/register')
 
 router.route('/login')
 .post(auth.login);
+
+router.route('/oauth/facebook')
+.post(oauth.facebook);
+
+router.route('/users/:id')
+.get(users.show);
 
 router.all('/*', (req, res) => res.notFound());
 

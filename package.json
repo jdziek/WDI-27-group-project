@@ -62,6 +62,7 @@
     "jsonwebtoken": "^7.4.1",
     "mongoose": "^4.11.0",
     "morgan": "^1.8.2",
+    "request-promise": "^4.2.1",
     "satellizer": "^0.15.5"
   },
   "devDependencies": {
