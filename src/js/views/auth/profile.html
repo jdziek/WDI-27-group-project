@@ -1,8 +1,36 @@
-<h1>Profile</h1>
 
-<img ng-src="{{ profile.user.image }}" alt="profile.user.username">
-<h2>{{ profile.user.username }}</h2>
-<a href="mailto:{{ profile.user.email }}" ng-if="profile.user.email">{{ profile.user.email }}</a>
- <p>Github Id: <strong>{{ profile.user.githubId }}</strong></p>
+<div class="container col-10 profileContainer">
+  <div class="row">
+    <div class="col col-5">
+      <div class="profilePhotoContainer">
 
-<button ng-click="profile.logout()">Logout</button>
+
+        <img ng-src="{{ profile.user.image }}" alt="profile.user.username" class="profileImage">
+
+        <button class="button secondary" ng-click="profile.logout()">Logout</button>
+        <button class="button primary" ui-sref="userssEdit({ id:usersShow.user.id })">Edit</button>
+      </div>
+    </div>
+
+    <div class="col col-5 profileInfo">
+
+      <h2>{{ profile.user.firstName }} {{ profile.user.lastName }}</h2>
+      <span> {{ profile.user.jobTitle }}</span>
+
+      <div class="rating">
+        <div style="margin:15px 0;">User rating: <b>{{profile.user.rating}}</b></div>
+        <span uib-rating ng-model="profile.user.rating" read-only="isReadonly" state-on="'glyphicon-ok-sign'" state-off="'glyphicon-ok-circle'" aria-labelledby="custom-icons-1" max="10" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']"></span>
+      </div>
+
+      <h3>Bio</h3>
+      <p>{{ profile.user.bio}}</p>
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+<!-- <a href="mailto:{{ profile.user.email }}" ng-if="profile.user.email">{{ profile.user.email }}</a></p> -->

@@ -17,11 +17,11 @@
     <div class="col-md-4 col-sm-6" ng-repeat="post in postsIndex.all">
       <div class="card shadow">
         <div class="postType">
-          {{ post.postType }}</p>
+          <p> {{ post.postType }}</p>
         </div>
         <div class="cardContent">
           <h3>{{ post.title }}</h3>
-          <p> {{ post.createdAt | date}} <span>{{ post.createdBy.firstName }}<span></p>
+          <p> {{ post.createdAt | date}} <span>{{ post.createdBy.firstName }}</span></p>
           <div class="cardLocationAndTime">
 
             <div class="cardLocation">

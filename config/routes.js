@@ -27,6 +27,9 @@ router.route('/oauth/facebook')
 
 router.route('/users/:id')
 .get(users.show);
+// .put(users.update)
+// .delete(users.delete);
+
 
 router.all('/*', (req, res) => res.notFound());
 

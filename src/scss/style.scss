@@ -50,10 +50,14 @@ a{
 }
 
 .button{
-  padding: 16px 42px;
+  padding: 8px 42px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.login{
+  padding: 16px 42px;
 }
 
 .primary{
@@ -61,6 +65,14 @@ a{
   color: white;
   &.primary:hover{
     background-color: darken($highLight, 10%);
+  }
+}
+
+.secondary{
+  background-color: $borderColor;
+  color: $textColor;
+  &.secondary:hover{
+    background-color: darken($borderColor, 10%);
   }
 }
 
@@ -104,7 +116,47 @@ nav ul li {
   display: none;
 }
 
-//headder
+
+// HOVER NAV STYLES
+
+nav a,a:visited,a:hover,a:active{
+  -webkit-backface-visibility:hidden;
+          backface-visibility:hidden;
+	position:relative;
+  transition:0.5s color ease;
+	text-decoration:none;
+	color:$textColor;
+}
+nav a:hover{
+	color:$highLight;
+}
+nav a.before:before,a.after:after{
+  content: "";
+  transition:0.5s all ease;
+  -webkit-backface-visibility:hidden;
+          backface-visibility:hidden;
+  position:absolute;
+}
+nav a.before:before{
+  top:-0.25em;
+}
+nav a.after:after{
+  bottom:-0.25em;
+}
+nav a.before:before,a.after:after{
+  height:1px;
+  height:0.1rem;
+  width:0;
+  background:$highLight;
+}
+nav a.first:after{
+  left:0;
+}
+nav a.before:hover:before,a.after:hover:after{
+  width:100%;
+}
+
+//header
 
 .mainHeader{
   margin: 42px auto;
@@ -198,6 +250,57 @@ input:-webkit-autofill {
     outline:0;
     border: 1px solid $highLight;
 }
+
+//PROFILE PAGE
+
+.profileContainer{
+  margin: 48px auto;
+}
+.profilePhotoContainer{
+  margin-left: 300px;
+}
+
+.profileInfo{
+  // background-color: blue;
+  // color: white;
+}
+.profileImage{
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  margin: 8px 8px;
+  border-radius: 250px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
