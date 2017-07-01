@@ -10,6 +10,7 @@ const router      = require('./config/routes');
 const customResponses = require('./lib/customResponses');
 const errorHandler    = require('./lib/errorHandler');
 const cors            = require('cors');
+const rp          = require('request-promise');
 
 mongoose.connect(dbURI);
 

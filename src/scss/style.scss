@@ -1,6 +1,7 @@
 // Import all of your scss files here
 @import 'reset-css/reset';
 @import 'bootstrap/bootstrap-grid';
+@import 'font-awesome-4.7.0/css/font-awesome.min';
 
 // SASS Variabels
 $highLight: #FDC848;
@@ -46,6 +47,29 @@ a{
 
 .shadow{
   box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.1);
+}
+
+.button{
+  padding: 16px 42px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.primary{
+  background-color: $highLight;
+  color: white;
+  &.primary:hover{
+    background-color: darken($highLight, 10%);
+  }
+}
+
+.facebook{
+  background-color:#3b5998;
+  color: white;
+  &.facebook:hover{
+    background-color: darken(#3b5998, 10%);
+  }
 }
 
 span{
@@ -99,10 +123,10 @@ nav ul li {
 
 // index stuff
 
-
 .card {
   margin: 16px 16px;
   background-color: white;
+  border: 1px solid $borderColor;
 }
 
 .cardContent{
@@ -129,6 +153,53 @@ nav ul li {
   background-color: pink;
   margin: 16px 0px;
 }
+
+//FORM SUFF
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+.formBox{
+  margin: 48px auto;
+  background-color: white;
+  padding: 24px 16px;
+}
+
+.formTitle{
+  margin: 0px 0px 16px 0px;
+}
+
+.label{
+  margin: 8px 0px;
+}
+
+.field{
+  margin: 8px 0px;
+}
+
+.fieldTogether{
+  display: inline-block;
+}
+
+.control{
+  margin: 8px 0px;
+}
+
+.input{
+  height: 48px;
+  margin: 4px 0px;
+  border: 1px solid $borderColor;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.input:focus {
+    outline:0;
+    border: 1px solid $highLight;
+}
+
+
 
 @media only screen and (max-width: 760px) {
 
