@@ -16,10 +16,15 @@ mongoose.connect(dbURI);
 
 app.use(morgan('dev'));
 app.use(express.static(`${__dirname}/public`));
+app.use(bodyParser.json({ limit: '10mb' }));
+
+
 app.use(bodyParser.json());
 app.use(customResponses);
 app.use(cors());
 app.use('/api',router);
+
+
 
 
 app.get('/*', (req, res) => res.sendFile(`${__dirname}/public/index.html`));
