@@ -13,15 +13,15 @@
 </head>
 <body>
   <nav>
-    <div class="logo"></div>
+    <div class="logo" ui-sref="index"></div>
     <ul>
       <li class="menu"> &#9776; </li>
       <div class="dropdown">
-        <li> <a class="navLink" ui-sref="login"> Login </a></li>
-        <li> <a class="navLink" ui-sref="register"> Register </a></li>
-        <li> <a class="navLink" ui-sref="posts"> Post </a></li>
-        <li> <a class="navLink" ui-sref="profile"> Profile </a></li>
-        <li> <a class="navLink" ui-sref="/">  Home </a></li>
+        <li> <a class="navLink" ui-sref="login" ng-if="!index.isLoggedIn()"> Login </a></li>
+        <li> <a class="navLink" ui-sref="index" ng-if="index.isLoggedIn()"> Logout </a></li>
+        <li> <a class="navLink" ui-sref="register" ng-if="!index.isLoggedIn()"> Register </a></li>
+        <li> <a class="navLink" ui-sref="posts" ng-if="index.isLoggedIn()"> Post </a></li>
+        <li> <a class="navLink" ui-sref="profile" ng-if="index.isLoggedIn()"> Profile </a></li>
       </div>
     </ul>
   </nav>
