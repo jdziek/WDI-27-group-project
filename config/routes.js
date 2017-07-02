@@ -4,6 +4,7 @@ const auth = require('../controllers/auth');
 const oauth = require('../controllers/oauth');
 const secureRoute = require('../lib/secureRoute');
 const users = require('../controllers/users');
+const imageUpload = require('../lib/imageUpload');
 
 router.route('/posts')
 .get(postsController.index)
@@ -16,7 +17,7 @@ router.route('/post/:id')
 .delete(postsController.delete);
 
 router.route('/register')
-.post(auth.register);
+.post(imageUpload, auth.register);
 
 router.route('/login')
 .post(auth.login);
@@ -26,6 +27,9 @@ router.route('/oauth/facebook')
 
 router.route('/users/:id')
 .get(users.show);
+// .put(users.update)
+// .delete(users.delete);
+
 
 router.all('/*', (req, res) => res.notFound());
 

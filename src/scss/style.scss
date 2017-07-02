@@ -1,6 +1,7 @@
 // Import all of your scss files here
 @import 'reset-css/reset';
 @import 'bootstrap/bootstrap-grid';
+@import 'font-awesome-4.7.0/css/font-awesome.min';
 
 // SASS Variabels
 $highLight: #FDC848;
@@ -48,6 +49,41 @@ a{
   box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.1);
 }
 
+.button{
+  padding: 8px 42px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login{
+  padding: 16px 42px;
+}
+
+.primary{
+  background-color: $highLight;
+  color: white;
+  &.primary:hover{
+    background-color: darken($highLight, 10%);
+  }
+}
+
+.secondary{
+  background-color: $borderColor;
+  color: $textColor;
+  &.secondary:hover{
+    background-color: darken($borderColor, 10%);
+  }
+}
+
+.facebook{
+  background-color:#3b5998;
+  color: white;
+  &.facebook:hover{
+    background-color: darken(#3b5998, 10%);
+  }
+}
+
 span{
   color: $highLight;
 }
@@ -80,7 +116,47 @@ nav ul li {
   display: none;
 }
 
-//headder
+
+// HOVER NAV STYLES
+
+nav a,a:visited,a:hover,a:active{
+  -webkit-backface-visibility:hidden;
+          backface-visibility:hidden;
+	position:relative;
+  transition:0.5s color ease;
+	text-decoration:none;
+	color:$textColor;
+}
+nav a:hover{
+	color:$highLight;
+}
+nav a.before:before,a.after:after{
+  content: "";
+  transition:0.5s all ease;
+  -webkit-backface-visibility:hidden;
+          backface-visibility:hidden;
+  position:absolute;
+}
+nav a.before:before{
+  top:-0.25em;
+}
+nav a.after:after{
+  bottom:-0.25em;
+}
+nav a.before:before,a.after:after{
+  height:1px;
+  height:0.1rem;
+  width:0;
+  background:$highLight;
+}
+nav a.first:after{
+  left:0;
+}
+nav a.before:hover:before,a.after:hover:after{
+  width:100%;
+}
+
+//header
 
 .mainHeader{
   margin: 42px auto;
@@ -99,10 +175,10 @@ nav ul li {
 
 // index stuff
 
-
 .card {
   margin: 16px 16px;
   background-color: white;
+  border: 1px solid $borderColor;
 }
 
 .cardContent{
@@ -129,6 +205,105 @@ nav ul li {
   background-color: pink;
   margin: 16px 0px;
 }
+
+//FORM SUFF
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+.formBox{
+  margin: 48px auto;
+  background-color: white;
+  padding: 24px 16px;
+}
+
+.formTitle{
+  margin: 0px 0px 16px 0px;
+}
+
+.label{
+  margin: 8px 0px;
+  background-color: red;
+}
+
+.field{
+  margin: 8px 0px;
+}
+
+.fieldTogether{
+  display: inline-block;
+}
+
+.control{
+  margin: 8px 0px;
+}
+
+.input{
+  height: 48px;
+  margin: 4px 0px;
+  border: 1px solid $borderColor;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.input:focus {
+    outline:0;
+    border: 1px solid $highLight;
+}
+
+//PROFILE PAGE
+
+.profileContainer{
+  margin: 48px auto;
+}
+.profilePhotoContainer{
+  margin-left: 300px;
+}
+
+.profileInfo{
+  // background-color: blue;
+  // color: white;
+}
+.profileImage{
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  margin: 8px 8px;
+  border-radius: 250px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media only screen and (max-width: 760px) {
 
