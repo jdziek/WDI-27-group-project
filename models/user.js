@@ -13,10 +13,7 @@ const userSchema = new mongoose.Schema({
   travelDistance: { type: Number },
   jobTitle: { type: String },
   bio: { type: String },
-<<<<<<< HEAD
-=======
   rating: { type: Number },
->>>>>>> development
   facebookId: { type: Number }
 });
 

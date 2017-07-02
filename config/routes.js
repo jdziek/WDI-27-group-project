@@ -8,7 +8,7 @@ const imageUpload = require('../lib/imageUpload');
 
 router.route('/posts')
 .get(postsController.index)
-.post(postsController.create);
+.post(secureRoute, postsController.create);
 
 router.route('/post/:id')
 .all(secureRoute)
