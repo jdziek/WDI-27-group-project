@@ -50,9 +50,9 @@ function PostsNewCtrl($state, Post) {
 // PostsShowCtrl.$inject = ['Post', '$stateParams', '$state'];
 // function PostsShowCtrl(Post, $stateParams, $state) {
 //   const vm = this;
-//   console.log(vm.post);
-//   vm.post = Post.get($stateParams);
 //
+//   vm.post = Post.get($stateParams);
+//   console.log(vm.post);
 //   function postsDelete() {
 //     vm.post
 //       .$remove()
@@ -61,7 +61,7 @@ function PostsNewCtrl($state, Post) {
 //
 //   vm.delete = postsDelete;
 // }
-//
+
 PostsShowCtrl.$inject = ['Post', '$state'];
 function PostsShowCtrl(Post, $state) {
   const vm = this;

@@ -10,7 +10,7 @@ router.route('/posts')
 .get(postsController.index)
 .post(secureRoute, postsController.create);
 
-router.route('/post/:id')
+router.route('/posts/:id')
 .all(secureRoute)
 .get(postsController.show)
 .put(postsController.update)

@@ -1,8 +1,13 @@
 <h1>Show Post</h1>
-<h1>Here: {{postsShow.post}}</h1>
+
+
+
+<h3>{{postsShow.post.location}}</h3>
+<h3>{{postsShow.post.info}}</h3>
+<h3>{{postsShow.post.coordinates}}</h3>
 
 
 <a ui-sref="postsEdit({ id: postsShow.post.id })">Edit</a>
-<div class="marker" id="map">
-  <google-map center="{ lat: 51.5221596, lng: -0.0521308 }"></google-map>
+<div id="map">
+  <google-map center="postsShow.post.coordinates"></google-map>
 </div>
