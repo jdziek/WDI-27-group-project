@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
   postcode: { type: String },
   travelDistance: { type: Number },
   jobTitle: { type: String },
-  boi: { type: String },
+  bio: { type: String },
   facebookId: { type: Number }
 });
 
