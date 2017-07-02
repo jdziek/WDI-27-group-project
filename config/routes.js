@@ -10,7 +10,7 @@ router.route('/posts')
 .get(postsController.index)
 .post(secureRoute, postsController.create);
 
-router.route('/post/:id')
+router.route('/posts/:id')
 .all(secureRoute)
 .get(postsController.show)
 .put(postsController.update)
@@ -29,6 +29,12 @@ router.route('/users/:id')
 .get(users.show);
 // .put(users.update)
 // .delete(users.delete);
+
+router.route('/users/:id/comments')
+  .post(secureRoute, users.addComment);
+
+router.route('/users/:id/comments/:commentId')
+.delete(secureRoute, users.deleteComment);
 
 
 router.all('/*', (req, res) => res.notFound());

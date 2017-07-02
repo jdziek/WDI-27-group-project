@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const s3= require('../lib/s3');
 
+const commentSchema = new mongoose.Schema({
+  text: { type: String, required: true},
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+});
+
 const userSchema = new mongoose.Schema({
   firstName: { type: String },
   lastName: { type: String },
@@ -14,7 +19,8 @@ const userSchema = new mongoose.Schema({
   jobTitle: { type: String },
   bio: { type: String },
   rating: { type: Number },
-  facebookId: { type: Number }
+  facebookId: { type: Number },
+  comments: [ commentSchema ]
 });
 
 userSchema
