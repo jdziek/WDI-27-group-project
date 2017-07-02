@@ -59,6 +59,7 @@
     "cors": "^2.8.3",
     "express": "^4.14.0",
     "express-api": "^0.1.0",
+    "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
     "jsonwebtoken": "^7.4.1",
     "moment": "^2.18.1",

@@ -1,29 +1,39 @@
+<!DOCTYPE html>
 
 <div class="container col-10 profileContainer">
   <div class="row">
-    <div class="col col-5">
+    <div class="col col-md-4">
       <div class="profilePhotoContainer">
 
 
-        <img ng-src="{{ profile.user.imageSRC }}" alt="profile.user.image" class="profileImage">
+        <img ng-src="{{ profile.user.image }}" alt="profile.user.image" class="profileImage">
 
-        <button class="button secondary" ng-click="profile.logout()">Logout</button>
-        <button class="button primary" ui-sref="userssEdit({ id:usersShow.user.id })">Edit</button>
+
+
+
       </div>
     </div>
 
-    <div class="col col-5 profileInfo">
 
-      <h2>{{ profile.user.firstName }} {{ profile.user.lastName }}</h2>
-      <span> {{ profile.user.jobTitle }}</span>
+    <div class="col col-md-7 profileInfo">
+      <h2>{{ profile.user.firstName }} {{ profile.user.lastName }} – <span> {{ profile.user.jobTitle }}</span></h2>
+
 
       <div class="rating">
         <div style="margin:15px 0;">User rating: <b>{{profile.user.rating}}</b></div>
         <span uib-rating ng-model="profile.user.rating" read-only="isReadonly" state-on="'glyphicon-ok-sign'" state-off="'glyphicon-ok-circle'" aria-labelledby="custom-icons-1" max="10" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']"></span>
       </div>
 
-      <h3>Bio</h3>
-      <p>{{ profile.user.bio}}</p>
+      <a href="mailto:{{ profile.user.email }}" ng-if="profile.user.email">Send a Message </a></p>
+
+      <div class="bio">
+        <span> About</span>
+        <p>{{ profile.user.bio}}</p>
+      </div>
+
+      {{profile.user}}
+
+
 
 
 
@@ -32,5 +42,3 @@
     </div>
   </div>
 </div>
-
-<!-- <a href="mailto:{{ profile.user.email }}" ng-if="profile.user.email">{{ profile.user.email }}</a></p> -->
