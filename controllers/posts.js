@@ -19,6 +19,7 @@ function postCreate(req, res, next) {
 function postShow(req, res, next) {
   Post
     .findById(req.params.id)
+    .exec()
     .then(post => res.status(201).json(post))
     .catch(next);
 }
