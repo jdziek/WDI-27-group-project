@@ -24,7 +24,7 @@
         <span uib-rating ng-model="profile.user.rating" read-only="isReadonly" state-on="'glyphicon-ok-sign'" state-off="'glyphicon-ok-circle'" aria-labelledby="custom-icons-1" max="10" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']"></span>
       </div>
 
-      <a href="mailto:{{ profile.user.email }}" ng-if="profile.user.email">Send a Message </a></p>
+      <a href="mailto:{{ profile.user.email }}" ng-if="profile.user.email">Send a Message </a>
 
       <div class="bio">
         <span> About</span>
@@ -32,6 +32,20 @@
       </div>
 
       {{profile.user}}
+
+      <div class="comments">
+        <h2>Comments</h2>
+        <ul class="comments__created">
+          <li ng-repeat="comment in profile.user.comments track by $index">
+            <strong>{{ comment.createdBy.username }}</strong> - {{ comment.text }} <button class="button" ng-click="profile.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete</button>
+          </li>
+        </ul>
+        <form ng-if="main.isAuthenticated()" ng-submit="profile.addComment()">
+          <label>Add comment</label>
+          <textarea ng-model="profile.newComment.text"></textarea>
+          <button class="button button--full">Comment</button>
+        </form>
+      </div>
 
 
 

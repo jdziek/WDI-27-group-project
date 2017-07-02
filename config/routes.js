@@ -30,6 +30,12 @@ router.route('/users/:id')
 // .put(users.update)
 // .delete(users.delete);
 
+router.route('/users/:id/comments')
+  .post(secureRoute, users.addComment);
+
+router.route('/users/:id/comments/:commentId')
+.delete(secureRoute, users.deleteComment);
+
 
 router.all('/*', (req, res) => res.notFound());
 
