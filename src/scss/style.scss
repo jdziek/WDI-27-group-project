@@ -1,7 +1,9 @@
 // Import all of your scss files here
 @import 'reset-css/reset';
 @import 'bootstrap/bootstrap-grid';
-@import 'font-awesome-4.7.0/css/font-awesome.min';
+
+// $fa-font-path: "../node_modules/font-awesome/fonts";
+// @import '~font-awesome/scss/font-awesome.scss';
 
 // SASS Variabels
 $highLight: #FDC848;
@@ -39,6 +41,8 @@ h4 {
 
 p{
   font-size: 14px;
+  font-weight: 300;
+  line-height: 1.2;
 }
 
 a{
@@ -255,25 +259,35 @@ input:-webkit-autofill {
 
 //PROFILE PAGE
 
+
+.profileImage{
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0px auto;
+  background-position: bottom;
+}
+
+.bio{
+  margin: 16px auto;
+}
+.profilePhotoContainer{
+
+}
+
 .profileContainer{
   margin: 48px auto;
 }
-.profilePhotoContainer{
-  margin-left: 300px;
+
+.profileButtonContainer{
+margin: 0px auto;
 }
 
 .profileInfo{
-  // background-color: blue;
-  // color: white;
+
 }
-.profileImage{
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  display: block;
-  margin: 8px 8px;
-  border-radius: 250px;
-}
+
+
 
 
 
@@ -337,4 +351,11 @@ input:-webkit-autofill {
     top: 44px;
     z-index: 2;
   }
+}
+.map {
+  width: 500px;
+  height: 500px;
+  background-color: ghostwhite;
+
+  float: right;
 }

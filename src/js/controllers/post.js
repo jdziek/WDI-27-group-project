@@ -58,7 +58,6 @@ function PostsNewCtrl($state, Post) {
 }
 
 
-
 PostsEditCtrl.$inject = ['$state', 'Post'];
 function PostsEditCtrl($state, Post) {
   const vm = this;

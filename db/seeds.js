@@ -61,6 +61,7 @@ User
     date: '12/12/2018',
     time: 1230,
     image: 'an Image',
+    coordinates: { lat: 51.5221596, lng: -0.0521308 },
     createdBy: users[0]
   },{
     postType: 'Teaching',
@@ -70,6 +71,7 @@ User
     date: '12/12/2018',
     time: 1230,
     image: 'an Image',
+    coordinates: { lat: 51.5221596, lng: -0.0521308 },
     createdBy: users[0]
   },{
     postType: 'Learning',
@@ -79,6 +81,7 @@ User
     date: '12/12/2018',
     time: 1915,
     image: 'an Image',
+    coordinates: { lat: 51.5221596, lng: -0.0521308 },
     createdBy: users[0]
   },{
     postType: 'Learning',
@@ -88,6 +91,7 @@ User
     date: '12/12/2018',
     time: 1915,
     image: 'an Image',
+    coordinates: { lat: 51.5221596, lng: -0.0521308 },
     createdBy: users[0]
   },{
     postType: 'Learning',
@@ -97,6 +101,7 @@ User
     date: '12/12/2018',
     time: 1915,
     image: 'an Image',
+    coordinates: { lat: 51.5221596, lng: -0.0521308 },
     createdBy: users[0]
   },{
     postType: 'Learning',
@@ -106,6 +111,7 @@ User
     date: '12/12/2018',
     time: 1915,
     image: 'an Image',
+    coordinates: { lat: 51.5221596, lng: -0.0521308 },
     createdBy: users[0]
   }])
   .then((posts) => {

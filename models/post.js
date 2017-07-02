@@ -9,6 +9,7 @@ const postSchema = new mongoose.Schema({
   date: String,
   time: Number,
   image: String,
+  coordinates: { lat: Number, lng: Number },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
 }, {
   timestamps: true

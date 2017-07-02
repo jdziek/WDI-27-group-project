@@ -1,1 +1,69 @@
-<h1>New Post</h1>
+<h1>New</h1>
+<section class="section">
+  <div class="row">
+    <div class="new-form col-lg-4">
+      <form ng-submit="postsNew.create()" name="postsNew.postForm" novalidate>
+        <div class="field">
+          <p class="control">
+            <label  for="postType">Post Type</label>
+          </p>
+          <input type="text" class="input" id="postType" name="postType" ng-model="postsNew.post.postType" required>
+          <div ng-messages="postsNew.postForm.postType.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.image.$touched">
+            <div ng-message="required" class="notification">Post type is required.</div>
+          </div>
+        </div>
+        <div class="field">
+          <p class="control">
+            <label  for="title">Title</label>
+          </p>
+          <input type="text" class="input" id="title" title="title" ng-model="postsNew.post.title" required>
+          <div ng-messages="postsNew.postForm.title.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.title.$touched">
+            <div ng-message="required" class="notification">Title is required.</div>
+          </div>
+        </div>
+        <div class="field">
+          <p class="control">
+            <label  for="location">Location</label>
+          </p>
+          <input type="text" class="input" id="info" name="info" ng-model="postsNew.post.info" required>
+          <div ng-messages="postsNew.postForm.info.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.info.$touched">
+            <div ng-message="required" class="notification">Location is required</div>
+          </div>
+        </div>
+        <div class="field">
+          <p class="control">
+            <label  for="date">Date</label>
+          </p>
+          <input type="text" class="input" id="date" name="date" ng-model="postsNew.post.date" required>
+          <div ng-messages="postsNew.postForm.date.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.date.$touched">
+            <div ng-message="required" class="notification">Date is required</div>
+          </div>
+        </div>
+        <div class="field">
+          <p class="control">
+            <label  for="time">Time</label>
+          </p>
+          <input type="text" class="input" id="time" name="time" ng-model="postsNew.post.time" required>
+          <div ng-messages="postsNew.postForm.time.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.time.$touched">
+            <div ng-message="required" class="notification">Time is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input base64 type="file" name="image" id="image" ng-model="postsNew.post.base64" class="form-control">
+          <img ng-src="{{ postsNew.post.base64 }}">
+        </div>
+        <div class="marker" id="map">
+          <google-map center="{ lat: 51.5221596, lng: -0.0521308 }"></google-map>
+        </div>
+
+        <div class="field">
+          <p class="control">
+            <input type="submit" class="button is-primary is-fullwidth" value="Add">
+          </p>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>
