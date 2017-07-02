@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
   travelDistance: { type: Number },
   jobTitle: { type: String },
   boi: { type: String },
-  facebookId: { type: Number }
+  facebookId: { type: Number },
 });
 
 userSchema
