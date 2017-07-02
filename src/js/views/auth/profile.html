@@ -5,7 +5,9 @@
       <div class="profilePhotoContainer">
 
 
-        <img ng-src="{{ profile.user.imageSRC }}" alt="profile.user.image" class="profileImage">
+        <img {{}} ng-src="{{ profile.user.imageSRC}}" class="profileImage">
+
+        <img ng-src="{{ profile.user.image }}" class="profileImage">
 
         <button class="button secondary" ng-click="profile.logout()">Logout</button>
         <button class="button primary" ui-sref="userssEdit({ id:usersShow.user.id })">Edit</button>

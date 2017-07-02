@@ -10,8 +10,7 @@ router.route('/posts')
 .get(postsController.index)
 .post(secureRoute, postsController.create);
 
-router.route('/post/:id')
-.all(secureRoute)
+router.route('/posts/:id')
 .get(postsController.show)
 .put(postsController.update)
 .delete(postsController.delete);

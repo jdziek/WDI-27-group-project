@@ -5,8 +5,6 @@ angular
 .controller('PostsShowCtrl', PostsShowCtrl)
 .controller('PostsEditCtrl', PostsEditCtrl);
 
-
-
 PostsIndexCtrl.$inject = ['Post'];
 function PostsIndexCtrl(Post) {
 
@@ -32,6 +30,18 @@ function PostsIndexCtrl(Post) {
 
 }
 
+PostsShowCtrl.$inject = ['$state', 'Post'];
+function PostsShowCtrl($state, Post) {
+  const vm = this;
+
+  postsShow();
+
+  function postsShow(){
+    vm.post = Post.get($state.params);
+  }
+}
+
+
 PostsNewCtrl.$inject = ['$state', 'Post'];
 function PostsNewCtrl($state, Post) {
   const vm  = this;
@@ -47,17 +57,7 @@ function PostsNewCtrl($state, Post) {
   }
 }
 
-PostsShowCtrl.$inject = ['$state', 'Post'];
-function PostsShowCtrl($state, Post) {
-  const vm = this;
-  vm.post = {};
 
-  postsShow();
-
-  function postsShow(){
-    vm.post = Post.get($state.params);
-  }
-}
 
 PostsEditCtrl.$inject = ['$state', 'Post'];
 function PostsEditCtrl($state, Post) {
