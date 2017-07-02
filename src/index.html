@@ -6,25 +6,31 @@
     <base href="/">
   <title>Notitia - Teaching and learning</title>
   <link href="https://fonts.googleapis.com/css?family=Yantramanav:100,300,400,500,700,900" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqxWYoNwAARp2mliTZTeiMaL3dXJKSnsE"></script>
+
   <!-- inject:js -->
   <!-- endinject -->
   <!-- inject:css -->
   <!-- endinject -->
 </head>
-<body>
+<body ng-controller="MainCtrl as main">
   <nav>
-    <div class="logo" ui-sref="index"></div>
+    <div class="logo" ui-sref="postsIndex"></div>
     <ul>
       <li class="menu"> &#9776; </li>
       <div class="dropdown">
-        <li> <a class="navLink" ui-sref="login" ng-if="!index.isLoggedIn()"> Login </a></li>
-        <li> <a class="navLink" ui-sref="index" ng-if="index.isLoggedIn()"> Logout </a></li>
-        <li> <a class="navLink" ui-sref="register" ng-if="!index.isLoggedIn()"> Register </a></li>
-        <li> <a class="navLink" ui-sref="posts" ng-if="index.isLoggedIn()"> Post </a></li>
-        <li> <a class="navLink" ui-sref="profile" ng-if="index.isLoggedIn()"> Profile </a></li>
+        <li> <a class="navLink first after" ui-sref="login" ng-if="!main.isAuthenticated()"> Login </a></li>
+        <li> <a class="navLink first after" ui-sref="#" ng-click="main.logout()" ng-if="main.isAuthenticated()"> Logout </a></li>
+        <li> <a class="navLink first after" ui-sref="register" ng-if="!main.isAuthenticated()"> Register </a></li>
+        <li> <a class="navLink first after" ui-sref="postsNew" ng-if="main.isAuthenticated()"> Post </a></li>
+        <li> <a class="navLink first after" ui-sref="profile" ng-if="main.isAuthenticated()"> Profile </a></li>
       </div>
     </ul>
   </nav>
+
+<i class="fa fa-spinner fa-spin" style="color:blue;"></i>
+
+
     <main ui-view></main>
 
 </body>

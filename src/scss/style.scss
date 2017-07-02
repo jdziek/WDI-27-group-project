@@ -1,7 +1,9 @@
 // Import all of your scss files here
 @import 'reset-css/reset';
 @import 'bootstrap/bootstrap-grid';
-@import 'font-awesome-4.7.0/css/font-awesome.min';
+
+// $fa-font-path: "../node_modules/font-awesome/fonts";
+// @import '~font-awesome/scss/font-awesome.scss';
 
 // SASS Variabels
 $highLight: #FDC848;
@@ -39,6 +41,8 @@ h4 {
 
 p{
   font-size: 14px;
+  font-weight: 300;
+  line-height: 1.2;
 }
 
 a{
@@ -50,10 +54,14 @@ a{
 }
 
 .button{
-  padding: 16px 42px;
+  padding: 8px 42px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.login{
+  padding: 16px 42px;
 }
 
 .primary{
@@ -61,6 +69,14 @@ a{
   color: white;
   &.primary:hover{
     background-color: darken($highLight, 10%);
+  }
+}
+
+.secondary{
+  background-color: $borderColor;
+  color: $textColor;
+  &.secondary:hover{
+    background-color: darken($borderColor, 10%);
   }
 }
 
@@ -98,13 +114,54 @@ nav ul li {
   background-image: url('https://image.ibb.co/dxrrf5/logo.png');
   background-size: contain;
   float: left;
+  cursor: pointer;
 }
 
 .menu{
   display: none;
 }
 
-//headder
+
+// HOVER NAV STYLES
+
+nav a,a:visited,a:hover,a:active{
+  -webkit-backface-visibility:hidden;
+          backface-visibility:hidden;
+	position:relative;
+  transition:0.5s color ease;
+	text-decoration:none;
+	color:$textColor;
+}
+nav a:hover{
+	color:$highLight;
+}
+nav a.before:before,a.after:after{
+  content: "";
+  transition:0.5s all ease;
+  -webkit-backface-visibility:hidden;
+          backface-visibility:hidden;
+  position:absolute;
+}
+nav a.before:before{
+  top:-0.25em;
+}
+nav a.after:after{
+  bottom:-0.25em;
+}
+nav a.before:before,a.after:after{
+  height:1px;
+  height:0.1rem;
+  width:0;
+  background:$highLight;
+}
+nav a.first:after{
+  left:0;
+}
+nav a.before:hover:before,a.after:hover:after{
+  width:100%;
+}
+
+//header
 
 .mainHeader{
   margin: 42px auto;
@@ -172,6 +229,7 @@ input:-webkit-autofill {
 
 .label{
   margin: 8px 0px;
+  background-color: red;
 }
 
 .field{
@@ -198,6 +256,67 @@ input:-webkit-autofill {
     outline:0;
     border: 1px solid $highLight;
 }
+
+//PROFILE PAGE
+
+
+.profileImage{
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0px auto;
+  background-position: bottom;
+}
+
+.bio{
+  margin: 16px auto;
+}
+.profilePhotoContainer{
+
+}
+
+.profileContainer{
+  margin: 48px auto;
+}
+
+.profileButtonContainer{
+margin: 0px auto;
+}
+
+.profileInfo{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -232,4 +351,14 @@ input:-webkit-autofill {
     top: 44px;
     z-index: 2;
   }
+}
+.map {
+  width: 500px;
+  height: 500px;
+  background-color: ghostwhite;
+
+  float: right;
+}
+.new-form {
+  margin-left: 200px;
 }

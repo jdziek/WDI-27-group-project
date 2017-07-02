@@ -5,8 +5,6 @@ angular
 .controller('PostsShowCtrl', PostsShowCtrl)
 .controller('PostsEditCtrl', PostsEditCtrl);
 
-
-
 PostsIndexCtrl.$inject = ['Post'];
 function PostsIndexCtrl(Post) {
 
@@ -32,6 +30,18 @@ function PostsIndexCtrl(Post) {
 
 }
 
+PostsShowCtrl.$inject = ['$state', 'Post'];
+function PostsShowCtrl($state, Post) {
+  const vm = this;
+
+  postsShow();
+
+  function postsShow(){
+    vm.post = Post.get($state.params);
+  }
+}
+
+
 PostsNewCtrl.$inject = ['$state', 'Post'];
 function PostsNewCtrl($state, Post) {
   const vm  = this;
@@ -47,17 +57,35 @@ function PostsNewCtrl($state, Post) {
   }
 }
 
-PostsShowCtrl.$inject = ['$state', 'Post'];
-function PostsShowCtrl($state, Post) {
+<<<<<<< HEAD
+// PostsShowCtrl.$inject = ['Post', '$stateParams', '$state'];
+// function PostsShowCtrl(Post, $stateParams, $state) {
+//   const vm = this;
+//
+//   vm.post = Post.get($stateParams);
+//   console.log(vm.post);
+//   function postsDelete() {
+//     vm.post
+//       .$remove()
+//       .then(() => $state.go('postsIndex'));
+//   }
+//
+//   vm.delete = postsDelete;
+// }
+
+PostsShowCtrl.$inject = ['Post', '$state'];
+function PostsShowCtrl(Post, $state) {
   const vm = this;
   vm.post = {};
-
+  console.log(vm.post);
   postsShow();
 
   function postsShow(){
     vm.post = Post.get($state.params);
   }
 }
+=======
+>>>>>>> development
 
 PostsEditCtrl.$inject = ['$state', 'Post'];
 function PostsEditCtrl($state, Post) {

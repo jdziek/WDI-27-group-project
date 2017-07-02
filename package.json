@@ -51,13 +51,16 @@
     }
   },
   "dependencies": {
+    "angular-messages": "X.Y.Z",
     "auth-provider": "^0.6.2",
+    "aws-sdk": "^2.80.0",
     "bcrypt": "^1.0.2",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
     "cors": "^2.8.3",
     "express": "^4.14.0",
     "express-api": "^0.1.0",
+    "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
     "jsonwebtoken": "^7.4.1",
     "moment": "^2.18.1",
