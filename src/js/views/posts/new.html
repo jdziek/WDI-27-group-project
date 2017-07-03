@@ -7,7 +7,7 @@
           <p class="control">
             <label  for="postType">Post Type</label>
           </p>
-          <input type="text" class="input" id="postType" name="postType" ng-model="postsNew.post.postType" required>
+          <input type="checkbox" class="input" id="postType" name="postType" ng-model="postsNew.post.postType" required>
           <div ng-messages="postsNew.postForm.postType.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.postType.$touched">
             <div ng-message="required" class="notification">Post type is required.</div>
           </div>
