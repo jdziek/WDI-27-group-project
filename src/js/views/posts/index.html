@@ -33,16 +33,19 @@
 
         <div class="cardContent">
 
-          <h3 class="cardTitle">{{ post.title }}</h3>
-          <div class="setHeight">
+          <div class="cardLocationAndTime">
+
+            <h3 class="cardTitle">
+              {{ post.title }}</h3>
+            <div class="setHeight">
 
 
-            <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> –
+              <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> –
 
-              <a ui-sref="profile({ id: post.createdBy.id })">
-                <span>{{ post.createdBy.firstName }}</span></a>
+                <a ui-sref="profile({ id: post.createdBy.id })">
+                  <span>{{ post.createdBy.firstName }}</span></a>
 
-              </p>
+                </p>
 
               <div class="cardLocation">
                 <p>  {{ post.location }} m from you</p>
