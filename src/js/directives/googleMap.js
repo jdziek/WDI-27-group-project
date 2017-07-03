@@ -9,7 +9,8 @@ function googleMap() {
     replace: true,
     template: '<div class="map"> GOOGLE MAP HERE</div>',
     scope: {
-      center: '='
+      center: '=',
+      coordinates: '='
     },
     link(scope, element) {
       let map = null;
@@ -35,12 +36,10 @@ function googleMap() {
 
             marker.setPosition(event.latLng);
             scope.center = marker.getPosition();
+            scope.coordinates = marker.getPosition();
             scope.$apply();
             console.log(event.latLng.lat());
             console.log(event.latLng.lng());
-
-
-
           });
         }
 

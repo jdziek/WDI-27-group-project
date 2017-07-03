@@ -1,4 +1,5 @@
 <h1>New</h1>
+<h3>{{postsNew.post}}</h3>
 <section class="section">
   <div class="row">
     <div class="new-form col-lg-4">
@@ -57,20 +58,8 @@
           <input base64 type="file" name="image" id="image" ng-model="postsNew.post.base64" class="form-control">
           <img ng-src="{{ postsNew.post.base64 }}">
         </div>
-        <div class="field">
-          <p class="control">
-            <label  for="coordinates">Coordinateslat</label>
-          </p>
-          <input type="text" class="input" id="coordinatesla" name="coordinates" ng-model="postsNew.post.coordinates.lat" required>
-        </div>
-        <div class="field">
-          <p class="control">
-            <label  for="coordinates">Coordinateslng</label>
-          </p>
-          <input type="text" class="input" id="coordinateslng" name="coordinates" ng-model="postsNew.post.coordinates.lng || 131231312312" required >
-        </div>
         <div class="marker" id="map">
-          <google-map center="{ lat: 51.5221596, lng: -0.0521308 }"></google-map>
+          <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" coordinates="postsNew.post.coordinates"></google-map>
         </div>
         <div class="field">
           <p class="control">
