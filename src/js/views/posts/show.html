@@ -2,7 +2,7 @@
 
 
 
-<h3>{{postsShow.post.location}}</h3>
+<h3> {{postsShow.post.location}}</h3>
 <h3>{{postsShow.post.info}}</h3>
 <h3>{{postsShow.post.coordinates}}</h3>
 
@@ -10,13 +10,10 @@
 
 <a ui-sref="postsEdit({ id: postsShow.post.id})">Edit</a>
 
-<h1>{{postsShow.post.title}}</h1>
-
 
 <div id="map">
   <google-map center="postsShow.post.coordinates"></google-map>
 </div>
-
 
 <!-- <div class="marker" id="map">
   <google-map center="{ lat: 51.5221596, lng: -0.0521308 }"></google-map>

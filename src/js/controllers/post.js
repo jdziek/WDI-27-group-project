@@ -47,6 +47,8 @@ function PostsShowCtrl($state, Post) {
 }
 
 
+
+
 PostsNewCtrl.$inject = ['$state', 'Post'];
 function PostsNewCtrl($state, Post) {
   const vm  = this;
@@ -61,6 +63,7 @@ function PostsNewCtrl($state, Post) {
     });
   }
 }
+
 
 
 // PostsShowCtrl.$inject = ['Post', '$stateParams', '$state'];
@@ -89,6 +92,7 @@ function PostsNewCtrl($state, Post) {
 //     vm.post = Post.get($state.params);
 //   }
 // }
+
 
 
 PostsEditCtrl.$inject = ['$state', 'Post'];
