@@ -13,6 +13,34 @@ function showRoute(req, res, next) {
     .catch(next);
 }
 
+function userUpdate(req, res, next) {
+  User
+    .findById(req.params.id)
+    .exec()
+    .then((user) => {
+      if(!user) return res.notFound();
+
+      for(const field in req.body) {
+        user[field] = req.body[field];
+      }
+      return user.save();
+    })
+    .then((user) => res.json(user))
+    .catch(next);
+}
+
+function userDelete(req, res, next) {
+  User
+    .findById(req.params.id)
+    .exec()
+    .then((user) => {
+      if(!user) return res.notFound();
+      return user.remove();
+    })
+    .then(() => res.status(204).end())
+    .catch(next);
+}
+
 function addCommentRoute(req, res, next) {
 
   req.body.createdBy = req.user;
@@ -48,25 +76,12 @@ function deleteCommentRoute(req, res, next) {
     .catch(next);
 }
 
-// function updateRoute(req, res, next) {
-//   User
-//     .findById(req.params.id)
-//     .exec()
-//     .then((user) => {
-//       if(!user) return res.notFound();
-//
-//       for(const field in req.body) {
-//         user[field] = req.body[field];
-//       }
-//       return user.save();
-//     })
-//     .then((user) => res.json(user))
-//     .catch(next);
-// }
 
 module.exports = {
   show: showRoute,
+  update: userUpdate,
+  delete: userDelete,
   addComment: addCommentRoute,
   deleteComment: deleteCommentRoute
-  // update: updateRoute
+
 };
