@@ -2,8 +2,8 @@ angular
 .module('groupProject')
 .controller('MainCtrl', MainCtrl);
 
-MainCtrl.$inject = ['$rootScope','$state','$auth'];
-function MainCtrl($rootScope, $state, $auth) {
+MainCtrl.$inject = ['$rootScope','$state','$auth', '$transitions'];
+function MainCtrl($rootScope, $state, $auth, $transitions) {
   const vm = this;
 
   vm.isAuthenticated = $auth.isAuthenticated;
@@ -17,11 +17,12 @@ function MainCtrl($rootScope, $state, $auth) {
     }
   });
 
-  $rootScope.$on('$stateChangeSuccess', (e, state) => {
-    vm.pageName = state.name;
+  $transitions.onSuccess({}, (transition) => {
+    vm.pageName = transition.$to().name;
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
     if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
+    console.log(vm.currentUserId);
   });
 
   function logout() {
