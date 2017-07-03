@@ -6,7 +6,7 @@
       <div class="profilePhotoContainer">
 
 
-        <img ng-src="{{ profile.user.image }}" alt="profile.user.image" class="profileImage">
+        <img ng-src="{{ profile.user.imageSRC }}" alt="profile.user.image" class="profileImage">
 
 
 
@@ -31,13 +31,13 @@
         <p>{{ profile.user.bio}}</p>
       </div>
 
-      {{profile.user}}
+      <!-- {{profile.user}} -->
 
       <div class="comments">
         <h2>Comments</h2>
         <ul class="comments__created">
           <li ng-repeat="comment in profile.user.comments track by $index">
-            <strong>{{ comment.createdBy.username }}</strong> - {{ comment.text }} <button class="button" ng-click="profile.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete</button>
+            <strong>{{ comment.createdBy.username }}</strong> - {{ comment.text }} <button class="button" ng-click="profile.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comments.createdBy.id">Delete</button>
           </li>
         </ul>
         <form ng-if="main.isAuthenticated()" ng-submit="profile.addComment()">
