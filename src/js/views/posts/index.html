@@ -7,32 +7,43 @@
 
 
 
-<div class="col col-10 search shadow">THIS IS A SEARCH BOX
-<input type="text" ng-model="postsIndex.q" placeholder="Search... for anything...">
+<div class="col col-10 search">
 
-<!-- This dropdown needs to stay here but commeneted out so if there are merge conflicts please dont delete just keep it commented out! -->
-<br>
- <input ng-model="searchText[selectedSearch]" ng-init="searchText = {}; selectedSearch=''" placeholder="Search...more specifically" />
-    <input type="radio" ng-model="selectedSearch" value="postType" > Post Type
-    <input type="radio" ng-model="selectedSearch" value="date" > Date
-    <input type="radio" ng-model="selectedSearch" value="title"> Title
+  <i class="col-1 fa fa-search" aria-hidden="true"></i> <input type="text" class=" col-10 searchBox" ng-model="postsIndex.q" placeholder="Search.... ">
+
+  <!-- This dropdown needs to stay here but commeneted out so if there are merge conflicts please dont delete just keep it commented out! -->
+  <br>
+  <input ng-model="searchText[selectedSearch]" ng-init="searchText = {}; selectedSearch=''" placeholder="Search...more specifically" />
+  <input type="radio" ng-model="selectedSearch" value="postType" > Post Type
+  <input type="radio" ng-model="selectedSearch" value="date" > Date
+  <input type="radio" ng-model="selectedSearch" value="title"> Title
 </div>
 
 
 <div class="container col-10">
   <div class="row">
+
     <div class="col-md-4 col-sm-6" ng-repeat="post in postsIndex.filtered | filter:searchText" data-id="{{post.id}}">
+
       <div class="card shadow">
+
         <div class="postType">
-          <p> {{ post.postType | uppercase }}</p>
+          <p> {{ post.postType }}</p>
         </div>
+
         <div class="cardContent">
-          <h3>{{ post.title }}</h3>
-          <p> {{ post.createdAt | date}} <a ui-sref="profile({ id: post.createdBy.id })"> <span>{{ post.createdBy.firstName }}</span></a></p>
-          <div class="cardLocationAndTime">
+
+          <h3 class="cardTitle">{{ post.title }}</h3>
+
+          <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> –
+
+            <a ui-sref="profile({ id: post.createdBy.id })">
+              <span>{{ post.createdBy.firstName }}</span></a>
+
+            </p>
 
             <div class="cardLocation">
-              {{ post.location }} <h4>m from you</h4>
+              <p>  {{ post.location }} m from you</p>
             </div>
 
             <div class="cardInfo">
@@ -43,12 +54,20 @@
               <h4>time</h4>  <p>{{ post.time }}</p>
             </div>
 
+
+
+
+
+
           </div>
-            <a class="button primary" ui-sref="postsShow({ id: post.id })">View</a>
+
+          <div class="margin">
+            <button class="button primary" ui-sref="postsShow({ id: post.id })">View</button>
+          </div>
+
+
 
         </div>
-
       </div>
     </div>
   </div>
-</div>

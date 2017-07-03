@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const timeAgo = require('time_ago_in_words');
 const postSchema = new mongoose.Schema({
 
   postType: String,
@@ -14,6 +14,11 @@ const postSchema = new mongoose.Schema({
 }, {
   timestamps: true
 });
+postSchema
+.virtual('timeAgo')
+  .get(function getImageSRC() {
+    return timeAgo(this.createdAt);
+  });
 
 postSchema
 .virtual('imageSRC')
