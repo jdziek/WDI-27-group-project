@@ -10,7 +10,8 @@ const postSchema = new mongoose.Schema({
   time: Number,
   image: String,
   coordinates: { lat: Number, lng: Number },
-  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  geo: { lat: Number, lng: Number }
 }, {
   timestamps: true
 });
