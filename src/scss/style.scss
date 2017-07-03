@@ -16,6 +16,20 @@ $grid-gutter-width: 16px;
 
 //OVERALL STYLES
 
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $borderColor;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color:  $borderColor;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color:  $borderColor;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color:  $borderColor;
+}
+
 body{
   font-family: 'Yantramanav', sans-serif;
   color: $textColor;
@@ -193,11 +207,24 @@ nav a.before:hover:before,a.after:hover:after{
 
 .search {
   background-color: white;
-  padding: 16px;
-  height: 200px;
-  border: 1px solid $borderColor;
-  border-radius: 4px;
+  padding: 0px 24px;
   margin: 62px auto;
+}
+
+.searchBox{
+  border: none;
+  font-size: 32px;
+  color: $highLight;
+  border-bottom: 2px solid $highLight;
+  margin: 24px;
+  &.searchBox:focus {
+    outline:0;
+  }
+}
+
+.fa-search{
+  color: $highLight;
+  font-size: 32px;
 }
 
 // index stuff
@@ -208,31 +235,51 @@ nav a.before:hover:before,a.after:hover:after{
   border-radius: 4px;
 }
 
-.cardContent{
-  padding: 16px;
+.indexCard {
+  display: flex;
+  .card {
+    position: relative;
+    padding-bottom: 64px;
+    width: 100%;
+    margin: 8px 0;
+    button {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+    }
+  }
 }
+
+.cardContent{
+  padding: 0px 16px;
+}
+
+// .setHeight{
+//   height: 20vh;
+// }
 
 .postType{
-  background-color: $highLight;
   border-radius: 4px 4px 0px 0px;
-  padding: 8px 16px;
-  color: white;
+  padding: 16px 16px 0px 16px;
+  color: $highLight;
+  font-weight: 400;
 }
 
-.cardLocationAndTime{
-  background-color: dodgerblue;
-  margin-top: 16px;
+.cardTitle{
+  margin: 8px 0px;
 }
 
-.cardInfo{
-  background-color: red;
-  display: inline-block;
-}
 .cardLocation{
-  background-color: pink;
   margin: 16px 0px;
 }
+.cardInfo{
+  display: inline-block;
+}
 
+.margin{
+  margin: 16px 16px;
+  display: inline-block;
+}
 //FORM SUFF
 
 input:-webkit-autofill {
@@ -413,3 +460,32 @@ textarea{
 .new-form {
   margin-left: 200px;
 }
+
+
+#floating-panel {
+       position: absolute;
+       top: 10px;
+       left: 25%;
+       z-index: 5;
+       background-color: #fff;
+       padding: 5px;
+       border: 1px solid #999;
+       text-align: center;
+       font-family: 'Roboto','sans-serif';
+       line-height: 30px;
+       padding-left: 10px;
+     }
+     #floating-panel {
+       position: absolute;
+       top: 5px;
+       left: 50%;
+       margin-left: -180px;
+       width: 350px;
+       z-index: 5;
+       background-color: #fff;
+       padding: 5px;
+       border: 1px solid #999;
+     }
+     #latlng {
+       width: 225px;
+     }

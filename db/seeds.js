@@ -61,7 +61,7 @@ User
     date: '12/12/2018',
     time: 1230,
     image: 'an Image',
-    coordinates: { lat: 51.5221596, lng: -0.0521308 },
+    coordinates: { lat: 52.5221596, lng: -0.0521308 },
     createdBy: users[0]
   },{
     postType: 'Teaching',
@@ -71,7 +71,7 @@ User
     date: '12/12/2018',
     time: 1230,
     image: 'an Image',
-    coordinates: { lat: 51.5221596, lng: -0.0521308 },
+    coordinates: { lat: 51.7221596, lng: -0.0521308 },
     createdBy: users[0]
   },{
     postType: 'Learning',
@@ -81,7 +81,7 @@ User
     date: '12/12/2018',
     time: 1915,
     image: 'an Image',
-    coordinates: { lat: 51.5221596, lng: -0.0521308 },
+    coordinates: { lat: 51.5221596, lng: -0.1521308 },
     createdBy: users[0]
   },{
     postType: 'Learning',
@@ -101,7 +101,7 @@ User
     date: '12/12/2018',
     time: 1915,
     image: 'an Image',
-    coordinates: { lat: 51.5221596, lng: -0.0521308 },
+    coordinates: { lat: 50.5221596, lng: -0.1521308 },
     createdBy: users[0]
   },{
     postType: 'Learning',
