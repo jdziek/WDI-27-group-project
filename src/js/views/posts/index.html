@@ -48,6 +48,10 @@
                 <p>  {{ post.location }} m from you</p>
               </div>
 
+              <div class="cardLocation">
+              <h4>Location</h4><p><reverse-geocode coordinates="post.coordinates"/></p>
+            </div>
+
               <div class="cardInfo">
                 <h4>date</h4>  <p>{{ post.date }}</p>
               </div>
