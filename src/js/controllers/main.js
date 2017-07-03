@@ -10,8 +10,8 @@ function MainCtrl($rootScope, $state, $auth, $transitions) {
 
   $rootScope.$on('error', (e, err) => {
     vm.message = err.data.message;
-
     if(err.status === 401) {
+      $auth.logout();
       vm.stateHasChanged = false;
       $state.go('login');
     }

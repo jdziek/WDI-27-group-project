@@ -1,4 +1,5 @@
 <h1>New</h1>
+<h3>{{postsNew.post}}</h3>
 <section class="section">
   <div class="row">
     <div class="new-form col-lg-4">
@@ -7,7 +8,11 @@
           <p class="control">
             <label  for="postType">Post Type</label>
           </p>
-          <input type="checkbox" class="input" id="postType" name="postType" ng-model="postsNew.post.postType" required>
+          <select name="singleSelect" id="singleSelect" ng-model="postsNew.post.postType">
+                <option value="">---Please select---</option>
+                <option value="Teaching">Teaching</option>
+                <option value="Learning">Learning</option>
+              </select><br>
           <div ng-messages="postsNew.postForm.postType.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.postType.$touched">
             <div ng-message="required" class="notification">Post type is required.</div>
           </div>
@@ -53,14 +58,8 @@
           <input base64 type="file" name="image" id="image" ng-model="postsNew.post.base64" class="form-control">
           <img ng-src="{{ postsNew.post.base64 }}">
         </div>
-        <div class="field">
-          <p class="control">
-            <label  for="coordinates">Coordinates</label>
-          </p>
-          <input type="text" class="input" id="coordinates" name="coordinates" ng-model="postsNew.post.coordinates" required>
-        </div>
         <div class="marker" id="map">
-          <google-map center="{ lat: 51.5221596, lng: -0.0521308 }"></google-map>
+          <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" coordinates="postsNew.post.coordinates"></google-map>
         </div>
         <div class="field">
           <p class="control">
