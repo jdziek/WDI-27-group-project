@@ -5,30 +5,35 @@ angular
 .controller('PostsShowCtrl', PostsShowCtrl)
 .controller('PostsEditCtrl', PostsEditCtrl);
 
-PostsIndexCtrl.$inject = ['Post'];
-function PostsIndexCtrl(Post) {
+PostsIndexCtrl.$inject = ['Post','filterFilter', '$scope'];
+function PostsIndexCtrl(Post, filterFilter, $scope) {
 
   const vm = this;
   vm.delete = postsDelete;
 
-  postsIndex();
+  vm.all = Post.query();
 
-  function postsIndex() {
-    vm.all = Post.query();
-    console.log(vm.all);
-  }
 
   function postsDelete(post){
 
     Post.delete({ id: post._id })
-      .$promise
-      .then(() => {
-        const index = vm.all.indexOf(post);
-        vm.all.splice(index, 1);
-      });
+    .$promise
+    .then(() => {
+      const index = vm.all.indexOf(post);
+      vm.all.splice(index, 1);
+    });
   }
 
+
+  function filterPosts() {
+    vm.filtered = filterFilter(vm.all, vm.q);
+  }
+
+  $scope.$watch(() => vm.q, filterPosts);
+
 }
+
+
 
 PostsShowCtrl.$inject = ['$state', 'Post'];
 function PostsShowCtrl($state, Post) {
@@ -49,15 +54,15 @@ function PostsNewCtrl($state, Post) {
 
   function postsCreate(){
     Post
-      .save(vm.post)
-      .$promise
-      .then(() => {
-        $state.go('postsIndex');
-      });
+    .save(vm.post)
+    .$promise
+    .then(() => {
+      $state.go('postsIndex');
+    });
   }
 }
 
-<<<<<<< HEAD
+
 // PostsShowCtrl.$inject = ['Post', '$stateParams', '$state'];
 // function PostsShowCtrl(Post, $stateParams, $state) {
 //   const vm = this;
@@ -73,19 +78,18 @@ function PostsNewCtrl($state, Post) {
 //   vm.delete = postsDelete;
 // }
 
-PostsShowCtrl.$inject = ['Post', '$state'];
-function PostsShowCtrl(Post, $state) {
-  const vm = this;
-  vm.post = {};
-  console.log(vm.post);
-  postsShow();
+// PostsShowCtrl.$inject = ['Post', '$state'];
+// function PostsShowCtrl(Post, $state) {
+//   const vm = this;
+//   vm.post = {};
+//   console.log(vm.post);
+//   postsShow();
+//
+//   function postsShow(){
+//     vm.post = Post.get($state.params);
+//   }
+// }
 
-  function postsShow(){
-    vm.post = Post.get($state.params);
-  }
-}
-=======
->>>>>>> development
 
 PostsEditCtrl.$inject = ['$state', 'Post'];
 function PostsEditCtrl($state, Post) {
@@ -97,19 +101,19 @@ function PostsEditCtrl($state, Post) {
 
   function postsShow(){
     Post
-      .get($state.params)
-      .$promise
-      .then((post) => {
-        vm.post = post;
-      });
+    .get($state.params)
+    .$promise
+    .then((post) => {
+      vm.post = post;
+    });
   }
 
   function postsUpdate(){
     Post
-      .update($state.params, vm.post)
-      .$promise
-      .then(() => {
-        $state.go('postsShow', $state.params);
-      });
+    .update($state.params, vm.post)
+    .$promise
+    .then(() => {
+      $state.go('postsShow', $state.params);
+    });
   }
 }

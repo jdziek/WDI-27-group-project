@@ -51,7 +51,7 @@
     }
   },
   "dependencies": {
-    "angular-messages": "X.Y.Z",
+    "angular-messages": "^1.6.4",
     "auth-provider": "^0.6.2",
     "aws-sdk": "^2.80.0",
     "bcrypt": "^1.0.2",
