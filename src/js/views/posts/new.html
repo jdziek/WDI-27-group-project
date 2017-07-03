@@ -7,7 +7,11 @@
           <p class="control">
             <label  for="postType">Post Type</label>
           </p>
-          <input type="checkbox" class="input" id="postType" name="postType" ng-model="postsNew.post.postType" required>
+          <select name="singleSelect" id="singleSelect" ng-model="postsNew.post.postType">
+                <option value="">---Please select---</option>
+                <option value="Teaching">Teaching</option>
+                <option value="Learning">Learning</option>
+              </select><br>
           <div ng-messages="postsNew.postForm.postType.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.postType.$touched">
             <div ng-message="required" class="notification">Post type is required.</div>
           </div>
@@ -55,9 +59,15 @@
         </div>
         <div class="field">
           <p class="control">
-            <label  for="coordinates">Coordinates</label>
+            <label  for="coordinates">Coordinateslat</label>
           </p>
-          <input type="text" class="input" id="coordinates" name="coordinates" ng-model="postsNew.post.coordinates" required>
+          <input type="text" class="input" id="coordinatesla" name="coordinates" ng-model="postsNew.post.coordinates.lat" required>
+        </div>
+        <div class="field">
+          <p class="control">
+            <label  for="coordinates">Coordinateslng</label>
+          </p>
+          <input type="text" class="input" id="coordinateslng" name="coordinates" ng-model="postsNew.post.coordinates.lng || 131231312312" required >
         </div>
         <div class="marker" id="map">
           <google-map center="{ lat: 51.5221596, lng: -0.0521308 }"></google-map>

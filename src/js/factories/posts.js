@@ -2,10 +2,10 @@ angular
 .module('groupProject')
 .factory('Post', Post);
 
-Post.$inject = ['$resource', 'API'];
+Post.$inject = ['$resource'];
 
-function Post($resource, API) {
-  return  $resource(`${API}/posts/:id`,{ id: '@_id'}, {
+function Post($resource) {
+  return  $resource('/api/posts/:id',{ id: '@_id'}, {
     'update': { method: 'PUT'}
   });
 }

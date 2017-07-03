@@ -39,11 +39,7 @@ PostsShowCtrl.$inject = ['$state', 'Post'];
 function PostsShowCtrl($state, Post) {
   const vm = this;
 
-  postsShow();
-
-  function postsShow(){
-    vm.post = Post.get($state.params);
-  }
+  vm.post = Post.get($state.params);
 }
 
 
