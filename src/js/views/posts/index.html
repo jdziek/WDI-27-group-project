@@ -32,40 +32,45 @@
         </div>
 
         <div class="cardContent">
+          <h3>{{ post.title }}</h3>
+          <p> {{ post.timeAgo}} <a ui-sref="profile({ id: post.createdBy.id })"> <span>{{ post.createdBy.firstName }}</span></a></p>
+          <div class="cardLocationAndTime">
 
-          <h3 class="cardTitle">{{ post.title }}</h3>
-          <div class="setHeight">
+            <h3 class="cardTitle">{{ post.title }}</h3>
+            <div class="setHeight">
 
 
-            <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> –
+              <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> –
 
-              <a ui-sref="profile({ id: post.createdBy.id })">
-                <span>{{ post.createdBy.firstName }}</span></a>
+                <a ui-sref="profile({ id: post.createdBy.id })">
+                  <span>{{ post.createdBy.firstName }}</span></a>
 
-              </p>
+                </p>
 
-              <div class="cardLocation">
-                <p>  {{ post.location }} m from you</p>
+                <div class="cardLocation">
+                  <p>  {{ post.location }} m from you</p>
+                </div>
+
+                <div class="cardLocation">
+                  <h4>Location</h4><p><reverse-geocode coordinates="post.coordinates"/></p>
+                </div>
+
+                <div class="cardInfo">
+                  <h4>date</h4>  <p>{{ post.date }}</p>
+                </div>
+
+                <div class="cardInfo">
+                  <h4>time</h4>  <p>{{ post.time }}</p>
+                </div>
               </div>
-
-              <div class="cardLocation">
-              <h4>Location</h4><p><reverse-geocode coordinates="post.coordinates"/></p>
             </div>
+            <!-- <a class="button primary" ui-sref="postsShow({ id: post.id })">View</a> -->
 
-              <div class="cardInfo">
-                <h4>date</h4>  <p>{{ post.date }}</p>
-              </div>
+            <button class="button primary" ui-sref="postsShow({ id: post.id })">View</button>
 
-              <div class="cardInfo">
-                <h4>time</h4>  <p>{{ post.time }}</p>
-              </div>
-            </div>
+
+
           </div>
-
-          <button class="button primary" ui-sref="postsShow({ id: post.id })">View</button>
-
-
-
         </div>
       </div>
     </div>

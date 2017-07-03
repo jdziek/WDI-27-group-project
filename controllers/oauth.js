@@ -21,7 +21,7 @@ function facebook(req, res, next) {
     console.log(token);
     return rp({
       method: 'GET',
-      url: 'https://graph.facebook.com/v2.5/me?fields=id,name,email,picture.height(961)',
+      url: 'https://graph.facebook.com/v2.5/me?fields=name,email,gender,age_range,picture.height(600)',
       qs: {
         access_token: token.access_token
       },
@@ -36,12 +36,13 @@ function facebook(req, res, next) {
           user = new User({
             username: profile.name,
             email: profile.email,
-            image: profile.picture.data.url
+            image: profile.picture.data.url,
+            gender: profile.gender,
+            age_range: profile.age
           });
         }
         user.facebookId = profile.id;
-
-        console.log(user);
+        console.log('User', user);
         return user.save();
       });
     })
