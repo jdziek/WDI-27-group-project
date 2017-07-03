@@ -23,7 +23,7 @@
 <div class="container col-10">
   <div class="row">
 
-    <div class="col-md-4 col-sm-6" ng-repeat="post in postsIndex.filtered | filter:searchText" data-id="{{post.id}}">
+    <div class="indexCard col-lg-4 col-md-6 col-sm-12" ng-repeat="post in postsIndex.filtered | filter:searchText" data-id="{{post.id}}">
 
       <div class="card shadow">
 
@@ -34,36 +34,31 @@
         <div class="cardContent">
 
           <h3 class="cardTitle">{{ post.title }}</h3>
+          <div class="setHeight">
 
-          <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> –
 
-            <a ui-sref="profile({ id: post.createdBy.id })">
-              <span>{{ post.createdBy.firstName }}</span></a>
+            <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> –
 
-            </p>
+              <a ui-sref="profile({ id: post.createdBy.id })">
+                <span>{{ post.createdBy.firstName }}</span></a>
 
-            <div class="cardLocation">
-              <p>  {{ post.location }} m from you</p>
+              </p>
+
+              <div class="cardLocation">
+                <p>  {{ post.location }} m from you</p>
+              </div>
+
+              <div class="cardInfo">
+                <h4>date</h4>  <p>{{ post.date }}</p>
+              </div>
+
+              <div class="cardInfo">
+                <h4>time</h4>  <p>{{ post.time }}</p>
+              </div>
             </div>
-
-            <div class="cardInfo">
-              <h4>date</h4>  <p>{{ post.date }}</p>
-            </div>
-
-            <div class="cardInfo">
-              <h4>time</h4>  <p>{{ post.time }}</p>
-            </div>
-
-
-
-
-
-
           </div>
 
-          <div class="margin">
-            <button class="button primary" ui-sref="postsShow({ id: post.id })">View</button>
-          </div>
+          <button class="button primary" ui-sref="postsShow({ id: post.id })">View</button>
 
 
 

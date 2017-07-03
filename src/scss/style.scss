@@ -16,9 +16,6 @@ $grid-gutter-width: 16px;
 
 //OVERALL STYLES
 
-.grey{
-  color: slategrey;
-}
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: $borderColor;
@@ -238,9 +235,28 @@ nav a.before:hover:before,a.after:hover:after{
   border-radius: 4px;
 }
 
+.indexCard {
+  display: flex;
+  .card {
+    position: relative;
+    padding-bottom: 64px;
+    width: 100%;
+    margin: 8px 0;
+    button {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+    }
+  }
+}
+
 .cardContent{
   padding: 0px 16px;
 }
+
+// .setHeight{
+//   height: 20vh;
+// }
 
 .postType{
   border-radius: 4px 4px 0px 0px;
