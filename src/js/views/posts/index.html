@@ -24,7 +24,8 @@
         </div>
         <div class="cardContent">
           <h3>{{ post.title }}</h3>
-          <p> {{ post.createdAt | date}} <span>{{ post.createdBy.firstName }}</span></p>
+          <p> SHOW: {{ post.createdBy.id }}</p>
+          <p> {{ post.createdAt | date}} <a ui-sref="profile{(post.createdBy.id })" <span>{{ post.createdBy.firstName }}</span></p>
           <div class="cardLocationAndTime">
 
             <div class="cardLocation">
