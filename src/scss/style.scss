@@ -10,6 +10,7 @@
 $highLight: #FDC848;
 $borderColor: #f5f5f5;
 $textColor: #484848;
+$delete: #b34545;
 
 $grid-gutter-width: 16px;
 
@@ -52,8 +53,13 @@ a{
 
 
 .shadow{
-  box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
+
+// .shadow:hover {
+//   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+// }
 
 .button{
   padding: 8px 42px;
@@ -72,8 +78,22 @@ a{
   &.primary:hover{
     background-color: darken($highLight, 10%);
   }
+  &.primary:visited{
+    color: white;
+  }
 }
 
+.delete{
+  border: none;
+  background-color: white;
+  color: $delete;
+  text-transform: uppercase;
+  padding-left: 0px;
+  margin: 16px 0px;
+  &.delete:hover{
+    color: darken($delete, 10%);
+  }
+}
 .secondary{
   background-color: $borderColor;
   color: $textColor;
@@ -128,20 +148,20 @@ nav ul li {
 
 nav a,a:visited,a:hover,a:active{
   -webkit-backface-visibility:hidden;
-          backface-visibility:hidden;
-	position:relative;
+  backface-visibility:hidden;
+  position:relative;
   transition:0.5s color ease;
-	text-decoration:none;
-	color:$textColor;
+  text-decoration:none;
+  color:$textColor;
 }
 nav a:hover{
-	color:$highLight;
+  color:$highLight;
 }
 nav a.before:before,a.after:after{
   content: "";
   transition:0.5s all ease;
   -webkit-backface-visibility:hidden;
-          backface-visibility:hidden;
+  backface-visibility:hidden;
   position:absolute;
 }
 nav a.before:before{
@@ -185,7 +205,7 @@ nav a.before:hover:before,a.after:hover:after{
 .card {
   margin: 16px 16px;
   background-color: white;
-  border: 1px solid $borderColor;
+  border-radius: 4px;
 }
 
 .cardContent{
@@ -216,7 +236,7 @@ nav a.before:hover:before,a.after:hover:after{
 //FORM SUFF
 
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px white inset;
+  -webkit-box-shadow: 0 0 0 30px white inset;
 }
 
 .formBox{
@@ -255,8 +275,8 @@ input:-webkit-autofill {
 }
 
 .input:focus {
-    outline:0;
-    border: 1px solid $highLight;
+  outline:0;
+  border: 1px solid $highLight;
 }
 
 //PROFILE PAGE
@@ -281,11 +301,15 @@ input:-webkit-autofill {
 }
 
 .profileButtonContainer{
-margin: 0px auto;
+  margin: 0px auto;
 }
 
 .profileInfo{
 
+}
+
+.sendMessage{
+  margin: 16px 0px;
 }
 
 .reviewSection{
@@ -312,6 +336,7 @@ textarea{
   height: 100px;
   border: 1px solid $borderColor;
   border-radius: 4px;
+  margin: 16px 0px;
 }
 
 

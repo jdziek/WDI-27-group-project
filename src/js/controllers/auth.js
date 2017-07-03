@@ -27,7 +27,7 @@ function LoginCtrl($auth, $state) {
   // this is for oauth with facebook
   function authenticate(provider) {
     $auth.authenticate(provider)
-    .then(() => $state.go('profile'));
+    .then(() => $state.go('profile', { id: $auth.getPayload().userId }));
   }
   // this is for oauth with facebook
   vm.authenticate = authenticate;
