@@ -7,7 +7,7 @@ angular
 
 PostsIndexCtrl.$inject = ['Post','filterFilter', '$scope'];
 function PostsIndexCtrl(Post, filterFilter, $scope) {
-
+  console.log('Jakub if you\'re reading this and its past midnight, its time to think about going to bed');
   const vm = this;
   vm.delete = postsDelete;
 
@@ -45,10 +45,12 @@ function PostsShowCtrl($state, Post) {
 
 
 
-PostsNewCtrl.$inject = ['$state', 'Post'];
-function PostsNewCtrl($state, Post) {
+PostsNewCtrl.$inject = ['$state', 'Post', '$http'];
+function PostsNewCtrl($state, Post, $http) {
   const vm  = this;
   vm.create = postsCreate;
+
+
 
   function postsCreate(){
     Post

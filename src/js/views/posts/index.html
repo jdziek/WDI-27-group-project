@@ -32,8 +32,9 @@
         </div>
 
         <div class="cardContent">
-
+      
           <div class="cardLocationAndTime">
+
 
             <h3 class="cardTitle">
               {{ post.title }}</h3>
@@ -47,28 +48,30 @@
 
                 </p>
 
-              <div class="cardLocation">
-                <p>  {{ post.location }} m from you</p>
-              </div>
+                <div class="cardLocation">
+                  <p>  {{ post.location }} m from you</p>
+                </div>
 
-              <div class="cardLocation">
-              <h4>Location</h4><p><reverse-geocode coordinates="post.coordinates"/></p>
+                <div class="cardLocation">
+                  <h4>Location</h4><p><reverse-geocode coordinates="post.coordinates"/></p>
+                </div>
+
+                <div class="cardInfo">
+                  <h4>date</h4>  <p>{{ post.date }}</p>
+                </div>
+
+                <div class="cardInfo">
+                  <h4>time</h4>  <p>{{ post.time }}</p>
+                </div>
+              </div>
             </div>
+            <!-- <a class="button primary" ui-sref="postsShow({ id: post.id })">View</a> -->
 
-              <div class="cardInfo">
-                <h4>date</h4>  <p>{{ post.date }}</p>
-              </div>
+            <button class="button primary" ui-sref="postsShow({ id: post.id })">View</button>
 
-              <div class="cardInfo">
-                <h4>time</h4>  <p>{{ post.time }}</p>
-              </div>
-            </div>
+
+
           </div>
-
-          <button class="button primary" ui-sref="postsShow({ id: post.id })">View</button>
-
-
-
         </div>
       </div>
     </div>

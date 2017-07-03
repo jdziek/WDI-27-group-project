@@ -20,6 +20,8 @@ const userSchema = new mongoose.Schema({
   jobTitle: { type: String },
   bio: { type: String },
   facebookId: { type: Number },
+  gender: {type: String},
+  age_range: {type: Object},
   comments: [ commentSchema ]
 });
 

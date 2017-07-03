@@ -10,7 +10,7 @@ const router      = require('./config/routes');
 const customResponses = require('./lib/customResponses');
 const errorHandler    = require('./lib/errorHandler');
 const cors            = require('cors');
-const rp          = require('request-promise');
+
 
 mongoose.connect(dbURI);
 
@@ -20,8 +20,10 @@ app.use(bodyParser.json({ limit: '10mb' }));
 
 
 app.use(bodyParser.json());
-app.use(customResponses);
+
 app.use(cors());
+
+app.use(customResponses);
 app.use('/api',router);
 
 

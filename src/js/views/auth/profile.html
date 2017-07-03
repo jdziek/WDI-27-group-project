@@ -9,7 +9,7 @@
         <img ng-src="{{ profile.user.imageSRC }}" alt="profile.user.image" class="profileImage">
 
         <button class="button primary" ui-sref="profile.user.id"> Edit </button>
-        <button class="button secondary"> logout </button>
+        <button class="button secondary margin" ui-sref="#" ng-click="main.logout()"> logout </button>
 
         <div class="bio">
           <span> About</span>
@@ -23,8 +23,11 @@
 
 
     <div class="col col-md-7 profileInfo">
+
       <h2>{{ profile.user.firstName }} {{ profile.user.lastName }} – <span> {{ profile.user.jobTitle }}</span></h2>
 
+      <h2 ng-if="profile.user.facebookId"><strong>{{ profile.user.username }}</strong> – <span> </span></h2>
+      {{ profile.user}}
 
       <div class="rating">
         <div style="margin:15px 0;">Total User rating: <b>{{profile.user.rating}}</b></div>

@@ -39,7 +39,7 @@
           <p class="control">
             <label  for="date">Date</label>
           </p>
-          <input type="text" class="input" id="date" name="date" ng-model="postsNew.post.date" required>
+          <input type="date" class="input" id="date" name="date" ng-model="postsNew.post.date" required>
           <div ng-messages="postsNew.postForm.date.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.date.$touched">
             <div ng-message="required" class="notification">Date is required.</div>
           </div>
@@ -48,7 +48,7 @@
           <p class="control">
             <label  for="time">Time</label>
           </p>
-          <input type="text" class="input" id="time" name="time" ng-model="postsNew.post.time" required>
+          <input type="time" class="input" id="time" name="time" ng-model="postsNew.post.time" required>
           <div ng-messages="postsNew.postForm.time.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.time.$touched">
             <div ng-message="required" class="notification">Time is required</div>
           </div>
@@ -58,9 +58,17 @@
           <input base64 type="file" name="image" id="image" ng-model="postsNew.post.base64" class="form-control">
           <img ng-src="{{ postsNew.post.base64 }}">
         </div>
+
+        <input type="text" class="input"  name="location" location="campaignsIndex.center"
+            autocomplete ng-model="postsNew.location">
+
         <div class="marker" id="map">
           <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" coordinates="postsNew.post.coordinates"></google-map>
         </div>
+
+
+
+
         <div class="field">
           <p class="control">
             <input type="submit" class="button is-primary is-fullwidth" value="Add">
