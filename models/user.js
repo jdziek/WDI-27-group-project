@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const s3= require('../lib/s3');
 
 const commentSchema = new mongoose.Schema({
+  rating: { type: Number },
   text: { type: String, required: true},
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
 });
@@ -18,7 +19,6 @@ const userSchema = new mongoose.Schema({
   travelDistance: { type: Number },
   jobTitle: { type: String },
   bio: { type: String },
-  rating: { type: Number },
   facebookId: { type: Number },
   comments: [ commentSchema ]
 });
@@ -36,6 +36,15 @@ userSchema
     if(this.image.match(/^http/)) return this.image;
     if(this.image.match(/^images/)) return this.image;
     return `https://s3-eu-west-1.amazonaws.com/wdi-27-london-new/${this.image}`;
+  });
+
+userSchema
+  .virtual('averageRating')
+  .get(function getAverageRating() {
+    const total = this.comments.reduce((acc, comment) => {
+      return acc + comment.rating;
+    }, 0);
+    return total / this.comments.length;
   });
 
 userSchema.pre('remove', function removeImage(next) {

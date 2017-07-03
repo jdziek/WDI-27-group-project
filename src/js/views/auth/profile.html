@@ -18,10 +18,10 @@
     <div class="col col-md-7 profileInfo">
       <h2>{{ profile.user.firstName }} {{ profile.user.lastName }} – <span> {{ profile.user.jobTitle }}</span></h2>
 
-
+      <h3> {{ profile.user.averageRating }} </h3>
       <div class="rating">
-        <div style="margin:15px 0;">User rating: <b>{{profile.user.rating}}</b></div>
-        <span uib-rating ng-model="profile.user.rating" read-only="isReadonly" state-on="'glyphicon-ok-sign'" state-off="'glyphicon-ok-circle'" aria-labelledby="custom-icons-1" max="10" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']"></span>
+        <div style="margin:15px 0;">Total User rating: <b>{{profile.user.rating}}</b></div>
+        <span uib-rating ng-model="profile.user.averageRating" read-only="true" state-on="'glyphicon-ok-sign'" state-off="'glyphicon-ok-circle'" aria-labelledby="custom-icons-1" max="10" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']"></span>
       </div>
 
       <a href="mailto:{{ profile.user.email }}" ng-if="profile.user.email">Send a Message </a>
@@ -31,19 +31,37 @@
         <p>{{ profile.user.bio}}</p>
       </div>
 
+      <h2>User Reviews</h2>
       <!-- {{profile.user}} -->
+      <ul class="reviewSection">
 
-      <div class="comments">
-        <h2>Comments</h2>
-        <ul class="comments__created">
-          <li ng-repeat="comment in profile.user.comments track by $index">
-            <strong>{{ comment.createdBy.username }}</strong> - {{ comment.text }} <button class="button" ng-click="profile.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comments.createdBy.id">Delete</button>
-          </li>
-        </ul>
+
+        <li ng-repeat="comment in profile.user.comments track by $index" class="col-md-5 commentsCard card">
+          <strong>{{ comment.createdBy.username }}</strong>
+          <div class="reviewText">
+            <p> {{ comment.text }} </p>
+          </div>
+
+          <div class="rating">
+
+            <span uib-rating ng-model="comment.rating" read-only="true  " state-on="'glyphicon-ok-sign'" state-off="'glyphicon-ok-circle'" aria-labelledby="custom-icons-1" max="10" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']"></span>
+          </div>
+
+          <button class="button secondary" ng-click="profile.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete</button>
+        </li>
+      </ul>
+
+      <div class="reviewInput">
+        <h2>Write a Review</h2>
+
+        <div class="rating">
+          <div style="margin:15px 0;">User rating: <b>{{profile.user.rating}}</b></div>
+          <span uib-rating ng-model="profile.newComment.rating" read-only="isReadonly" state-on="'glyphicon-ok-sign'" state-off="'glyphicon-ok-circle'" aria-labelledby="custom-icons-1" max="10" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']"></span>
+        </div>
+
         <form ng-if="main.isAuthenticated()" ng-submit="profile.addComment()">
-          <label>Add comment</label>
-          <textarea ng-model="profile.newComment.text"></textarea>
-          <button class="button button--full">Comment</button>
+          <textarea class="reviewBox" placeholder="Write a user review" ng-model="profile.newComment.text"></textarea>
+          <button class="button primary">Post Review</button>
         </form>
       </div>
 
