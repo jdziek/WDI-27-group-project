@@ -21,6 +21,7 @@ function MainCtrl($rootScope, $state, $auth) {
     vm.pageName = state.name;
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
+    if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
   });
 
   function logout() {
