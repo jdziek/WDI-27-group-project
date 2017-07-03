@@ -5,28 +5,35 @@ angular
 .controller('PostsShowCtrl', PostsShowCtrl)
 .controller('PostsEditCtrl', PostsEditCtrl);
 
-PostsIndexCtrl.$inject = ['Post'];
-function PostsIndexCtrl(Post) {
+PostsIndexCtrl.$inject = ['Post','filterFilter', '$scope'];
+function PostsIndexCtrl(Post, filterFilter, $scope) {
 
   const vm = this;
   vm.delete = postsDelete;
-
-  postsIndex();
-
-  function postsIndex() {
-    vm.all = Post.query();
-    console.log(vm.all);
-  }
+  //
+  // postsIndex();
+  //
+  // function postsIndex() {
+  vm.all = Post.query();
+  //   console.log(vm.all);
+  // }
 
   function postsDelete(post){
 
     Post.delete({ id: post._id })
-      .$promise
-      .then(() => {
-        const index = vm.all.indexOf(post);
-        vm.all.splice(index, 1);
-      });
+    .$promise
+    .then(() => {
+      const index = vm.all.indexOf(post);
+      vm.all.splice(index, 1);
+    });
   }
+
+
+  function filterPosts() {
+    vm.filtered = filterFilter(vm.all, vm.q);
+  }
+  // filterPosts();
+  $scope.$watch(() => vm.q, filterPosts);
 
 }
 
@@ -49,11 +56,11 @@ function PostsNewCtrl($state, Post) {
 
   function postsCreate(){
     Post
-      .save(vm.post)
-      .$promise
-      .then(() => {
-        $state.go('postsIndex');
-      });
+    .save(vm.post)
+    .$promise
+    .then(() => {
+      $state.go('postsIndex');
+    });
   }
 }
 
@@ -68,19 +75,19 @@ function PostsEditCtrl($state, Post) {
 
   function postsShow(){
     Post
-      .get($state.params)
-      .$promise
-      .then((post) => {
-        vm.post = post;
-      });
+    .get($state.params)
+    .$promise
+    .then((post) => {
+      vm.post = post;
+    });
   }
 
   function postsUpdate(){
     Post
-      .update($state.params, vm.post)
-      .$promise
-      .then(() => {
-        $state.go('postsShow', $state.params);
-      });
+    .update($state.params, vm.post)
+    .$promise
+    .then(() => {
+      $state.go('postsShow', $state.params);
+    });
   }
 }

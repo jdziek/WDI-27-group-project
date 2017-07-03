@@ -11,6 +11,7 @@ router.route('/posts')
 .post(secureRoute, postsController.create);
 
 router.route('/posts/:id')
+// .all(secureRoute)
 .get(postsController.show)
 .put(postsController.update)
 .delete(postsController.delete);
