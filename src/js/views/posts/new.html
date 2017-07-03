@@ -58,9 +58,17 @@
           <input base64 type="file" name="image" id="image" ng-model="postsNew.post.base64" class="form-control">
           <img ng-src="{{ postsNew.post.base64 }}">
         </div>
+
+        <input type="text" class="input"  name="location" location="campaignsIndex.center"
+            autocomplete ng-model="postsNew.location">
+
         <div class="marker" id="map">
           <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" coordinates="postsNew.post.coordinates"></google-map>
         </div>
+
+
+
+
         <div class="field">
           <p class="control">
             <input type="submit" class="button is-primary is-fullwidth" value="Add">

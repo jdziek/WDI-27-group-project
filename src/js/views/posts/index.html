@@ -28,7 +28,7 @@
         </div>
         <div class="cardContent">
           <h3>{{ post.title }}</h3>
-          <p> {{ post.createdAt | date}} <a ui-sref="profile({ id: post.createdBy.id })"> <span>{{ post.createdBy.firstName }}</span></a></p>
+          <p> {{ post.timeAgo}} <a ui-sref="profile({ id: post.createdBy.id })"> <span>{{ post.createdBy.firstName }}</span></a></p>
           <div class="cardLocationAndTime">
 
             <div class="cardLocation">
@@ -44,7 +44,7 @@
             </div>
 
           </div>
-            <a class="button primary" ui-sref="postsShow({ id: post.id })">View</a>
+            <!-- <a class="button primary" ui-sref="postsShow({ id: post.id })">View</a> -->
 
         </div>
 
