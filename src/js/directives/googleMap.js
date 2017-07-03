@@ -10,18 +10,19 @@ function googleMap() {
     template: '<div class="map"> GOOGLE MAP HERE</div>',
     scope: {
       center: '=',
-      coordinates: '='
+      coordinates: '=',
+      geo: '='
     },
     link(scope, element) {
       let map = null;
       let marker = null;
 
-
       scope.$watch('center',  setCenter);
       scope.$on('$destroy', destroyMap);
 
-      initMap();
 
+      initMap();
+      var infoWindow;
       function initMap() {
         map = new google.maps.Map(element[0], {
           zoom: 10
@@ -43,6 +44,28 @@ function googleMap() {
           });
         }
 
+        infoWindow = new google.maps.InfoWindow;
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            console.log('geowo');
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+
+            scope.infoGeoLoc = infoWindow.getPosition();
+            scope.geo = { lat: scope.infoGeoLoc.lat(), lng: scope.infoGeoLoc.lng() };
+            console.log(scope.geo);
+
+
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        }
 
 
       }
