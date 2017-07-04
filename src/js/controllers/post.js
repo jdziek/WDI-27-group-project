@@ -5,19 +5,19 @@ angular
 .controller('PostsShowCtrl', PostsShowCtrl)
 .controller('PostsEditCtrl', PostsEditCtrl);
 
-PostsIndexCtrl.$inject = ['Post','filterFilter', '$scope'];
-function PostsIndexCtrl(Post, filterFilter, $scope) {
+PostsIndexCtrl.$inject = ['Post','filterFilter', '$scope', 'orderByFilter'];
+function PostsIndexCtrl(Post, filterFilter, $scope, orderByFilter) {
   console.log('Jakub if you\'re reading this and its past midnight, its time to think about going to bed');
   const vm = this;
   vm.delete = postsDelete;
   vm.all = [];
 
   Post.query()
-    .$promise
-    .then((posts) => {
-      vm.all = posts;
-      filterPosts();
-    });
+  .$promise
+  .then((posts) => {
+    vm.all = posts;
+    filterPosts();
+  });
 
   function postsDelete(post){
 
@@ -34,33 +34,17 @@ function PostsIndexCtrl(Post, filterFilter, $scope) {
   function filterPosts() {
     const params = { name: vm.q, postType: vm.postType };
     vm.filtered = filterFilter(vm.all, params);
+
+    vm.filtered = orderByFilter(vm.filtered, vm.distanceP);
   }
+
 
   $scope.$watchGroup([
     () => vm.q,
     () => vm.postType
   ], filterPosts);
 
-//   function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
-//     var R = 6371; // Radius of the earth in km
-//     var dLat = deg2rad(lat2-lat1);  // deg2rad below
-//     var dLon = deg2rad(lon2-lon1);
-//     var a =
-//       Math.sin(dLat/2) * Math.sin(dLat/2) +
-//       Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
-//       Math.sin(dLon/2) * Math.sin(dLon/2)
-//       ;
-//     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-//     var d = R * c; // Distance in km
-//     return d;
-//   }
-//
-//   function deg2rad(deg) {
-//     return deg * (Math.PI/180);
-//   }
-// vm.getDistanceFromLatLonInKm = getDistanceFromLatLonInKm;
 }
-
 
 
 PostsShowCtrl.$inject = ['$state', 'Post', 'PostComment'];

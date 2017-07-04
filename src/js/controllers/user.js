@@ -41,7 +41,8 @@ function ProfileCtrl($auth, User, $state, UserComment) {
   vm.deleteComment = deleteComment;
 }
 
-EditProfileCtrl.$inject = ['$auth', 'User', '$state'];
+
+EditProfileCtrl.$inject = ['$auth', 'User','$state'];
 function EditProfileCtrl($auth, User, $state) {
   const vm = this;
 
