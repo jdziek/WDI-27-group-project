@@ -86,7 +86,8 @@ ng-model="postsIndex.filtered.postcode">
               <div class="setHeight">
 
 
-                <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> – <span>{{ post.createdBy.username }} </span> </p>
+
+                <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> – <span> <a ui-sref="profile({ id: post.createdBy.id })"> {{ post.createdBy.username }} </a> </span> </p>
 
                 <div class="cardLocation">
 
