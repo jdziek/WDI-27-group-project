@@ -115,7 +115,7 @@ User
     createdBy: users[0]
   }])
   .then((posts) => {
-    console.log(`${posts.length} groups created`);
+    console.log(`${posts.length} posts created`);
   });
 })
 .catch((err) => console.log(err))
