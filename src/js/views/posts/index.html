@@ -7,7 +7,7 @@
 <div class="">
 <input autocomplete type="text" class="input"  name="postcode" postcode="postsIndex.postcode"
      ng-model="postsIndex.filtered.postcode">
-<p>Here: {{postsIndex.postcode.lat}}</p>
+<p>Here: {{postsIndex.postcode}}</p>
 <p>Here: {{postsIndex.filtered.post.coordinates}}</p>
 
 
@@ -17,18 +17,28 @@
 
   <i class="col-1 fa fa-search" aria-hidden="true"></i> <input type="text" class=" col-10 searchBox" ng-model="postsIndex.q" placeholder="Search.... ">
 
+  <label for="all">All</label>
+  <input type="radio" id="all" name="postType" ng-model="postsIndex.postType">
+
+  <label for="teaching">Teaching</label>
+  <input type="radio" id="teaching" name="postType" ng-model="postsIndex.postType" value="Teaching">
+
+  <label for="learning">Learning</label>
+  <input type="radio" id="learning" name="postType" ng-model="postsIndex.postType" value="Learning">
+
+
   <!-- This dropdown needs to stay here but commeneted out so if there are merge conflicts please dont delete just keep it commented out! -->
   <br>
-  <input ng-model="searchText[selectedSearch]" ng-init="searchText = {}; selectedSearch=''" placeholder="Search...more specifically" />
+  <!-- <input ng-model="searchText[selectedSearch]" ng-init="searchText = {}; selectedSearch=''" placeholder="Search...more specifically" />
   <input type="radio" ng-model="selectedSearch" value="postType" > Post Type
   <input type="radio" ng-model="selectedSearch" value="date" > Date
-  <input type="radio" ng-model="selectedSearch" value="title"> Title
+  <input type="radio" ng-model="selectedSearch" value="title"> Title -->
 </div>
 
 <div class="container col-10">
   <div class="row">
 
-    <div class="indexCard col-lg-4 col-md-6 col-sm-12" ng-repeat="post in postsIndex.filtered | filter:searchText" data-id="{{post.id}}">
+    <div class="indexCard col-lg-4 col-md-6 col-sm-12" ng-repeat="post in postsIndex.filtered" data-id="{{post.id}}">
 
       <div class="card shadow">
 
@@ -73,7 +83,7 @@
                   <h4>Location</h4><p><reverse-geocode coordinates="post.coordinates"/></p>
                 </div>
                 <div class="cardLocation">
-                <p>{{Math.sqrt((post.coordinates.lng - postsIndex.postcode.lng)*(post.coordinates.lng - postsIndex.postcode.lng) + (post.coordinates.lat - postsIndex.postcode.lat)*(post.coordinates.lat - postsIndex.postcode.lat)) }}  </p>
+
                 </div>
 
                 <div class="cardInfo">
