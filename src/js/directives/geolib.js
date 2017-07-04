@@ -6,7 +6,7 @@ angular
 function distance() {
   return {
     restrict: 'E',
-    template: '<div class="geolib">{{ distance }} km</div>',
+    template: '<div class="geolib">{{ distance }} km away</div>',
     scope: {
       locationA: '=',
       locationB: '='

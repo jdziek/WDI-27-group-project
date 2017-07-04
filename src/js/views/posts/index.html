@@ -5,10 +5,10 @@
 
 </div>
 <div class="">
-<input autocomplete type="text" class="input"  name="postcode" postcode="postsIndex.postcode"
-     ng-model="postsIndex.filtered.postcode">
-<p>Here: {{postsIndex.postcode.lat}}</p>
-<p>Here: {{postsIndex.filtered.post.coordinates}}</p>
+  <input autocomplete type="text" class="input"  name="postcode" postcode="postsIndex.postcode"
+  ng-model="postsIndex.filtered.postcode">
+  <p>Here: {{postsIndex.postcode.lat}}</p>
+  <p>Here: {{postsIndex.filtered.post.coordinates}}</p>
 
 
 
@@ -51,36 +51,13 @@
 
             <h3 class="cardTitle">
               {{ post.title }}</h3>
-            <div class="setHeight">
+              <div class="setHeight">
 
 
-              <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> –
-
-            <div class="cardLocation">
-              <p>  {{ post.location }} m from you</p>
-            </div>
-
-            <div class="cardInfo">
-              <h4>date</h4>  <p>{{ post.date }}</p>
-            </div>
-
-            <div class="cardInfo">
-              <h4>time</h4>  <p>{{ post.time }}</p>
-            </div>
-            <div class="cardInfo">
-              <h4>Location</h4><p><reverse-geocode coordinates="post.coordinates"/></p>
-            </div>
-
-                </p>
+                <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> – <span>{{ post.createdBy.username }} </span> </p>
 
                 <div class="cardLocation">
-                  <p>  {{ post.location }} m from you</p>
-                </div>
-
-                <div class="cardLocation">
-                <distance location-a="postsIndex.postcode" location-b="post.coordinates"></distance>
-
-
+                  <distance location-a="postsIndex.postcode" location-b="post.coordinates"></distance>
                 </div>
 
                 <div class="cardInfo">
@@ -92,7 +69,7 @@
                 </div>
               </div>
             </div>
-            <!-- <a class="button primary" ui-sref="postsShow({ id: post.id })">View</a> -->
+
 
             <button class="button primary" ui-sref="postsShow({ id: post.id })">View</button>
 
