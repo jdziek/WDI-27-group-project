@@ -7,6 +7,7 @@
 
 
 
+
 <div class="col col-10 search">
 
   <i class="col-1 fa fa-search" aria-hidden="true"></i> <input type="text" class=" col-10 searchBox" ng-model="postsIndex.q" placeholder="Search.... ">
@@ -18,8 +19,8 @@
   <input type="radio" ng-model="selectedSearch" value="date" > Date
   <input type="radio" ng-model="selectedSearch" value="title"> Title
 </div>
-
-
+<input type="text" class="input" id="location" name="location" location="{ lat: 51.215419, lng: -0.101099 }"
+    autocomplete ng-model="campaignsIndex.address">
 <div class="container col-10">
   <div class="row">
 
@@ -32,18 +33,31 @@
         </div>
 
         <div class="cardContent">
-          <h3>{{ post.title }}</h3>
-          <p> {{ post.timeAgo}} <a ui-sref="profile({ id: post.createdBy.id })"> <span>{{ post.createdBy.firstName }}</span></a></p>
+
           <div class="cardLocationAndTime">
 
-            <h3 class="cardTitle">{{ post.title }}</h3>
+
+            <h3 class="cardTitle">
+              {{ post.title }}</h3>
             <div class="setHeight">
 
 
               <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> –
 
-                <a ui-sref="profile({ id: post.createdBy.id })">
-                  <span>{{ post.createdBy.firstName }}</span></a>
+            <div class="cardLocation">
+              <p>  {{ post.location }} m from you</p>
+            </div>
+
+            <div class="cardInfo">
+              <h4>date</h4>  <p>{{ post.date }}</p>
+            </div>
+
+            <div class="cardInfo">
+              <h4>time</h4>  <p>{{ post.time }}</p>
+            </div>
+            <div class="cardInfo">
+              <h4>Location</h4><p><reverse-geocode coordinates="post.coordinates"/></p>
+            </div>
 
                 </p>
 

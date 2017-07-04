@@ -1,20 +1,42 @@
 <h1>Show Post</h1>
-{{postsShow.post.coordinates.lat}}
-{{postsShow.post.coordinates.lng}}
+
+<h3>here: {{postsShow.post}}</h3>
+
+  <div class="row">
+
+    <div class="col-12 mapSide">
+      <div class="map">
+        <google-map center="postsShow.post.coordinates" geo="postsShow.post.geo"></google-map>
+      </div>
+    </div>
 
 
+    <div class=" col-10 showInfo shadow">
+
+      <h2>{{ postsShow.post.title}}</h2>
+      <h3><span> {{ postsShow.post.createdBy.username }} </span> </h3>
+
+      <div class="postTime">
+        <h3> Date </h3>
+        <h3> {{postsShow.post.date}} </h3>
+      </div>
 
 
-<div class="geo-code"><h3> <reverse-geocode coordinates="postsShow.post.coordinates"/></h3>
+      <div class="postTime">
+        <h3> Date </h3>
+        <h3> {{postsShow.post.time}} </h3>
+      </div>
+      <div class="postInfo">
+        <p>{{postsShow.post.info}}</p>
+      </div>
 
-</div>
+      <!-- <p>{{postsShow.post}}</p> -->
+      <div class="geo-code"><h3>
+        <reverse-geocode coordinates="postsShow.post.coordinates"/></h3>
+      </div>
+      <a class="button primary" ui-sref="postsEdit({ id: postsShow.post.id})">Edit</a>
+    </div>
 
 
-
-
-<a ui-sref="postsEdit({ id: postsShow.post.id})">Edit</a>
-
-
-<div id="map">
-  <google-map center="postsShow.post.coordinates" geo="postsShow.post.geo"></google-map>
+  </div>
 </div>
