@@ -5,7 +5,16 @@ const commentSchema = new mongoose.Schema({
   rating: { type: Number },
   text: { type: String, required: true},
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+
+}, {
+  timestamps: true
 });
+
+commentSchema
+.virtual('timeAgo')
+  .get(function getImageSRC() {
+    return timeAgo(this.createdAt);
+  });
 
 
 const postSchema = new mongoose.Schema({

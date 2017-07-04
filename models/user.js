@@ -1,12 +1,19 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const s3= require('../lib/s3');
+const timeAgo = require('time_ago_in_words');
 
 const commentSchema = new mongoose.Schema({
   rating: { type: Number },
   text: { type: String, required: true},
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
 });
+
+commentSchema
+.virtual('timeAgo')
+  .get(function getImageSRC() {
+    return timeAgo(this.createdAt);
+  });
 
 const userSchema = new mongoose.Schema({
   firstName: { type: String },
