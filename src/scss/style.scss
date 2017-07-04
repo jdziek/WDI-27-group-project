@@ -65,6 +65,10 @@ a{
   text-decoration: none;
 }
 
+strong{
+  font-weight: bolder;
+}
+
 
 .shadow{
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -108,6 +112,8 @@ a{
     color: darken($delete, 10%);
   }
 }
+
+
 .secondary{
   background-color: $borderColor;
   color: $textColor;
@@ -227,7 +233,7 @@ nav a.before:hover:before,a.after:hover:after{
   font-size: 32px;
 }
 
-// index stuff
+// Index stuff
 
 .card {
   margin: 16px 16px;
@@ -430,7 +436,55 @@ textarea{
   height: 350px;
 }
 
+//POST SHOW COMMENTS
 
+.commentSection{
+  margin: 42px 0px;
+}
+
+.sendMessage{
+  margin: 0px 0px;
+}
+
+.reviewSection{
+  height: 400px;
+  overflow-y: auto;
+}
+
+.ShowCommentsCard{
+  margin: 0px 8px;
+  display: inline-block;
+  background-color: lightgrey;
+}
+.commentText{
+  margin: 8px 8px;
+  display: inline-block;
+}
+.commentInput{
+  margin: 20px 0px;
+}
+
+.commentProfileImage{
+  object-fit: cover;
+  display: inline-block;
+  height: 28px;
+  width: 28px;
+}
+
+.deleteComment{
+  border: none;
+  color: $delete;
+  background-color: white;
+  font-size: 14px;
+  padding-left: 0px;
+  &.delete:hover{
+    color: darken($delete, 10%);
+  }
+}
+
+.commentBox{
+  outline: none
+}
 
 
 
