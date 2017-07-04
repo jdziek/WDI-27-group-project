@@ -62,7 +62,7 @@ User
     time: 1230,
     image: 'an Image',
     coordinates: { lat: 52.5221596, lng: -0.0521308 },
-    createdBy: users[0]
+    createdBy: users[1]
   },{
     postType: 'Teaching',
     title: 'Teaching Design next Thursday Lunch',
@@ -72,7 +72,7 @@ User
     time: 1240,
     image: 'an Image',
     coordinates: { lat: 51.7221596, lng: -0.0521308 },
-    createdBy: users[0]
+    createdBy: users[1]
   },{
     postType: 'Learning',
     title: 'Want to Learn about Stocks Monday Night',
@@ -92,7 +92,7 @@ User
     time: 1915,
     image: 'an Image',
     coordinates: { lat: 51.5221596, lng: -0.0521308 },
-    createdBy: users[0]
+    createdBy: users[1]
   },{
     postType: 'Learning',
     title: 'Want to Learn about Stocks Monday Night',
@@ -102,7 +102,7 @@ User
     time: 1915,
     image: 'an Image',
     coordinates: { lat: 50.5221596, lng: -0.1521308 },
-    createdBy: users[0]
+    createdBy: users[2]
   },{
     postType: 'Learning',
     title: 'Want to Learn about Stocks Monday Night',
