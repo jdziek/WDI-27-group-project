@@ -34,7 +34,7 @@ function googleMap() {
           map: map
         });
 
-        if(document.getElementById('map').classList.contains('marker')) {
+        if(element.hasClass('marker')) {
           google.maps.event.addListener(map, 'click', function(event) {
 
             marker.setPosition(event.latLng);
@@ -46,7 +46,7 @@ function googleMap() {
           });
         }
         function geoLoc() {
-          infoWindow = new google.maps.InfoWindow;
+          infoWindow = new google.maps.InfoWindow();
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
               var pos = {
@@ -72,7 +72,7 @@ function googleMap() {
 
         }
         scope.$watch('geo',  geoLoc);
-        
+
 
       }
 
