@@ -54,8 +54,8 @@
           <img ng-src="{{ postsEdit.post.base64 }}">
         </div>
 
-        <div id="map" class="marker">
-          <google-map center="postsEdit.post.coordinates"></google-map>
+        <div id="map-new" class="marker">
+          <google-map center="postsEdit.post.coordinates" coordinates="postsNew.post.coordinates"></google-map>
         </div>
 
         <div class="field">

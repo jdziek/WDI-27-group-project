@@ -30,6 +30,7 @@ function PostsIndexCtrl(Post, filterFilter, $scope) {
   }
 
   $scope.$watch(() => vm.q, filterPosts);
+  $scope.Math = window.Math;
 
 }
 

@@ -20,7 +20,7 @@ function reverseGeocode() {
           if (status === google.maps.GeocoderStatus.OK) {
             if (results[2]) {
               element.text(results[2].formatted_address);
-              console.log(results);
+              // console.log(results);
             } else {
               element.text('Location not found');
             }

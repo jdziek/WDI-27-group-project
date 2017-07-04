@@ -4,9 +4,14 @@
   <h2> Teaching & learning in your local area </h2>
 
 </div>
+<div class="">
+<input autocomplete type="text" class="input"  name="postcode" postcode="postsIndex.postcode"
+     ng-model="postsIndex.filtered.postcode">
+<p>Here: {{postsIndex.postcode.lat}}</p>
+<p>Here: {{postsIndex.filtered.post.coordinates}}</p>
 
 
-
+</div>
 
 <div class="col col-10 search">
 
@@ -19,8 +24,7 @@
   <input type="radio" ng-model="selectedSearch" value="date" > Date
   <input type="radio" ng-model="selectedSearch" value="title"> Title
 </div>
-<input type="text" class="input" id="location" name="location" location="{ lat: 51.215419, lng: -0.101099 }"
-    autocomplete ng-model="campaignsIndex.address">
+
 <div class="container col-10">
   <div class="row">
 
@@ -67,6 +71,9 @@
 
                 <div class="cardLocation">
                   <h4>Location</h4><p><reverse-geocode coordinates="post.coordinates"/></p>
+                </div>
+                <div class="cardLocation">
+                <p>{{Math.sqrt((post.coordinates.lng - postsIndex.postcode.lng)*(post.coordinates.lng - postsIndex.postcode.lng) + (post.coordinates.lat - postsIndex.postcode.lat)*(post.coordinates.lat - postsIndex.postcode.lat)) }}  </p>
                 </div>
 
                 <div class="cardInfo">
