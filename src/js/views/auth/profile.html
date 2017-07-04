@@ -39,10 +39,11 @@
         </div>
 
         <h3>User Reviews</h3>
-        <!-- {{profile.user}} -->
-        <ul class="reviewSection">
 
+          <div ng-if="(profile.user.comments).length === 0"> THIS USER HAS NO RATINGS </div>
 
+        <ul ng-if="(profile.user.comments).length !== 0" class="reviewSection">
+          
           <li ng-repeat="comment in profile.user.comments track by $index" class="col-md-5 commentsCard card shadow">
             <strong>{{ comment.createdBy.username }}</strong>
             <div class="reviewText">
@@ -50,7 +51,6 @@
             </div>
 
             <div class="rating">
-
               <span uib-rating ng-model="comment.rating" read-only="true  " state-on="'glyphicon-ok-sign'" state-off="'glyphicon-ok-circle'" aria-labelledby="custom-icons-1" max="10" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']"></span>
             </div>
 

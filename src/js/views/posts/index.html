@@ -11,6 +11,8 @@ ng-model="postsIndex.filtered.postcode">
 </div> -->
 
 
+  <!-- FILTERING LOGIC -->
+  <i class="col-1 fa fa-search" aria-hidden="true"></i> <input type="text" class=" col-10 searchBox" ng-model="postsIndex.q" placeholder="Search.... ">
 
 <div class="col-10 center">
   <div class="col-lg-12 searchBox">
@@ -39,6 +41,12 @@ ng-model="postsIndex.filtered.postcode">
   </label>
 
 
+    <label for="distance">Nearest to you
+  <input type="checkbox" id="distance" ng-model="postsIndex.distance">
+    </label>
+
+
+  <!-- FILTERING LOGIC -->
   <!-- <input ng-model="searchText[selectedSearch]" ng-init="searchText = {}; selectedSearch=''" placeholder="Search...more specifically" />
   <input type="radio" ng-model="selectedSearch" value="postType" > Post Type
   <input type="radio" ng-model="selectedSearch" value="date" > Date
@@ -80,8 +88,13 @@ ng-model="postsIndex.filtered.postcode">
 
                 <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> – <span>{{ post.createdBy.username }} </span> </p>
                 <div class="cardLocation">
+<<<<<<< HEAD
                   <p>How close to you?</p>
                   <distance location-a="postsIndex.geo" location-b="post.coordinates" ng-model="post.distance"></distance>
+=======
+                <p>How close to you?</p>
+                <distance location-a="postsIndex.geo" location-b="post.coordinates" ng-model="post.distance"></distance>
+>>>>>>> development
 
                 </div>
 

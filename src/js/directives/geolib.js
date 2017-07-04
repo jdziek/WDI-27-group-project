@@ -6,12 +6,14 @@ angular
 function distance() {
   return {
     restrict: 'E',
+    replace: true,
+    require: 'ngModel',
     template: '<div class="geolib">{{ distance }} km away</div>',
     scope: {
       locationA: '=',
       locationB: '='
     },
-    link(scope) {
+    link(scope, element, attrs, model) {
 
       scope.$watchGroup(['locationA', 'locationB'], displayDistance, true);
 
@@ -35,6 +37,7 @@ function distance() {
         var d = R * c; // Distance in km
 
         scope.distance = d.toFixed(2);
+        model.$setViewValue(d);
 
       }
     }
