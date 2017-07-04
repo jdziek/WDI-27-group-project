@@ -41,6 +41,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     url: '/profile/:id',
     templateUrl: 'js/views/auth/profile.html',
     controller: 'ProfileCtrl as profile'
+  })
+  .state('profileEdit', {
+    url: '/profile/:id/edit',
+    templateUrl: 'js/views/auth/editProfile.html',
+    controller: 'EditProfileCtrl as profileEdit'
   });
 
 

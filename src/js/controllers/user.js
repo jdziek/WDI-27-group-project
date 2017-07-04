@@ -1,6 +1,7 @@
 angular
-  .module('groupProject')
-  .controller('ProfileCtrl', ProfileCtrl);
+.module('groupProject')
+.controller('ProfileCtrl', ProfileCtrl)
+.controller('EditProfileCtrl', EditProfileCtrl);
 
 ProfileCtrl.$inject = ['$auth', 'User', '$state', 'UserComment'];
 function ProfileCtrl($auth, User, $state, UserComment) {
@@ -30,12 +31,40 @@ function ProfileCtrl($auth, User, $state, UserComment) {
 
   function deleteComment(comment) {
     UserComment
-      .delete({ userId: vm.user.id, id: comment.id })
-      .$promise
-      .then(() => {
-        const index = vm.user.comments.indexOf(comment);
-        vm.user.comments.splice(index, 1);
-      });
+    .delete({ userId: vm.user.id, id: comment.id })
+    .$promise
+    .then(() => {
+      const index = vm.user.comments.indexOf(comment);
+      vm.user.comments.splice(index, 1);
+    });
   }
   vm.deleteComment = deleteComment;
+}
+
+EditProfileCtrl.$inject = ['$auth', 'User', '$state'];
+function EditProfileCtrl($auth, User, $state) {
+  const vm = this;
+  vm.user = {};
+  vm.update = userUpdate;
+
+  userShow();
+
+  function userShow(){
+    User
+    .get($state.params)
+    .$promise
+    .then((user) => {
+      vm.user = user;
+    });
+  }
+
+  function userUpdate(){
+    User
+    .update($state.params, vm.post)
+    .$promise
+    .then(() => {
+      $state.go('userShow', $state.params);
+    });
+  }
+
 }

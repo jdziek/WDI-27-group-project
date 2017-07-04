@@ -1,4 +1,5 @@
 const User = require('../models/user');
+
 function showRoute(req, res, next) {
   User
     .findById(req.params.id)
@@ -27,6 +28,8 @@ function userUpdate(req, res, next) {
     .then((user) => res.json(user))
     .catch(next);
 }
+
+
 
 function userDelete(req, res, next) {
   User
@@ -82,5 +85,4 @@ module.exports = {
   delete: userDelete,
   addComment: addCommentRoute,
   deleteComment: deleteCommentRoute
-
 };

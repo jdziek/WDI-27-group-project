@@ -8,15 +8,14 @@
 
         <img ng-src="{{ profile.user.imageSRC }}" alt="profile.user.image" class="profileImage">
 
-        <button class="button primary" ui-sref="profile.user.id"> Edit </button>
-        <button class="button secondary margin" ui-sref="#" ng-click="main.logout()"> logout </button>
+        <button class="button primary" ui-sref="profileEdit{id: profile.user.id}"> Edit </button>
+        {{profile.user.id}}
+        <button class="button secondary margin"  ng-click="main.logout()"> logout </button>
 
         <div class="bio">
           <span> About</span>
           <p>{{ profile.user.bio}}</p>
         </div>
-
-
 
       </div>
     </div>
@@ -24,13 +23,13 @@
 
     <div class="col col-md-7 profileInfo">
 
-      <h2>{{ profile.user.firstName }} {{ profile.user.lastName }} – <span> {{ profile.user.jobTitle }}</span></h2>
+      <h2 ng-if="profile.user">  {{ profile.user.firstName }} {{ profile.user.lastName }} – <span> {{ profile.user.jobTitle }}</span></h2>
 
-      <h2 ng-if="profile.user.facebookId"><strong>{{ profile.user.username }}</strong> – <span> </span></h2>
-      {{ profile.user}}
+      <h2 ng-if="profile.user.facebookId"><strong>{{ profile.user.username }}</strong><span> </span></h2>
+
 
       <div class="rating">
-        <div style="margin:15px 0;">Total User rating: <b>{{profile.user.rating}}</b></div>
+        <div style="margin:15px 0;">Total User rating: <b>{{profile.user.averageRating}}</b></div>
         <span uib-rating ng-model="profile.user.averageRating" read-only="true" state-on="'glyphicon-ok-sign'" state-off="'glyphicon-ok-circle'" aria-labelledby="custom-icons-1" max="10" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']"></span>
       </div>
 
