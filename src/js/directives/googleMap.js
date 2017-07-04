@@ -27,7 +27,7 @@ function googleMap() {
       var infoWindow;
       function initMap() {
         map = new google.maps.Map(element[0], {
-          zoom: 10
+          zoom: 12
         });
 
         marker = new google.maps.Marker({
