@@ -7,6 +7,7 @@
 
 
 
+
 <div class="col col-10 search">
 
   <i class="col-1 fa fa-search" aria-hidden="true"></i> <input type="text" class=" col-10 searchBox" ng-model="postsIndex.q" placeholder="Search.... ">
@@ -18,8 +19,8 @@
   <input type="radio" ng-model="selectedSearch" value="date" > Date
   <input type="radio" ng-model="selectedSearch" value="title"> Title
 </div>
-
-
+<input type="text" class="input" id="location" name="location" location="{ lat: 51.215419, lng: -0.101099 }"
+    autocomplete ng-model="campaignsIndex.address">
 <div class="container col-10">
   <div class="row">
 
@@ -52,6 +53,9 @@
 
             <div class="cardInfo">
               <h4>time</h4>  <p>{{ post.time }}</p>
+            </div>
+            <div class="cardInfo">
+              <h4>Location</h4><p><reverse-geocode coordinates="post.coordinates"/></p>
             </div>
 
 
