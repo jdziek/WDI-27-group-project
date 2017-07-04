@@ -58,12 +58,14 @@
                 </div>
 
                 <div class="cardInfo">
-                  <h4>date</h4>  <p>{{ post.date | date}}</p>
+
+                  <h4>Date</h4>  <p>{{ post.date | date:"MM/dd/yyyy" }}</p>
                 </div>
 
                 <div class="cardInfo">
-                  <h4>time</h4>  <p>{{ post.time }}</p>
+                  <h4>Time</h4>  <p>{{ post.time | date :'HH:mm' }}</p>
                 </div>
+
               </div>
             </div>
 

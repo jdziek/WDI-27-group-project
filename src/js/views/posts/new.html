@@ -9,10 +9,10 @@
             <label  for="postType">Post Type</label>
           </p>
           <select name="singleSelect" id="singleSelect" ng-model="postsNew.post.postType">
-                <option value="">---Please select---</option>
-                <option value="Teaching">Teaching</option>
-                <option value="Learning">Learning</option>
-              </select><br>
+            <option value="">---Please select---</option>
+            <option value="Teaching">Teaching</option>
+            <option value="Learning">Learning</option>
+          </select><br>
           <div ng-messages="postsNew.postForm.postType.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.postType.$touched">
             <div ng-message="required" class="notification">Post type is required.</div>
           </div>
@@ -40,40 +40,67 @@
             <label  for="date">Date</label>
           </p>
           <input type="date" class="input" id="date" name="date" ng-model="postsNew.post.date" required>
+
           <div ng-messages="postsNew.postForm.date.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.date.$touched">
             <div ng-message="required" class="notification">Date is required.</div>
           </div>
         </div>
+
+        <!-- <div>
+          <div uib-timepicker ng-model="postsNew.post.time" hour-step="1" minute-step="1"></div>
+        </div> -->
+
         <div class="field">
           <p class="control">
             <label  for="time">Time</label>
           </p>
-          <input pattern="([01]?[0-9]{1}|2[0-3]{1}):[0-5]{1}[0-9]{1}" id="time" type="text" class="input" name="time" ng-model="postsNew.post.time" required>
+          <input pattern="([01]?[0-9]{1}|2[0-3]{1}):[0-5]{1}[0-9]{1}" id="time" type="time" class="input" name="time" ng-model="postsNew.post.time" required>
+
           <div ng-messages="postsNew.postForm.time.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.time.$touched">
             <div ng-message="required" class="notification">Time is required</div>
           </div>
         </div>
+
+
+
         <div class="form-group">
           <label for="image">Image</label>
           <input base64 type="file" name="image" id="image" ng-model="postsNew.post.base64" class="form-control">
           <img ng-src="{{ postsNew.post.base64 }}">
         </div>
 
-        <input autocomplete type="text" class="input"  name="postcode" postcode="postsNew.post.postcode"
-             ng-model="postsNew.post.postcode">
+          <!-- <div class="field">
+            <p class="control">
+              <label  for="time">Time</label>
+            </p>
+            <input type="number" class="input" id="time" name="time" ng-model="postsNew.post.time" required>
+            <div ng-messages="postsNew.postForm.time.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.time.$touched">
+              <div ng-message="required" class="notification">Time is required</div>
+            </div>
+          </div> -->
+
+          <input autocomplete type="text" class="input"  name="postcode" postcode="postsNew.post.postcode"
+          ng-model="postsNew.post.postcode">
+
+          <div class="marker" id="map-new">
+            <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" coordinates="postsNew.post.coordinates" postcode="postsNew.post.postcode"></google-map>
+            <p>here: {{postsNew.post.postcode}}</p>
+          </div>
+
+
+          <div class="field">
+            <p class="control">
+              <input type="submit" class="button primary" value="Add">
+            </p>
+          </div>
 
         <div class="marker" id="map-new">
           <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" coordinates="postsNew.post.coordinates" geo="postsNew.geo"></google-map>
 
         </div>
 
-        <div class="field">
-          <p class="control">
-            <input type="submit" class="button is-primary is-fullwidth" value="Add">
-          </p>
-        </div>
 
-      </form>
+        </form>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
