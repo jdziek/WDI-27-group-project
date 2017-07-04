@@ -5,8 +5,8 @@ angular
 .controller('PostsShowCtrl', PostsShowCtrl)
 .controller('PostsEditCtrl', PostsEditCtrl);
 
-PostsIndexCtrl.$inject = ['Post','filterFilter', '$scope'];
-function PostsIndexCtrl(Post, filterFilter, $scope) {
+PostsIndexCtrl.$inject = ['Post','filterFilter', '$scope', 'orderByFilter'];
+function PostsIndexCtrl(Post, filterFilter, $scope, orderByFilter) {
   const vm = this;
   vm.delete = postsDelete;
   vm.all = [];
