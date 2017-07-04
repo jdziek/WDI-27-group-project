@@ -10,8 +10,14 @@ function PostsIndexCtrl(Post, filterFilter, $scope) {
   console.log('Jakub if you\'re reading this and its past midnight, its time to think about going to bed');
   const vm = this;
   vm.delete = postsDelete;
+  vm.all = [];
 
-  vm.all = Post.query();
+  Post.query()
+    .$promise
+    .then((posts) => {
+      vm.all = posts;
+      filterPosts();
+    });
 
   function postsDelete(post){
 
@@ -20,15 +26,20 @@ function PostsIndexCtrl(Post, filterFilter, $scope) {
     .then(() => {
       const index = vm.all.indexOf(post);
       vm.all.splice(index, 1);
+      filterPosts();
     });
   }
 
 
   function filterPosts() {
-    vm.filtered = filterFilter(vm.all, vm.q);
+    const params = { title: vm.q, postType: vm.postType };
+    vm.filtered = filterFilter(vm.all, params);
   }
 
-  $scope.$watch(() => vm.q, filterPosts);
+  $scope.$watchGroup([
+    () => vm.q,
+    () => vm.postType
+  ], filterPosts);
 
 }
 

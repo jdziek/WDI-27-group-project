@@ -36,14 +36,13 @@
     <h3>Comments</h3>
     <ul class="reviewSection">
 
-
       <li ng-repeat="comment in postsShow.post.comments track by $index" class="col-md-5 commentsCard card shadow">
         <strong>{{ comment.createdBy.username }}</strong>
         <div class="reviewText">
           <p> {{ comment.text }} </p>
         </div>
 
-        <button class="delete" ng-click="postsShow.post.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete</button>
+        <button class="delete" ng-click="postsShow.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete</button>
       </li>
     </ul>
 
