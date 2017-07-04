@@ -16,9 +16,6 @@ $grid-gutter-width: 16px;
 
 //OVERALL STYLES
 
-.grey{
-  color: slategrey;
-}
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: $borderColor;
@@ -238,9 +235,28 @@ nav a.before:hover:before,a.after:hover:after{
   border-radius: 4px;
 }
 
+.indexCard {
+  display: flex;
+  .card {
+    position: relative;
+    padding-bottom: 64px;
+    width: 100%;
+    margin: 8px 0;
+    button {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+    }
+  }
+}
+
 .cardContent{
   padding: 0px 16px;
 }
+
+// .setHeight{
+//   height: 20vh;
+// }
 
 .postType{
   border-radius: 4px 4px 0px 0px;
@@ -264,6 +280,7 @@ nav a.before:hover:before,a.after:hover:after{
   margin: 16px 16px;
   display: inline-block;
 }
+
 //FORM SUFF
 
 input:-webkit-autofill {
@@ -370,9 +387,43 @@ textarea{
   margin: 16px 0px;
 }
 
+//POST SHOW
 
+.showInfo{
+  border-radius: 4px;
+  padding: 24px;
+  margin: auto;
+  position: relative;
+  top: -20vh;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: white;
+  height: auto;
+}
 
+.mapSide{
+  margin: 24px 0px;
+  height:  50vh;
+}
 
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.ShowPagemargin{
+  margin-top: 24px;
+}
+
+.center{
+  margin: 0 auto;
+}
+
+.postTime{
+  display: inline-block;
+  margin: 16px 16px 16px 0px;
+}
 
 
 
@@ -434,84 +485,7 @@ textarea{
     z-index: 2;
   }
 }
-.map {
-  width: 500px;
-  height: 500px;
-  background-color: ghostwhite;
 
-  float: right;
-}
 .new-form {
   margin-left: 200px;
-}
-
-
----------------------------------------map stuff
-
-#description {
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-}
-
-#infowindow-content .title {
-  font-weight: bold;
-}
-
-#infowindow-content {
-  display: none;
-}
-
-#map #infowindow-content {
-  display: inline;
-}
-
-.pac-card {
-  margin: 10px 10px 0 0;
-  border-radius: 2px 0 0 2px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  outline: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  background-color: #fff;
-  font-family: Roboto;
-}
-
-#pac-container {
-  padding-bottom: 12px;
-  margin-right: 12px;
-}
-
-.pac-controls {
-  display: inline-block;
-  padding: 5px 11px;
-}
-
-.pac-controls label {
-  font-family: Roboto;
-  font-size: 13px;
-  font-weight: 300;
-}
-
-#pac-input {
-  background-color: #fff;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  margin-left: 12px;
-  padding: 0 11px 0 13px;
-  text-overflow: ellipsis;
-  width: 400px;
-}
-
-#pac-input:focus {
-  border-color: #4d90fe;
-}
-
-#title {
-  color: #fff;
-  background-color: #4d90fe;
-  font-size: 25px;
-  font-weight: 500;
-  padding: 6px 12px;
 }

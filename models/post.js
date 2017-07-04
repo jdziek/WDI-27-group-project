@@ -6,7 +6,7 @@ const postSchema = new mongoose.Schema({
   title: String,
   info: String,
   location: String,
-  date: String,
+  date: Date,
   time: Number,
   image: String,
   coordinates: { lat: Number, lng: Number },
@@ -15,6 +15,12 @@ const postSchema = new mongoose.Schema({
 }, {
   timestamps: true
 });
+postSchema
+.virtual('timeAgo')
+  .get(function getImageSRC() {
+    return timeAgo(this.createdAt);
+  });
+
 postSchema
 .virtual('timeAgo')
   .get(function getImageSRC() {
