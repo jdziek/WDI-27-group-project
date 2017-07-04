@@ -27,11 +27,14 @@ function googleMap() {
       var infoWindow;
       function initMap() {
         map = new google.maps.Map(element[0], {
-          zoom: 12
+          zoom: 12,
+          scrollwheel: false,
+          disableDoubleClickZoom: true
         });
 
         marker = new google.maps.Marker({
-          map: map
+          map: map,
+          icon: 'http://i.imgur.com/7aCJw6L.png?1'
         });
 
         if(document.getElementById('map-new').classList.contains('marker')) {
@@ -53,9 +56,9 @@ function googleMap() {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
               };
-              console.log('geowo');
+              console.log('geo');
               infoWindow.setPosition(pos);
-              infoWindow.setContent('Location found.');
+              // infoWindow.setContent('Location found.');
               infoWindow.open(map);
               map.setCenter(pos);
 
@@ -64,7 +67,7 @@ function googleMap() {
               console.log(scope.geo);
               scope.$apply();
 
-              
+
 
             }, function() {
               handleLocationError(true, infoWindow, map.getCenter());

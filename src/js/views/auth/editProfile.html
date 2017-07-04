@@ -1,92 +1,75 @@
 <!DOCTYPE html>
 <div class="col col-5 formBox shadow">
-<h1>EDIT PROFILE PAGEEEEE!!!!!</h1>
-  <form ng-submit="register.submit()">
+  <form ng-submit="profileEdit.update()" name="profileEdit.postForm">
 
     <div class="formTitle">
-      <h3> Register </h3>
+      <h3> Edit Profile </h3>
     </div>
-
 
     <div class="field fieldTogether">
       <p class="control">
-        <input class="input col-12" placeholder="First Name" type="text" name="firstName" id="firstName" ng-model="register.user.firstName">
+        <input class="input col-12" type="text" name="firstName" id="firstName" ng-model="profileEdit.user.firstName">
       </p>
     </div>
 
     <div class="field fieldTogether">
       <p class="control">
-        <input class="input col-12" placeholder="Last Name" type="text" name="lastName" id="lastName" ng-model="register.user.lastName">
+        <input class="input col-12" placeholder="Last Name" type="text" name="lastName" id="lastName" ng-model="profileEdit.user.lastName">
       </p>
     </div>
 
     <div class="field">
       <label class="label" for="username">Username</label>
       <p class="control">
-        <input class="input" type="text" name="username" id="username" ng-model="register.user.username">
+        <input class="input" type="text" name="username" id="username" ng-model="profileEdit.user.username">
       </p>
     </div>
 
-    <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" -->
 
     <div class="field">
       <label class="label" for="email">Email</label>
       <p class="control">
-        <input class="input" type="text" name="email" id="email" ng-model="register.user.email" >
-      </p>
-    </div>
-
-    <div class="field">
-      <label class="label" for="password">Password</label>
-      <p class="control">
-        <input class="input" type="password" name="password" id="password" ng-model="register.user.password">
-      </p>
-    </div>
-
-    <div class="field">
-      <label class="label" for="passwordConfirmation">Password Confirmation</label>
-      <p class="control">
-        <input class="input" type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="register.user.passwordConfirmation">
+        <input class="input" type="text" name="email" id="email" ng-model="profileEdit.user.email">
       </p>
     </div>
 
     <div class="field">
       <label class="label" for="postcode">postcode</label>
       <p class="control">
-        <input class="input" type="text" name="postcode" id="postcode" ng-model="register.user.postcode" >
+        <input class="input" type="text" name="postcode" id="postcode" ng-model="profileEdit.user.postcode">
       </p>
     </div>
 
     <div class="field">
       <label class="label" for="travelDistance">Travel Distance</label>
       <p class="control">
-        <input class="input" type="text" name="travelDistance" id="travelDistance" ng-model="register.user.travelDistance" >
+        <input class="input" type="text" name="travelDistance" id="travelDistance" ng-model="profileEdit.user.travelDistance">
       </p>
     </div>
 
     <div class="field">
       <label class="label" for="jobTitle">Job Title</label>
       <p class="control">
-        <input class="input" type="text" name="jobTitle" id="jobTitle" ng-model="register.user.jobTitle" >
+        <input class="input" type="text" name="jobTitle" id="jobTitle" ng-model="profileEdit.user.jobTitle">
       </p>
     </div>
 
     <div class="field">
       <label class="label" for="bio">Bio</label>
       <p class="control">
-        <input class="input" type="text" name="bio" id="bio" ng-model="register.user.bio" >
+        <input class="input" type="text" name="bio" id="bio" ng-model="profileEdit.user.bio">
       </p>
     </div>
 
     <div class="form-group">
       <label for="image">Image</label>
-      <input base64 type="file" name="image" id="image" ng-model="register.user.base64" class="form-control">
-      <img ng-src="{{ register.user.base64 }}">
+      <input base64 type="file" name="image" id="image" ng-model="profileEdit.user.base64" class="form-control">
+      <img ng-src="{{ profileEdit.user.base64 }}">
     </div>
 
     <div class="field">
       <p class="control">
-        <input type="submit" class="button is-primary is-fullwidth" value="Register">
+        <input type="submit" class="button is-primary is-fullwidth" value="Update">
       </p>
     </div>
   </form>

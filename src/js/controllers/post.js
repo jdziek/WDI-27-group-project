@@ -72,7 +72,7 @@ function PostsShowCtrl($state, Post, PostComment) {
   vm.newComment = {};
 
   function addComment() {
-    
+
     PostComment
     .save({ postId: vm.post.id }, vm.newComment)
     .$promise
@@ -114,37 +114,6 @@ function PostsNewCtrl($state, Post) {
     });
   }
 }
-
-
-
-// PostsShowCtrl.$inject = ['Post', '$stateParams', '$state'];
-// function PostsShowCtrl(Post, $stateParams, $state) {
-//   const vm = this;
-//
-//   vm.post = Post.get($stateParams);
-//   console.log(vm.post);
-//   function postsDelete() {
-//     vm.post
-//       .$remove()
-//       .then(() => $state.go('postsIndex'));
-//   }
-//
-//   vm.delete = postsDelete;
-// }
-
-// PostsShowCtrl.$inject = ['Post', '$state'];
-// function PostsShowCtrl(Post, $state) {
-//   const vm = this;
-//   vm.post = {};
-//   console.log(vm.post);
-//   postsShow();
-//
-//   function postsShow(){
-//     vm.post = Post.get($state.params);
-//   }
-// }
-
-
 
 PostsEditCtrl.$inject = ['$state', 'Post'];
 function PostsEditCtrl($state, Post) {

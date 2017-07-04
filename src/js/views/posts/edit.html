@@ -7,7 +7,7 @@
           <p class="control">
             <label  for="postType">Post Type</label>
           </p>
-          <input type="text" class="input" id="postType" name="postType" ng-model="postsEdit.post.postType" required>
+          <input type="text" class="input" id="postType" name="postType"  required>
           <div ng-messages="postsEdit.postForm.postType.$error" ng-show="postsEdit.postForm.$submitted || postsEdit.postForm.image.$touched">
             <div ng-message="required" class="notification">Post type is required.</div>
           </div>
@@ -34,7 +34,7 @@
           <p class="control">
             <label  for="date">Date</label>
           </p>
-          <input type="text" class="input" id="date" name="date" ng-model="postsEdit.post.date" required>
+          <input type="date" class="input" id="date" name="date" ng-model="postsEdit.post.date" required>
           <div ng-messages="postsEdit.postForm.date.$error" ng-show="postsEdit.postForm.$submitted || postsEdit.postForm.date.$touched">
             <div ng-message="required" class="notification">Date is required</div>
           </div>

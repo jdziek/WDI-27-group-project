@@ -8,8 +8,8 @@
 
         <img ng-src="{{ profile.user.imageSRC }}" alt="profile.user.image" class="profileImage">
 
-        <button class="button primary" ui-sref="profileEdit{id: profile.user.id}"> Edit </button>
-        {{profile.user.id}}
+        <button class="button primary" ui-sref="profileEdit({id: profile.user.id})"> Edit </button>
+
         <button class="button secondary margin"  ng-click="main.logout()"> logout </button>
 
         <div class="bio">
