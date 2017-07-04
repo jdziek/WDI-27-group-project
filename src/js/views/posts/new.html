@@ -48,7 +48,7 @@
           <p class="control">
             <label  for="time">Time</label>
           </p>
-          <input type="time" class="input" id="time" name="time" ng-model="postsNew.post.time" required>
+          <input type="number" class="input" id="time" name="time" ng-model="postsNew.post.time" required>
           <div ng-messages="postsNew.postForm.time.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.time.$touched">
             <div ng-message="required" class="notification">Time is required</div>
           </div>
