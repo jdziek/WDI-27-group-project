@@ -59,11 +59,12 @@
           <img ng-src="{{ postsNew.post.base64 }}">
         </div>
 
-        <input type="text" class="input"  name="location" location="campaignsIndex.center"
-            autocomplete ng-model="postsNew.location">
+        <input autocomplete type="text" class="input"  name="location" location="campaignsIndex.center"
+             ng-model="postsNew.location">
 
         <div class="marker" id="map">
-          <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" coordinates="postsNew.post.coordinates"></google-map>
+          
+          <google-map class="map" center="{ lat: 51.5221596, lng: -0.0521308 }" coordinates="postsNew.post.coordinates"></google-map>
         </div>
 
 
