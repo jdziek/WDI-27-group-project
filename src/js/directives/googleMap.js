@@ -29,7 +29,8 @@ function googleMap() {
         map = new google.maps.Map(element[0], {
           zoom: 12,
           scrollwheel: false,
-          disableDoubleClickZoom: true
+          disableDoubleClickZoom: true,
+          styles: style1
         });
 
         marker = new google.maps.Marker({
@@ -58,7 +59,7 @@ function googleMap() {
               };
               console.log('geo');
               infoWindow.setPosition(pos);
-              // infoWindow.setContent('Location found.');
+              infoWindow.setContent('Your location. ');
               infoWindow.open(map);
               map.setCenter(pos);
 
@@ -104,3 +105,86 @@ function googleMap() {
 
 
 }
+const style1 = [
+    {
+        "featureType": "administrative",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "color": "#fcfcfc"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "color": "#fcfcfc"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "color": "#dddddd"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "color": "#dddddd"
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "color": "#eeeeee"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "color": "#dddddd"
+            }
+        ]
+    }
+];

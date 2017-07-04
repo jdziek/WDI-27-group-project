@@ -39,7 +39,7 @@
 <div class="container col-10">
   <div class="row">
 
-    <div class="indexCard col-lg-4 col-md-6 col-sm-12" ng-repeat="post in postsIndex.filtered" data-id="{{post.id}}">
+    <div class="indexCard col-lg-4 col-md-6 col-sm-12" ng-repeat="post in postsIndex.filtered | orderBy:'distance'" data-id="{{post.id}}">
 
       <div class="card shadow">
 
@@ -59,20 +59,20 @@
 
                 <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> – <span>{{ post.createdBy.username }} </span> </p>
                 <div class="cardLocation">
-                  <distance location-a="postsIndex.postcode" location-b="post.coordinates"></distance>
-                </div>
-                <div class="cardLocation">
-                  <p>How close to you?</p>
-                  <distance location-a="postsIndex.geo" location-b="post.coordinates"></distance>
+                <p>How close to you?</p>
+                <distance location-a="postsIndex.geo" location-b="post.coordinates" ng-model="post.distance"></distance>
+
                 </div>
 
                 <div class="cardInfo">
-                  <h4>date</h4>  <p>{{ post.date | date}}</p>
+
+                  <h4>Date</h4>  <p>{{ post.date | date:"MM/dd/yyyy" }}</p>
                 </div>
 
                 <div class="cardInfo">
-                  <h4>time</h4>  <p>{{ post.time }}</p>
+                  <h4>Time</h4>  <p>{{ post.time | date :'HH:mm' }}</p>
                 </div>
+
               </div>
             </div>
 

@@ -24,7 +24,7 @@ const postSchema = new mongoose.Schema({
   info: String,
   location: String,
   date: Date,
-  time: Number,
+  time: Date,
   image: String,
   coordinates: { lat: Number, lng: Number },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },

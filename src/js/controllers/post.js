@@ -5,9 +5,8 @@ angular
 .controller('PostsShowCtrl', PostsShowCtrl)
 .controller('PostsEditCtrl', PostsEditCtrl);
 
-PostsIndexCtrl.$inject = ['Post','filterFilter', '$scope', 'orderByFilter'];
-function PostsIndexCtrl(Post, filterFilter, $scope, orderByFilter) {
-  console.log('Jakub if you\'re reading this and its past midnight, its time to think about going to bed');
+PostsIndexCtrl.$inject = ['Post','filterFilter', '$scope'];
+function PostsIndexCtrl(Post, filterFilter, $scope) {
   const vm = this;
   vm.delete = postsDelete;
   vm.all = [];
@@ -43,7 +42,6 @@ function PostsIndexCtrl(Post, filterFilter, $scope, orderByFilter) {
     () => vm.q,
     () => vm.postType
   ], filterPosts);
-
 }
 
 
@@ -87,8 +85,6 @@ function PostsNewCtrl($state, Post) {
   const vm  = this;
   vm.create = postsCreate;
 
-
-
   function postsCreate(){
     Post
     .save(vm.post)
@@ -97,6 +93,21 @@ function PostsNewCtrl($state, Post) {
       $state.go('postsIndex');
     });
   }
+
+  vm.update = function() {
+    const d = new Date();
+    d.setHours( 14 );
+    d.setMinutes( 0 );
+    vm.mytime = d;
+  };
+
+  // vm.changed = function () {
+  //   $log.log('Time changed to: ' + vm.mytime);
+  // };
+
+  // vm.clear = function() {
+  //   vm.mytime = null;
+  // };
 }
 
 PostsEditCtrl.$inject = ['$state', 'Post'];
