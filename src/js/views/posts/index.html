@@ -2,26 +2,42 @@
 <div class="col col-10 mainHeader">
   <h1> <span> Notitia </span></h1>
   <h2> Teaching & learning in your local area </h2>
-
-
-</div>
-<div class="autocomplete">
-  <input autocomplete type="text" class="input"  name="postcode" postcode="postsIndex.postcode"
-  ng-model="postsIndex.filtered.postcode">
 </div>
 
-<div class="col col-10 search">
 
-  <i class="col-1 fa fa-search" aria-hidden="true"></i> <input type="text" class=" col-10 searchBox" ng-model="postsIndex.q" placeholder="Search.... ">
+<!-- <div class="autocomplete">
+<input autocomplete type="text" class="input"  name="postcode" postcode="postsIndex.postcode"
+ng-model="postsIndex.filtered.postcode">
+</div> -->
 
-  <label for="all">All</label>
-  <input type="radio" id="all" name="postType" ng-model="postsIndex.postType">
 
-  <label for="teaching">Teaching</label>
-  <input type="radio" id="teaching" name="postType" ng-model="postsIndex.postType" value="Teaching">
 
-  <label for="learning">Learning</label>
-  <input type="radio" id="learning" name="postType" ng-model="postsIndex.postType" value="Learning">
+<div class="col-10 center">
+  <div class="col-lg-12 searchBox">
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <input type="text" class="col-9 searchBox1" ng-model="postsIndex.q" placeholder="Search.... ">
+  </div>
+</div>
+
+<div class="col-10 filter">
+  <input class="hidden" type="radio" id="all" name="postType" ng-model="postsIndex.postType">
+  <label for="all" class="radioSelect">
+    <i class="fa fa-ellipsis-h large" aria-hidden="true"></i>
+    <br>All
+  </label>
+
+  <input class="hidden" type="radio" id="teaching" name="postType" ng-model="postsIndex.postType" value="Teaching">
+  <label for="teaching" class="radioSelect">
+    <i class="fa fa-comments large" aria-hidden="true"></i>
+    <br>Teaching
+  </label>
+
+  <input  class="hidden" type="radio" id="learning" name="postType" ng-model="postsIndex.postType" value="Learning">
+  <label for="learning" class="radioSelect">
+    <i class="fa fa-graduation-cap large" aria-hidden="true"></i>
+    <br>Learning
+  </label>
+
 
   <!-- <input ng-model="searchText[selectedSearch]" ng-init="searchText = {}; selectedSearch=''" placeholder="Search...more specifically" />
   <input type="radio" ng-model="selectedSearch" value="postType" > Post Type
@@ -29,10 +45,22 @@
   <input type="radio" ng-model="selectedSearch" value="title"> Title -->
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="container col-10">
   <div class="row">
 
-    <div class="indexCard col-lg-4 col-md-6 col-sm-12" ng-repeat="post in postsIndex.filtered" data-id="{{post.id}}">
+    <div class="indexCard col-lg-4 col-md-6 col-sm-12" ng-repeat="post in postsIndex.filtered | orderBy:'distance'" data-id="{{post.id}}">
 
       <div class="card shadow">
 
@@ -52,20 +80,18 @@
 
                 <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> – <span>{{ post.createdBy.username }} </span> </p>
                 <div class="cardLocation">
-                  <distance location-a="postsIndex.postcode" location-b="post.coordinates"></distance>
-                </div>
-                <div class="cardLocation">
-               <p>How close to you?</p>
-                <distance location-a="postsIndex.geo" location-b="post.coordinates"></distance>
+                  <p>How close to you?</p>
+                  <distance location-a="postsIndex.geo" location-b="post.coordinates" ng-model="post.distance"></distance>
 
                 </div>
 
                 <div class="cardInfo">
+
                   <h4>Date</h4>  <p>{{ post.date | date:"MM/dd/yyyy" }}</p>
                 </div>
 
                 <div class="cardInfo">
-                  <h4>Time</h4>  <p>{{ post.time }}</p>
+                  <h4>Time</h4>  <p>{{ post.time | date :'HH:mm' }}</p>
                 </div>
 
               </div>
