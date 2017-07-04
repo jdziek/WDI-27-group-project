@@ -7,8 +7,9 @@
 <div class="">
 <input autocomplete type="text" class="input"  name="postcode" postcode="postsIndex.postcode"
      ng-model="postsIndex.filtered.postcode">
-<p>Here: {{postsIndex.postcode}}</p>
+<p>Here: {{postsIndex.postcode.lat}}</p>
 <p>Here: {{postsIndex.filtered.post.coordinates}}</p>
+
 
 
 </div>
@@ -80,9 +81,8 @@
                 </div>
 
                 <div class="cardLocation">
-                  <h4>Location</h4><p><reverse-geocode coordinates="post.coordinates"/></p>
-                </div>
-                <div class="cardLocation">
+                <distance location-a="postsIndex.postcode" location-b="post.coordinates"></distance>
+
 
                 </div>
 

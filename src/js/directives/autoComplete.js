@@ -27,7 +27,7 @@ function autocomplete() {
 
 
         scope.postcode = place.geometry.location.toJSON();
-        console.log(scope.postcode);
+        console.log(place);
 
 
         model.$setViewValue(element.val());
