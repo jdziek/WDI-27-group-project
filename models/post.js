@@ -1,5 +1,13 @@
 const mongoose = require('mongoose');
 const timeAgo = require('time_ago_in_words');
+
+const commentSchema = new mongoose.Schema({
+  rating: { type: Number },
+  text: { type: String, required: true},
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+});
+
+
 const postSchema = new mongoose.Schema({
 
   postType: String,
@@ -11,7 +19,8 @@ const postSchema = new mongoose.Schema({
   image: String,
   coordinates: { lat: Number, lng: Number },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
-  geo: { lat: Number, lng: Number }
+  geo: { lat: Number, lng: Number },
+  comments: [ commentSchema ]
 }, {
   timestamps: true
 });
