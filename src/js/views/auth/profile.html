@@ -40,9 +40,10 @@
 
         <h3>User Reviews</h3>
 
-        <div ng-if="(profile.user.comments).length === 0"> THIS USER HAS NO RATINGS </div>
+          <div ng-if="(profile.user.comments).length === 0"> THIS USER HAS NO RATINGS </div>
 
         <ul ng-if="(profile.user.comments).length !== 0" class="reviewSection">
+          
           <li ng-repeat="comment in profile.user.comments track by $index" class="col-md-5 commentsCard card shadow">
             <strong>{{ comment.createdBy.username }}</strong>
             <div class="reviewText">
