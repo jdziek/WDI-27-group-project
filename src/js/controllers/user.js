@@ -44,7 +44,6 @@ function ProfileCtrl($auth, User, $state, UserComment) {
 EditProfileCtrl.$inject = ['$auth', 'User', '$state'];
 function EditProfileCtrl($auth, User, $state) {
   const vm = this;
-  vm.user = {};
   vm.update = userUpdate;
 
   userShow();
@@ -60,7 +59,7 @@ function EditProfileCtrl($auth, User, $state) {
 
   function userUpdate(){
     User
-    .update($state.params, vm.post)
+    .update($state.params, vm.user)
     .$promise
     .then(() => {
       $state.go('userShow', $state.params);
