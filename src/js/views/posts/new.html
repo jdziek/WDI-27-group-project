@@ -48,7 +48,7 @@
           <p class="control">
             <label  for="time">Time</label>
           </p>
-          <input type="number" class="input" id="time" name="time" ng-model="postsNew.post.time" required>
+          <input pattern="([01]?[0-9]{1}|2[0-3]{1}):[0-5]{1}[0-9]{1}" id="time" type="text" class="input" name="time" ng-model="postsNew.post.time" required>
           <div ng-messages="postsNew.postForm.time.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.time.$touched">
             <div ng-message="required" class="notification">Time is required</div>
           </div>
@@ -66,9 +66,6 @@
           <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" coordinates="postsNew.post.coordinates" postcode="postsNew.post.postcode"></google-map>
           <p>here: {{postsNew.post.postcode}}</p>
         </div>
-
-
-
 
         <div class="field">
           <p class="control">

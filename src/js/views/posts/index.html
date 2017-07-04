@@ -55,13 +55,12 @@
 
 
                 <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> – <span>{{ post.createdBy.username }} </span> </p>
-
                 <div class="cardLocation">
                   <distance location-a="postsIndex.postcode" location-b="post.coordinates"></distance>
                 </div>
 
                 <div class="cardInfo">
-                  <h4>date</h4>  <p>{{ post.date }}</p>
+                  <h4>date</h4>  <p>{{ post.date | date}}</p>
                 </div>
 
                 <div class="cardInfo">
