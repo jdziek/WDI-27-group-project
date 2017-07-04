@@ -10,7 +10,8 @@ function googleMap() {
     template: '<div class="map"> GOOGLE MAP HERE</div>',
     scope: {
       center: '=',
-      coordinates: '='
+      coordinates: '=',
+      geo: '='
     },
     link(scope, element) {
       let map = null;
@@ -26,11 +27,14 @@ function googleMap() {
       var infoWindow;
       function initMap() {
         map = new google.maps.Map(element[0], {
-          zoom: 12
+          zoom: 12,
+          scrollwheel: false,
+          disableDoubleClickZoom: true
         });
 
         marker = new google.maps.Marker({
-          map: map
+          map: map,
+          icon: 'http://i.imgur.com/7aCJw6L.png?1'
         });
 
         if(document.getElementById('map-new').classList.contains('marker')) {
@@ -44,33 +48,34 @@ function googleMap() {
             // console.log(event.latLng.lng());
           });
         }
-        // function geoLoc() {
-        //   infoWindow = new google.maps.InfoWindow;
-        //   if (navigator.geolocation) {
-        //     navigator.geolocation.getCurrentPosition(function(position) {
-        //       var pos = {
-        //         lat: position.coords.latitude,
-        //         lng: position.coords.longitude
-        //       };
-        //       console.log('geowo');
-        //       infoWindow.setPosition(pos);
-        //       infoWindow.setContent('Location found.');
-        //       infoWindow.open(map);
-        //       map.setCenter(pos);
-        //
-        //       scope.infoGeoLoc = infoWindow.getPosition();
-        //       scope.geo = { lat: scope.infoGeoLoc.lat(), lng: scope.infoGeoLoc.lng() };
-        //
-        //
-        //
-        //     }, function() {
-        //       handleLocationError(true, infoWindow, map.getCenter());
-        //     });
-        //   }
-        //
-        //
-        // // }
-        // scope.$watch('geo',  geoLoc);
+        function geoLoc() {
+          infoWindow = new google.maps.InfoWindow;
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+              var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              };
+              console.log('geo');
+              infoWindow.setPosition(pos);
+              // infoWindow.setContent('Location found.');
+              infoWindow.open(map);
+              map.setCenter(pos);
+
+              scope.infoGeoLoc = infoWindow.getPosition();
+              scope.geo = { lat: scope.infoGeoLoc.lat(), lng: scope.infoGeoLoc.lng() };
+              console.log(scope.geo);
+              scope.$apply();
+
+
+
+            }, function() {
+              handleLocationError(true, infoWindow, map.getCenter());
+            });
+          }
+
+        }
+        scope.$watch('geo',  geoLoc);
 
 
       }

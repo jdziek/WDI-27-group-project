@@ -50,6 +50,21 @@
           <!-- <pre class="alert alert-info">Time is: {{mytime | date:'shortTime' }}</pre> -->
         </div>
 
+        <!-- <div class="field">
+          <p class="control">
+            <label  for="time">Time</label>
+          </p>
+          <input pattern="([01]?[0-9]{1}|2[0-3]{1}):[0-5]{1}[0-9]{1}" id="time" type="text" class="input" name="time" ng-model="postsNew.post.time" required>
+          <div ng-messages="postsNew.postForm.time.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.time.$touched">
+            <div ng-message="required" class="notification">Time is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input base64 type="file" name="image" id="image" ng-model="postsNew.post.base64" class="form-control">
+          <img ng-src="{{ postsNew.post.base64 }}">
+        </div> -->
+
           <div class="field">
             <p class="control">
               <label  for="time">Time</label>
@@ -73,6 +88,7 @@
             <p>here: {{postsNew.post.postcode}}</p>
           </div>
 
+<<<<<<< HEAD
 
 
 
@@ -81,6 +97,13 @@
               <input type="submit" class="button is-primary is-fullwidth" value="Add">
             </p>
           </div>
+=======
+        <div class="field">
+          <p class="control">
+            <input type="submit" class="button is-primary is-fullwidth" value="Add">
+          </p>
+        </div>
+>>>>>>> development
 
         </form>
       </div>

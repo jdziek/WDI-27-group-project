@@ -3,15 +3,11 @@
   <h1> <span> Notitia </span></h1>
   <h2> Teaching & learning in your local area </h2>
 
+
 </div>
-<div class="">
+<div class="autocomplete">
   <input autocomplete type="text" class="input"  name="postcode" postcode="postsIndex.postcode"
   ng-model="postsIndex.filtered.postcode">
-  <p>Here: {{postsIndex.postcode.lat}}</p>
-  <p>Here: {{postsIndex.filtered.post.coordinates}}</p>
-
-
-
 </div>
 
 <div class="col col-10 search">
@@ -55,9 +51,13 @@
 
 
                 <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> – <span>{{ post.createdBy.username }} </span> </p>
-
                 <div class="cardLocation">
                   <distance location-a="postsIndex.postcode" location-b="post.coordinates"></distance>
+                </div>
+                <div class="cardLocation">
+               <p>How close to you?</p>
+                <distance location-a="postsIndex.geo" location-b="post.coordinates"></distance>
+
                 </div>
 
                 <div class="cardInfo">
@@ -80,4 +80,10 @@
         </div>
       </div>
     </div>
+  </div>
+
+
+  <div class="marker" id="map-new" hidden>
+    <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" geo="postsIndex.geo" coordinates="postsNew.post.coordinates" postcode="postsNew.post.postcode"></google-map>
+
   </div>
