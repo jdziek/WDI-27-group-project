@@ -273,24 +273,25 @@ nav a.before:hover:before,a.after:hover:after{
   margin: 48px auto;
 }
 
+
 .radioSelect{
-  padding: 14px 0px;
-  text-align: center;
+  padding: 8px 16px;
   color: grey;
-  border: 2px solid grey;
+  border: 1px solid grey;
   border-radius: 4px;
-  height: 80px;
-  width: 80px;
-  margin: 24px 16px 0px 0px;
+  height: 36px;
+  width: 140px;
   &.radioSelect:hover{
-    color: $highLight;
-    border: 2px solid $highLight;
+    background-color: $highLight;
+    color: white;
+    border: 1px solid $highLight;
   }
 }
 
 input[type=radio]:checked + label {
-  color: $highLight;
-  border: 2px solid $highLight;
+  background-color: $highLight;
+  color: white;
+  border: 1px solid $highLight;
 }
 
 // ICON STYLES
@@ -362,7 +363,11 @@ input[type=radio]:checked + label {
 
 //FORM SUFF
 
-
+.pill{
+  background-color: $highLight;
+  padding: 8px;
+  border-radius: 20px;
+}
 
 select {
   height: 48px;
@@ -427,11 +432,6 @@ input:-webkit-autofill {
     border: 1px solid $highLight;
   }
 }
-//
-// textarea{
-//   border-radius: 4px;
-//   margin: 16px 0px;
-// }
 
 textarea{
   width: 100%;
@@ -587,6 +587,16 @@ textarea{
 .commentBox{
   outline: none
 }
+
+
+.lessMargin{
+  margin:16px;
+}
+
+
+
+
+
 
 
 @media only screen and (max-width: 760px) {
