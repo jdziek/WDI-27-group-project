@@ -30,17 +30,33 @@ function PostsIndexCtrl(Post, filterFilter, $scope, orderByFilter) {
   }
 
 
+
   function filterPosts() {
+
     const params = { title: vm.q, postType: vm.postType};
 
     if(vm.useDate) params.date = vm.date;
+
     vm.filtered = filterFilter(vm.all, params);
 
-    vm.filtered = orderByFilter(vm.filtered, vm.distanceP);
+    vm.filtered = orderByFilter(vm.filtered);
+
   }
+  function lowerThan(prop, val){
+
+    if(vm.useSlider) {
+      return function(post){
+        console.log(post);
+        if (post[prop] < val || post[prop] === undefined) return true;
+      };
+    }
+  }
+  vm.lowerThan = lowerThan;
+
 
 
   $scope.$watchGroup([
+
     () => vm.q,
     () => vm.postType,
     () => vm.date

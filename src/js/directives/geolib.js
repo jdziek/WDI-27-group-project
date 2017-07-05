@@ -18,7 +18,6 @@ function distance() {
       scope.$watchGroup(['locationA', 'locationB'], displayDistance, true);
 
       function displayDistance() {
-    
         if(!scope.locationA || !scope.locationB) return false;
 
         function deg2rad(deg) {

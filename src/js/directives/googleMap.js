@@ -61,7 +61,7 @@ function googleMap() {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
               };
-              console.log('geo');
+
               infoWindow.setPosition(pos);
               infoWindow.setContent('Your location. ');
               infoWindow.open(map);
@@ -69,7 +69,7 @@ function googleMap() {
 
               scope.infoGeoLoc = infoWindow.getPosition();
               scope.geo = { lat: scope.infoGeoLoc.lat(), lng: scope.infoGeoLoc.lng() };
-              console.log(scope.geo);
+      
               scope.$apply();
 
 
