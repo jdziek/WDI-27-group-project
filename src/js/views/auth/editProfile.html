@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <div class="col col-5 formBox shadow">
   <form ng-submit="profileEdit.update()" name="profileEdit.postForm">
-    {{ profileEdit.user }}
+
     <div class="formTitle">
       <h3> Edit Profile </h3>
     </div>
@@ -34,20 +34,6 @@
     </div>
 
     <div class="field">
-      <label class="label" for="postcode">postcode</label>
-      <p class="control">
-        <input class="input" type="text" name="postcode" id="postcode" ng-model="profileEdit.user.postcode">
-      </p>
-    </div>
-
-    <div class="field">
-      <label class="label" for="travelDistance">Travel Distance</label>
-      <p class="control">
-        <input class="input" type="text" name="travelDistance" id="travelDistance" ng-model="profileEdit.user.travelDistance">
-      </p>
-    </div>
-
-    <div class="field">
       <label class="label" for="jobTitle">Job Title</label>
       <p class="control">
         <input class="input" type="text" name="jobTitle" id="jobTitle" ng-model="profileEdit.user.jobTitle">
@@ -57,7 +43,7 @@
     <div class="field">
       <label class="label" for="bio">Bio</label>
       <p class="control">
-        <input class="input" type="textarea" name="bio" id="bio" ng-model="profileEdit.user.bio">
+        <textarea class="input" type="textarea" name="bio" id="bio" ng-model="profileEdit.user.bio"></textarea>
       </p>
     </div>
 
@@ -69,7 +55,7 @@
 
     <div class="field">
       <p class="control">
-        <input type="submit" class="button is-primary is-fullwidth" value="Update">
+        <input type="submit" class="button is-primary is-fullwidth" value="Save Changes">
       </p>
     </div>
   </form>

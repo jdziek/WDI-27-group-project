@@ -135,17 +135,6 @@ function PostsEditCtrl($state, Post) {
   vm.post = {};
   vm.update = postsUpdate;
 
-  postsShow();
-
-  function postsShow(){
-    Post
-    .get($state.params)
-    .$promise
-    .then((post) => {
-      vm.post = post;
-    });
-  }
-
   function postsUpdate(){
     Post
     .update($state.params, vm.post)
