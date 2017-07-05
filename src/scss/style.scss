@@ -77,6 +77,8 @@ strong{
 }
 
 
+
+
 .shadow{
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
@@ -281,14 +283,33 @@ nav a.before:hover:before,a.after:hover:after{
 
 .filterDropdown{
   margin-top: 16px;
+
 }
 
 .showFilter{
   margin: 24px 0px;
   padding: 0px 16px;
+  min-height: 130px;
 }
 
+.slideFilter{
+  margin: 16px 0px;
+  height: 30px;
+  display: inline-block;
+}
 
+.sliderInfo{
+  color: white;
+  background-color:$highLight;
+  display: inline-block;
+  padding: 8px 0px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.l-box{
+  margin: 16px 0px;
+}
 .overflowHidden{
   overflow: hidden;
 }
@@ -300,6 +321,7 @@ nav a.before:hover:before,a.after:hover:after{
   border-radius: 4px;
   height: 36px;
   width: 140px;
+
   &.radioSelect:hover{
     background-color: $highLight;
     color: white;
@@ -312,6 +334,94 @@ input[type=radio]:checked + label {
   color: white;
   border: 1px solid $highLight;
 }
+
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+
+[type="checkbox"]:not(:checked) + label{
+  color: $textColor;
+}
+
+[type="checkbox"]:hover + label{
+    color: $highLight;
+}
+[type="checkbox"]:checked + label {
+  position: relative;
+  cursor: pointer;
+  color: $highLight;
+}
+
+.checkBox{
+  display: inline-block;
+  &.checkBox:hover{
+    color: $highLight;
+  }
+}
+.checkboxLabel{
+  display: inline-block;
+  margin: 8px 0px;
+}
+
+.slideFilterPad{
+  margin-bottom: 24px;
+}
+.datePicker{
+  margin: 8px 0px;
+}
+
+.datePickerBox{
+}
+
+.distancePickerBox{
+  margin: 16px 0px;
+}
+// slider styling
+
+input[type=range]{
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+
+    height: 8px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    cursor:grab;
+    border: none;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background: $highLight;
+    margin-top: -8px;
+  }
+
+    input[type=range]:hover::-webkit-slider-thumb{
+      background: darken($highLight, 10%);
+    }
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:hover {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+
+
+
 // ICON STYLES
 
 
@@ -379,7 +489,6 @@ input[type=radio]:checked + label {
 }
 
 //FORM SUFF
-
 
 select {
   height: 48px;
@@ -605,7 +714,9 @@ textarea{
   margin:16px;
 }
 
-
+.spaceBottom{
+  margin-bottom: 42px;
+}
 
 
 
