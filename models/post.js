@@ -30,7 +30,6 @@ const postSchema = new mongoose.Schema({
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
   geo: { lat: Number, lng: Number },
   comments: [ commentSchema ],
-  postcode: { lat: Number, lng: Number },
   categories: [String]
 }, {
   timestamps: true
