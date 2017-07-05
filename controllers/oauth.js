@@ -18,17 +18,17 @@ function facebook(req, res, next) {
     json: true
   })
   .then((token) => {
-    console.log(token);
+    console.log('TOKEN', token);
     return rp({
       method: 'GET',
-      url: 'https://graph.facebook.com/v2.5/me?fields=id,name,email,picture.height(961)',
+      url: 'https://graph.facebook.com/v2.5/me?fields=name,email,gender,age_range,about,work,picture.height(600)',
       qs: {
         access_token: token.access_token
       },
       json: true
     })
     .then((profile) => {
-      console.log('User profile', profile);
+      console.log('USER PROFILE', profile);
       return User
       .findOne( {$or: [{ email: profile.email}, {facebookId: profile.id}] })
       .then((user) => {
@@ -36,12 +36,15 @@ function facebook(req, res, next) {
           user = new User({
             username: profile.name,
             email: profile.email,
-            image: profile.picture.data.url
+            image: profile.picture.data.url,
+            gender: profile.gender,
+            age: profile.age_range.min,
+            about: profile.about,
+            work: profile.work
           });
         }
         user.facebookId = profile.id;
-
-        console.log(user);
+        console.log('User', user);
         return user.save();
       });
     })

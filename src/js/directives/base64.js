@@ -9,9 +9,11 @@ function base64() {
   return {
     restrict: 'A',
     require: 'ngModel',
-    link(scope, element, attrs, ngModel){
+    link($scope, element, attrs, ngModel){
 
-      fileReader.onload = function fileLoaded() {
+
+
+      fileReader.onload = function fileLoaded(){
         ngModel.$setViewValue(fileReader.result);
       };
 

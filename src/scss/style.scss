@@ -1,16 +1,31 @@
 // Import all of your scss files here
 @import 'reset-css/reset';
 @import 'bootstrap/bootstrap-grid';
-@import 'font-awesome-4.7.0/css/font-awesome.min';
+
 
 // SASS Variabels
 $highLight: #FDC848;
 $borderColor: #f5f5f5;
 $textColor: #484848;
+$delete: #b34545;
+$inputColor: #d8d4d4;
 
 $grid-gutter-width: 16px;
 
 //OVERALL STYLES
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $inputColor;;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color:  $borderColor;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color:  $inputColor;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color:  $inputColor;
+}
 
 body{
   font-family: 'Yantramanav', sans-serif;
@@ -39,21 +54,41 @@ h4 {
 
 p{
   font-size: 14px;
+  font-weight: 300;
+  line-height: 1.2;
 }
 
 a{
   text-decoration: none;
 }
 
-.shadow{
-  box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.1);
+strong{
+  font-weight: bolder;
 }
 
+.cursor{
+  cursor: pointer;
+}
+
+
+.shadow{
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+// .shadow:hover {
+//   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+// }
+
 .button{
-  padding: 16px 42px;
+  padding: 8px 42px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.login{
+  padding: 16px 42px;
 }
 
 .primary{
@@ -61,6 +96,30 @@ a{
   color: white;
   &.primary:hover{
     background-color: darken($highLight, 10%);
+  }
+  &.primary:visited{
+    color: white;
+  }
+}
+
+.delete{
+  border: none;
+  background-color: white;
+  color: $delete;
+  text-transform: uppercase;
+  padding-left: 0px;
+  margin: 16px 0px;
+  &.delete:hover{
+    color: darken($delete, 10%);
+  }
+}
+
+
+.secondary{
+  background-color: $borderColor;
+  color: $textColor;
+  &.secondary:hover{
+    background-color: darken($borderColor, 10%);
   }
 }
 
@@ -75,6 +134,26 @@ a{
 span{
   color: $highLight;
 }
+
+//WARNING MESSAGES
+
+.notification{
+  margin: 16px auto;
+  background-color: $delete;
+  color: white;
+  padding: 16px;
+  border-radius: 4px;
+}
+
+.notificationThin{
+  margin: 16px auto;
+  background-color: $delete;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+
 
 //NAV STYLES
 
@@ -98,13 +177,54 @@ nav ul li {
   background-image: url('https://image.ibb.co/dxrrf5/logo.png');
   background-size: contain;
   float: left;
+  cursor: pointer;
 }
 
 .menu{
   display: none;
 }
 
-//headder
+
+// HOVER NAV STYLES
+
+nav a,a:visited,a:hover,a:active{
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
+  position:relative;
+  transition:0.5s color ease;
+  text-decoration:none;
+  color:$textColor;
+}
+nav a:hover{
+  color:$highLight;
+}
+nav a.before:before,a.after:after{
+  content: "";
+  transition:0.5s all ease;
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
+  position:absolute;
+}
+nav a.before:before{
+  top:-0.25em;
+}
+nav a.after:after{
+  bottom:-0.25em;
+}
+nav a.before:before,a.after:after{
+  height:1px;
+  height:0.1rem;
+  width:0;
+  background:$highLight;
+}
+nav a.first:after{
+  left:0;
+}
+nav a.before:hover:before,a.after:hover:after{
+  width:100%;
+}
+
+//header
 
 .mainHeader{
   margin: 42px auto;
@@ -114,50 +234,157 @@ nav ul li {
 
 .search {
   background-color: white;
-  padding: 16px;
-  height: 200px;
-  border: 1px solid $borderColor;
-  border-radius: 4px;
   margin: 62px auto;
 }
 
-// index stuff
+.searchBox{
+  padding: 8px 0px;
+  border: none;
+  font-size: 32px;
+  color: $highLight;
+  border-bottom: 2px solid $highLight;
+  &.searchBox:focus {
+    outline:0;
+  }
+}
+
+.searchBox1{
+  border: none;
+  font-size: 32px;
+  color: $highLight;
+  margin: 0 auto;
+  &.searchBox1:focus {
+    outline:0;
+  }
+}
+
+.fa-search{
+  color: $highLight;
+  font-size: 28px;
+}
+
+.hidden{
+  position: absolute;
+  left: -9999px;
+}
+
+.filter{
+  height: auto;
+  margin: 48px auto;
+}
+
+.radioSelect{
+  padding: 14px 0px;
+  text-align: center;
+  color: grey;
+  border: 2px solid grey;
+  border-radius: 4px;
+  height: 80px;
+  width: 80px;
+  margin: 24px 16px 0px 0px;
+  &.radioSelect:hover{
+    color: $highLight;
+    border: 2px solid $highLight;
+  }
+}
+
+input[type=radio]:checked + label {
+  color: $highLight;
+  border: 2px solid $highLight;
+}
+
+// ICON STYLES
+
+
+.large {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.spaceRight{
+  padding-right: 16px;
+}
+
+// Index stuff
 
 .card {
   margin: 16px 16px;
   background-color: white;
-  border: 1px solid $borderColor;
+  border-radius: 4px;
+}
+
+.indexCard {
+  display: flex;
+  .card {
+    position: relative;
+    padding-bottom: 64px;
+    width: 100%;
+    margin: 8px 0;
+    button {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+    }
+  }
 }
 
 .cardContent{
-  padding: 16px;
+  padding: 0px 16px;
+}
+
+.postSubmit{
+  float: right;
+  margin-top: 48px;
 }
 
 .postType{
-  background-color: $highLight;
   border-radius: 4px 4px 0px 0px;
-  padding: 8px 16px;
-  color: white;
+  padding: 16px 16px 0px 16px;
+  color: $highLight;
+  font-weight: 400;
 }
 
-.cardLocationAndTime{
-  background-color: dodgerblue;
-  margin-top: 16px;
+.cardTitle{
+  margin: 8px 0px;
 }
 
+.cardLocation{
+  margin: 16px 0px;
+}
 .cardInfo{
-  background-color: red;
   display: inline-block;
 }
-.cardLocation{
-  background-color: pink;
-  margin: 16px 0px;
+
+.margin{
+  margin: 16px 16px;
+  display: inline-block;
 }
 
 //FORM SUFF
 
+
+
+select {
+  height: 48px;
+  background-color: white;
+  border: 1px solid $borderColor;
+  border-radius: 4px;
+  color: $textColor;
+  padding: 0px 16px;
+  outline: none;
+  &select:focus{
+    border: 1px solid $highLight;
+  }
+}
+
+
+option{
+  background-color: white;
+  color: $textColor;
+}
+
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px white inset;
+  -webkit-box-shadow: 0 0 0 30px white inset;
 }
 
 .formBox{
@@ -167,11 +394,14 @@ input:-webkit-autofill {
 }
 
 .formTitle{
-  margin: 0px 0px 16px 0px;
+  margin: 0px 0px
+  16px 0px;
 }
 
 .label{
+  font-weight: 400;
   margin: 8px 0px;
+  color: $highLight;
 }
 
 .field{
@@ -192,13 +422,171 @@ input:-webkit-autofill {
   border: 1px solid $borderColor;
   padding: 8px;
   border-radius: 4px;
-}
-
-.input:focus {
+  &.input:focus {
     outline:0;
     border: 1px solid $highLight;
+  }
+}
+//
+// textarea{
+//   border-radius: 4px;
+//   margin: 16px 0px;
+// }
+
+textarea{
+  width: 100%;
+  height: 100px;
+  padding: 16px;
+  outline: none;
+  border: 1px solid $borderColor;
+  &textarea:focus{
+    border: 1px solid $highLight;
+  }
 }
 
+//PROFILE PAGE
+
+.profileImage{
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0px auto;
+  background-position: bottom;
+}
+
+.bio{
+  margin: 16px auto;
+}
+.profilePhotoContainer{
+
+}
+
+.profileContainer{
+  margin: 48px auto;
+}
+
+.profileButtonContainer{
+  margin: 0px auto;
+}
+
+.profileInfo{
+
+}
+
+.sendMessage{
+  margin: 16px 0px;
+}
+
+.reviewSection{
+  height: 400px;
+  overflow-y: auto;
+}
+
+.commentsCard{
+  margin: 20px 8px;
+  padding: 20px;
+  display: inline-block;
+}
+.reviewText{
+  margin: 16px 0px;
+}
+.reviewInput{
+  margin: 20px 0px;
+}
+
+
+//POST SHOW
+
+.showInfo{
+  border-radius: 4px;
+  padding: 24px;
+  margin: auto;
+  position: relative;
+  top: -20vh;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: white;
+  height: auto;
+}
+
+.mapSide{
+  margin: 24px 0px;
+  height:  50vh;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.ShowPagemargin{
+  margin-top: 24px;
+}
+
+.center{
+  margin: 0 auto;
+}
+
+.postTime{
+  display: inline-block;
+  margin: 16px 16px 16px 0px;
+}
+
+
+#map-new {
+  height: 350px;
+}
+
+//POST SHOW COMMENTS
+
+.commentSection{
+  margin: 42px 0px;
+}
+
+.sendMessage{
+  margin: 0px 0px;
+}
+
+.reviewSection{
+  height: 400px;
+  overflow-y: auto;
+}
+
+.ShowCommentsCard{
+  margin: 0px 8px;
+  display: inline-block;
+  background-color: lightgrey;
+}
+.commentText{
+  margin: 8px 8px;
+  display: inline-block;
+}
+.commentInput{
+  margin: 20px 0px;
+}
+
+.commentProfileImage{
+  object-fit: cover;
+  display: inline-block;
+  height: 28px;
+  width: 28px;
+}
+
+.deleteComment{
+  border: none;
+  color: $delete;
+  background-color: white;
+  font-size: 14px;
+  padding-left: 0px;
+  &.delete:hover{
+    color: darken($delete, 10%);
+  }
+}
+
+.commentBox{
+  outline: none
+}
 
 
 @media only screen and (max-width: 760px) {

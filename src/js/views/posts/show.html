@@ -1,1 +1,64 @@
-<h1>Show Page Working</h1>
+
+<div class="row">
+
+  <div class="col-12 mapSide">
+    <div class="map">
+      <google-map center="postsShow.post.coordinates"></google-map>
+    </div>
+  </div>
+
+
+
+  <div class=" col-10 showInfo shadow">
+
+    <h2>{{ postsShow.post.title}}</h2>
+    <h3><span> {{ postsShow.post.createdBy.username }} </span> </h3>
+
+    <div class="postTime">
+      <h3> Date </h3>
+      <h3> {{postsShow.post.date}} </h3>
+    </div>
+
+
+    <div class="postTime">
+      <h3> Date </h3>
+      <h3> {{postsShow.post.time}} </h3>
+    </div>
+    <div class="postInfo">
+      <p>{{postsShow.post.info}}</p>
+    </div>
+
+
+
+    <!-- <p>{{postsShow.post}}</p> -->
+    <div class="geo-code"><h3>
+      <reverse-geocode coordinates="postsShow.post.coordinates"/></h3>
+    </div>
+    <a class="button primary" ui-sref="postsEdit({ id: postsShow.post.id})">Edit</a>
+
+    <div class="commentSection">
+      <ul>
+        <h3>Comments</h3>
+        <li ng-repeat="comment in postsShow.post.comments track by $index" class="col-md-12">
+
+          <img ng-src="{{ comment.createdBy.imageSRC }}" alt="profile.user.image" class="commentProfileImage">
+          <p class="commentText">
+            <span> <strong> {{ comment.createdBy.username }} </strong> </span>
+            – {{ comment.text }}
+            <br>
+            <button class="deleteComment" ng-click="postsShow.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">
+              Delete</button> {{ comment.timeAgo }}
+
+            </p>
+          </li>
+        </ul>
+
+        <div class="commentInput">
+          <form ng-if="main.isAuthenticated()" ng-submit="postsShow.addComment()">
+            <textarea class="col-12 commentBox" placeholder="Write a comment" ng-model="postsShow.newComment.text"></textarea>
+            <button class="button primary">Comment</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -55,22 +55,25 @@ User
   return Posts
   .create([{
     postType: 'Teaching',
-    title: 'Teaching Design next Thursday Lunch',
+    title: 'Spanish looking to practise english',
     info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.',
     location: 'Somewhere',
     date: '12/12/2018',
     time: 1230,
     image: 'an Image',
-    createdBy: users[0]
+    coordinates: { lat: 52.5221596, lng: -0.0521308 },
+    createdBy: users[1]
   },{
     postType: 'Teaching',
     title: 'Teaching Design next Thursday Lunch',
     info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.',
     location: 'Somewhere',
     date: '12/12/2018',
-    time: 1230,
+    time: 1240,
     image: 'an Image',
-    createdBy: users[0]
+    coordinates: { lat: 51.7221596, lng: -0.0521308 },
+    categories: ['Art'],
+    createdBy: users[1]
   },{
     postType: 'Learning',
     title: 'Want to Learn about Stocks Monday Night',
@@ -79,7 +82,18 @@ User
     date: '12/12/2018',
     time: 1915,
     image: 'an Image',
+    coordinates: { lat: 51.5221596, lng: -0.1521308 },
     createdBy: users[0]
+  },{
+    postType: 'Learning',
+    title: 'Need to learn about UK tax laws',
+    info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.',
+    location: 'Somewhere',
+    date: '12/12/2018',
+    time: 1915,
+    image: 'an Image',
+    coordinates: { lat: 51.5221596, lng: -0.0521308 },
+    createdBy: users[1]
   },{
     postType: 'Learning',
     title: 'Want to Learn about Stocks Monday Night',
@@ -88,7 +102,8 @@ User
     date: '12/12/2018',
     time: 1915,
     image: 'an Image',
-    createdBy: users[0]
+    coordinates: { lat: 50.5221596, lng: -0.1521308 },
+    createdBy: users[2]
   },{
     postType: 'Learning',
     title: 'Want to Learn about Stocks Monday Night',
@@ -97,19 +112,11 @@ User
     date: '12/12/2018',
     time: 1915,
     image: 'an Image',
-    createdBy: users[0]
-  },{
-    postType: 'Learning',
-    title: 'Want to Learn about Stocks Monday Night',
-    info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.',
-    location: 'Somewhere',
-    date: '12/12/2018',
-    time: 1915,
-    image: 'an Image',
+    coordinates: { lat: 51.5221596, lng: -0.0521308 },
     createdBy: users[0]
   }])
   .then((posts) => {
-    console.log(`${posts.length} groups created`);
+    console.log(`${posts.length} posts created`);
   });
 })
 .catch((err) => console.log(err))
