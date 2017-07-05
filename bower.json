@@ -30,6 +30,10 @@
     "angularjs-datetime-picker": "^0.1.20"
   },
   "resolutions": {
+<<<<<<< HEAD
     "angular": ">= 1.2.0"
+=======
+    "angular": "^1.6.5"
+>>>>>>> development
   }
 }

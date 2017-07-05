@@ -11,25 +11,25 @@
 
 
       <form ng-submit="postsNew.create()" name="postsNew.postForm" novalidate>
+
         <div class="formLeft col-lg-7">
+
           <div class="field">
             <p class="control">
               <label  for="postType">Post Type</label>
             </p>
-
-
             <input class="hidden" type="radio" id="teaching" name="name" value="Teaching" ng-model="postsNew.post.postType">
             <label for="teaching" class="radioSelect">
-              <i class="fa fa-comments large" aria-hidden="true"></i>
-              <br>Teaching
+              <i class="fa fa-comments spaceRight" aria-hidden="true"></i>
+              Teaching
             </label>
 
             <input  class="hidden" type="radio" id="learning" name="name" value="Learning" ng-model="postsNew.post.postType">
             <label for="learning" class="radioSelect">
-              <i class="fa fa-graduation-cap large" aria-hidden="true"></i>
-              <br>Learning
+              <i class="fa fa-graduation-cap spaceRight" aria-hidden="true"></i>
+              Learning
             </label>
-            <br>
+
             <div ng-messages="postsNew.postForm.postType.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.postType.$touched">
               <div ng-message="required" class="notificationThin" required>Post type is required.</div>
             </div>
@@ -48,71 +48,56 @@
             </div>
           </div>
 
-        <div class="field">
-          <p class="control">
-            <input type="text" name="categories" ng-model="postsNew.post.categories" placeholder="Enter category here...">
-            <label for="Art">Categories</label>
-          </p>
-        </div>
 
 
-        <!-- <div>
-        <div uib-timepicker ng-model="postsNew.post.time" hour-step="1" minute-step="1"></div>
-      </div> -->
 
-            <input type="text" class="input col-11" id="location" name="location" ng-model="postsNew.post.location" required>
 
-            <div ng-messages="postsNew.postForm.location.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.location.$touched">
-              <div ng-message="required" class="notificationThin">Location is required.</div>
+            <div class="field">
+              <p class="control">
+                <label  for="date">Date</label>
+              </p>
+              <input pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" type="date" class="input" id="date" name="date" ng-model="postsNew.post.date" required>
+
+              <div ng-messages="postsNew.postForm.date.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.date.$touched">
+                <div ng-message="required" class="notificationThin">Date is required.</div>
+              </div>
+            </div>
+
+
+            <div class="field">
+              <p class="control">
+                <label  for="time">Time</label>
+              </p>
+              <input pattern="([01]?[0-9]{1}|2[0-3]{1}):[0-5]{1}[0-9]{1}" id="time" type="time" class="input" name="time" ng-model="postsNew.post.time" required>
+
+              <div ng-messages="postsNew.postForm.time.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.time.$touched">
+                <div ng-message="required" class="notificationThin">Time is required</div>
+              </div>
             </div>
           </div>
 
 
-          <div class="field">
-            <p class="control">
-              <label  for="date">Date</label>
-            </p>
-            <input date-format="yyyy-MM-dd" type="date" class="input" id="date" name="date" ng-model="postsNew.post.date" required>
+            <div class="formRight col-lg-5">
 
-            <div ng-messages="postsNew.postForm.date.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.date.$touched">
-              <div ng-message="required" class="notificationThin">Date is required.</div>
+              <label  for="title">Select location</label>
+
+              <input autocomplete type="text" class="input"  name="postcode" postcode="postsNew.postcode"
+              ng-model="postsNew.post.postcode">
+
+
+              <div class="marker" id="map-new">
+                <google-map center="postsNew.postcode" coordinates="postsNew.post.coordinates" ></google-map>
+
+              </div>
+
+              <div class="field">
+                <p class="control">
+                  <input type="submit" class="button primary postSubmit" value="Submit Post">
+                </p>
+              </div>
             </div>
-          </div>
 
-
-          <div class="field">
-            <p class="control">
-              <label  for="time">Time</label>
-            </p>
-            <input pattern="([01]?[0-9]{1}|2[0-3]{1}):[0-5]{1}[0-9]{1}" id="time" type="time" class="input" name="time" ng-model="postsNew.post.time" required>
-
-            <div ng-messages="postsNew.postForm.time.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.time.$touched">
-              <div ng-message="required" class="notificationThin">Time is required</div>
-            </div>
-          </div>
-
+          </form>
         </div>
-
-        <div class="formRight col-lg-5">
-
-          <label  for="title">Select location</label>
-
-          <input autocomplete type="text" class="input"  name="postcode" postcode="postsNew.postcode"
-          ng-model="postsNew.post.postcode">
-
-
-          <div class="marker" id="map-new">
-            <google-map center="postsNew.postcode" coordinates="postsNew.post.coordinates" ></google-map>
-
-          </div>
-
-          <div class="field">
-            <p class="control">
-              <input type="submit" class="button primary postSubmit" value="Submit Post">
-            </p>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
+      </div>
+    </section>
