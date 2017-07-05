@@ -105,12 +105,14 @@ function PostsNewCtrl($state, Post) {
   vm.create = postsCreate;
 
   function postsCreate(){
-    Post
-    .save(vm.post)
-    .$promise
-    .then(() => {
-      $state.go('postsIndex');
-    });
+    if (vm.postForm.$valid) {
+      Post
+      .save(vm.post)
+      .$promise
+      .then(() => {
+        $state.go('postsIndex');
+      });
+    }
   }
 
   vm.update = function() {

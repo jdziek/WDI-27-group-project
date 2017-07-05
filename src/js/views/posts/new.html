@@ -1,6 +1,7 @@
 <section class="section">
   <div class="row">
     <div class="formBox  col-lg-10">
+    <h1>{{postsNew.post.coordinates}}</h1>
 
       <h2> New Post </h2>
       <form ng-submit="postsNew.create()" name="postsNew.postForm" novalidate>
@@ -10,12 +11,12 @@
             <p class="control">
               <label for="postType">Post Type</label>
             </p>
-            <input class="hidden" type="radio" id="teaching" name="name" value="Teaching" ng-model="postsNew.post.postType">
+            <input class="hidden" type="radio" id="teaching" name="postType" value="Teaching" ng-model="postsNew.post.postType" required>
             <label for="teaching" class="radioSelect">
               <i class="fa fa-comments spaceRight" aria-hidden="true"></i>
               Teaching
             </label>
-            <input  class="hidden" type="radio" id="learning" name="name" value="Learning" ng-model="postsNew.post.postType">
+            <input  class="hidden" type="radio" id="learning" name="postType" value="Learning" ng-model="postsNew.post.postType" required>
             <label for="learning" class="radioSelect">
               <i class="fa fa-graduation-cap spaceRight" aria-hidden="true"></i>
               Learning
@@ -63,20 +64,19 @@
               <label  for="title">Select location</label>
                 </p>
               <input autocomplete type="text" class="input"  name="postcode" coordinates="postsNew.post.coordinates"
-              ng-model="postsNew.post.postcode">
+            >
           </div>
 
           <div class="field">
             <p class="control">
-              <input type="submit" class="button primary postSubmit" value="Submit Post" ng-disabled="postsNew.postForm.$invalid">
-            </p>
+              <input type="submit" class="button primary postSubmit" value="Submit Post" > </p>
           </div>
 
         </div>
 
         <div class="formRight col-lg-5">
           <div class="marker" id="map-new">
-            <google-map center="postsNew.post.coordinates" coordinates="postsNew.post.coordinates" ></google-map>
+            <google-map center="postsNew.post.coordinates" coordinates="postsNew.post.coordinates" geo="postsNew.post.coordinates" ></google-map>
           </div>
         </div>
 
