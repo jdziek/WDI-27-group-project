@@ -10,13 +10,13 @@
 
 
 
-      <form ng-submit="postsNew.create()" name="postsNew.postForm" novalidate>
+      <form onsubmit="return false" ng-submit="postsNew.create()" name="postsNew.postForm" novalidate>
 
         <div class="formLeft col-lg-7">
 
           <div class="field">
             <p class="control">
-              <label  for="postType">Post Type</label>
+              <label for="postType">Post Type</label>
             </p>
             <input class="hidden" type="radio" id="teaching" name="name" value="Teaching" ng-model="postsNew.post.postType">
             <label for="teaching" class="radioSelect">
@@ -50,8 +50,6 @@
 
 
 
-
-
             <div class="field">
               <p class="control">
                 <label  for="date">Date</label>
@@ -68,7 +66,7 @@
               <p class="control">
                 <label  for="time">Time</label>
               </p>
-              <input pattern="([01]?[0-9]{1}|2[0-3]{1}):[0-5]{1}[0-9]{1}" id="time" type="time" class="input" name="time" ng-model="postsNew.post.time" required>
+              <input placeholder="E.g. 10:30am" pattern="(1[012]|[1-9]):[0-5][0-9](\\s)?(?i)(am|pm)" id="time" type="text" class="input" name="time" ng-model="postsNew.post.time" required>
 
               <div ng-messages="postsNew.postForm.time.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.time.$touched">
                 <div ng-message="required" class="notificationThin">Time is required</div>

@@ -42,16 +42,15 @@ function ProfileCtrl($auth, User, $state, UserComment) {
 }
 
 
-EditProfileCtrl.$inject = ['$auth', 'User','$state'];
-function EditProfileCtrl($auth, User, $state) {
+EditProfileCtrl.$inject = ['$auth', 'UserEdit','$state'];
+function EditProfileCtrl($auth, UserEdit, $state) {
   const vm = this;
 
-  console.log(vm);
   userShow();
   vm.update = userUpdate;
 
   function userShow(){
-    User
+    UserEdit
     .get($state.params)
     .$promise
     .then((user) => {
@@ -62,7 +61,7 @@ function EditProfileCtrl($auth, User, $state) {
   function userUpdate() {
     console.log('Hello!');
     console.log('State params: ', $state.params);
-    User
+    UserEdit
     .update($state.params, vm.user)
     .$promise
     .then(() => {

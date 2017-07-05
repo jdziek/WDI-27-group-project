@@ -7,7 +7,7 @@
           <p class="control">
             <label  for="postType">Post Type</label>
           </p>
-          <input type="text" class="input" id="postType" name="postType"  required>
+          <input ng-model="postsEdit.post.postType" type="text" class="input" id="postType" name="postType"  required>
           <div ng-messages="postsEdit.postForm.postType.$error" ng-show="postsEdit.postForm.$submitted || postsEdit.postForm.image.$touched">
             <div ng-message="required" class="notification">Post type is required.</div>
           </div>
@@ -43,7 +43,7 @@
           <p class="control">
             <label  for="time">Time</label>
           </p>
-          <input type="number" class="input" id="time" name="time" ng-model="postsEdit.post.time" required>
+          <input pattern="(1[012]|[1-9]):[0-5][0-9](\\s)?(?i)(am|pm)" type="text" class="input" id="time" name="time" ng-model="postsEdit.post.time" required>
           <div ng-messages="postsEdit.postForm.time.$error" ng-show="postsEdit.postForm.$submitted || postsEdit.postForm.time.$touched">
             <div ng-message="required" class="notification">Time is required</div>
           </div>
