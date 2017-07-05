@@ -11,7 +11,8 @@ function googleMap() {
     template: '<div class="map"> GOOGLE MAP HERE</div>',
     scope: {
       center: '=',
-      coordinates: '='
+      coordinates: '=',
+      geo: '='
     },
     link(scope, element) {
       let map = null;
@@ -64,7 +65,7 @@ function googleMap() {
           marker.setPosition(pos);
           map.setCenter(pos);
           scope.infoGeoLoc = marker.getPosition();
-          scope.geo = { lat: scope.infoGeoLoc.lat(), lng: scope.infoGeoLoc.lng() };
+          scope.geo = { lat: scope.infoGeoLoc.lat(), lng: scope.infoGeoLoc.lng() };///doesnt like it but it works necesaryfor distance
 
           scope.$apply();
 
@@ -75,6 +76,8 @@ function googleMap() {
 
       function setCenter() {
         map.setCenter(scope.center);
+
+
         marker.setPosition(scope.center);
 
 

@@ -1,6 +1,3 @@
-<h3>coordinates: {{postsNew.post.coordinates}}</h3>
-<h3>postcode: {{postsNew.postcode}} </h3>
-<h3>center: {{postsNew.center}} </h3>
 <section class="section">
   <div class="row">
     <div class="formBox shadow col-lg-10">
@@ -67,10 +64,10 @@
         </div>
         <div class="formRight col-lg-5">
           <label  for="title">Select location</label>
-          <input autocomplete type="text" class="input"  name="postcode" postcode="postsNew.postcode"
+          <input autocomplete type="text" class="input"  name="postcode" coordinates="postsNew.post.coordinates"
           ng-model="postsNew.post.postcode">
           <div class="marker" id="map-new">
-            <google-map center="postsNew.postcode" coordinates="postsNew.post.coordinates" ></google-map>
+            <google-map center="postsNew.post.coordinates" coordinates="postsNew.post.coordinates" ></google-map>
           </div>
           <div class="field">
             <p class="control">
