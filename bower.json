@@ -26,9 +26,14 @@
     "angular-google-places-autocomplete": "0.2.7",
     "Geolib": "geolib#^2.0.22",
     "angularjs-datepicker": "^2.1.23",
-    "smDateTimeRangePicker": "^2.0.11"
+    "smDateTimeRangePicker": "^2.0.11",
+    "angularjs-datetime-picker": "^0.1.20"
   },
   "resolutions": {
+<<<<<<< HEAD
+    "angular": ">= 1.2.0"
+=======
     "angular": "^1.6.5"
+>>>>>>> development
   }
 }
