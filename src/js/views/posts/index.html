@@ -1,146 +1,131 @@
 <!DOCTYPE html>
+
 <div class="col col-10 mainHeader">
   <h1> <span> Notitia </span></h1>
   <h2> Teaching & learning in your local area </h2>
 </div>
 
-
-
-<!-- <div class="autocomplete">
-<input autocomplete type="text" class="input"  name="postcode" postcode="postsIndex.postcode"
-ng-model="postsIndex.filtered.postcode">
-</div> -->
-
-
-<!-- FILTERING LOGIC -->
-<!-- <i class="col-1 fa fa-search" aria-hidden="true"></i> <input type="text" class=" col-10 searchBox" ng-model="postsIndex.q" placeholder="Search.... "> -->
-
-
-<div class="col-10 center overflowHidden">
-<div class="col-10 center">
-  <div class="col-lg-12 searchBox">
-    <i class="fa fa-search" aria-hidden="true"></i>
-    <input type="text" class="col-9 searchBox1" ng-model="postsIndex.q" placeholder="Search.... ">
-  </div>
-</div>
-
-<div class="col-10 filter">
-
-  <input class="hidden" type="radio" id="all" name="name" ng-model="postsIndex.postType">
-  <label for="all" class="radioSelect spaceRight ShowPagemargin">
-    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-    All
-  </label>
-
-    <div class="filterDropdown">
-      <div href="#" ng-click="showFilter = ! showFilter">
-
-      <i class="fa fa-filter spaceRight" aria-hidden="true"></i>
-        Filter<i class="fa fa-caret-down spaceLeft" aria-hidden="true"></i>
-      </div>
-
-      <div class="showFilter card shadow" ng-show="showFilter">
-
-        <input class="hidden" type="radio" id="all" name="name" ng-model="postsIndex.postType">
-        <label for="all" class="radioSelect  ShowPagemargin">
-          <i class="fa fa-ellipsis-h spaceRight" aria-hidden="true"></i>
-          All
-        </label>
-
-        <input class="hidden" type="radio" id="teaching" name="name" ng-model="postsIndex.postType" value="Teaching">
-        <label for="teaching" class="radioSelect ShowPagemargin">
-          <i class="fa fa-comments spaceRight" aria-hidden="true"></i>
-          Teaching
-        </label>
-
-        <input  class="hidden" type="radio" id="learning" name="name" ng-model="postsIndex.postType" value="Learning">
-        <label for="learning" class="radioSelect ShowPagemargint">
-          <i class="fa fa-graduation-cap spaceRight" aria-hidden="true"></i>
-          Learning
-        </label>
-
-
-        <input type="checkbox" name="name" ng-model="postsIndex.useDate">
-        <label for="date">Date</label>
-        <input placeholder="YYYY-MM-DD" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" type="text" name="name" id="date" ng-model="postsIndex.date" value="postsIndex.date" ng-disabled="!postsIndex.useDate" >
-
-
-
-        <div class="l-box">
-          <input type="checkbox" id="slider" ng-model="postsIndex.useSlider">
-          <label for="slider">Distance</label>
-          <input type="range" ng-model="postsIndex.slider" min="1" max="10" ng-disabled="!postsIndex.useSlider">
-          <h4>{{postsIndex.slider}}</h4>
-        </div>
-      </div>
+<div class="col-12 center">
+  <div class="col-10 center">
+    <div class="col-lg-12 searchBox">
+      <i class="fa fa-search" aria-hidden="true"></i>
+      <input type="text" class="col-9 searchBox1" ng-model="postsIndex.q" placeholder="Search.... ">
     </div>
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="container col-10">
+  <div class="col-10 filter overflowHidden">
     <div class="row">
+      <div class="col-12 filterDropdown">
+        <div href="#" ng-click="showFilter = !showFilter">
 
-      <div class="indexCard col-lg-4 col-md-6 col-sm-12" ng-repeat="post in postsIndex.filtered | filter: postsIndex.lowerThan('distance', postsIndex.slider)">
+          <i class="fa fa-filter spaceRight" aria-hidden="true"></i>
+          Filter<i class="fa fa-caret-down spaceLeft" aria-hidden="true"></i>
+        </div>
+
+        <div class="showFilter card shadow" ng-show="showFilter">
+
+          <input class="hidden" type="radio" id="all" name="name" ng-model="postsIndex.postType">
+          <label for="all" class="radioSelect  ShowPagemargin">
+            <i class="fa fa-ellipsis-h spaceRight" aria-hidden="true"></i>
+            All
+          </label>
+
+          <input class="hidden" type="radio" id="teaching" name="name" ng-model="postsIndex.postType" value="Teaching">
+          <label for="teaching" class="radioSelect ShowPagemargin">
+            <i class="fa fa-comments spaceRight" aria-hidden="true"></i>
+            Teaching
+          </label>
+
+          <input  class="hidden" type="radio" id="learning" name="name" ng-model="postsIndex.postType" value="Learning">
+          <label for="learning" class="radioSelect ShowPagemargint">
+            <i class="fa fa-graduation-cap spaceRight" aria-hidden="true"></i>
+            Learning
+          </label>
 
 
-        <div class="card shadow">
+          <input type="checkbox" name="name" ng-model="postsIndex.useDate">
+          <label for="date">Date</label>
+          <input placeholder="YYYY-MM-DD" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" type="text" name="name" id="date" ng-model="postsIndex.date" value="postsIndex.date" ng-disabled="!postsIndex.useDate" >
 
-          <div class="postType">
-            <p> {{ post.postType }}</p>
+
+
+          <div class="l-box">
+            <input type="checkbox" id="slider" ng-model="postsIndex.useSlider">
+            <label for="slider">Distance</label>
+            <input type="range" ng-model="postsIndex.slider" min="1" max="10" ng-disabled="!postsIndex.useSlider">
+            <h4>{{postsIndex.slider}}</h4>
           </div>
-
-          <div class="cardContent">
-
-            <div class="cardLocationAndTime">
-
-
-              <h3 class="cardTitle">{{ post.title }}</h3>
-              <div class="setHeight">
+        </div>
+      </div>
+    </div>
+    </div>
 
 
-                <p>{{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> –  <a ui-sref="profile({ id: post.createdBy.id })"> <span>{{ post.createdBy.username }}</span></a></p>
 
-                <div class="cardLocation">
-                  <distance location-a="postsIndex.geo" location-b="post.coordinates" ng-model="post.distance"></distance>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container col-10">
+      <div class="row">
+
+        <div class="indexCard col-lg-4 col-md-6 col-sm-12" ng-repeat="post in postsIndex.filtered | filter: postsIndex.lowerThan('distance', postsIndex.slider)">
+
+
+          <div class="card shadow">
+
+            <div class="postType">
+              <p> {{ post.postType }}</p>
+            </div>
+
+            <div class="cardContent">
+
+              <div class="cardLocationAndTime">
+
+
+                <h3 class="cardTitle">{{ post.title }}</h3>
+                <div class="setHeight">
+
+
+                  <p>{{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> –  <a ui-sref="profile({ id: post.createdBy.id })"> <span>{{ post.createdBy.username }}</span></a></p>
+
+                  <div class="cardLocation">
+                    <distance location-a="postsIndex.geo" location-b="post.coordinates" ng-model="post.distance"></distance>
+                  </div>
+                </div>
+
+
+                <div class="cardInfo">
+                  <h4>date</h4>  <p>{{ post.date | date }}</p>
+
+                </div>
+
+                <div class="cardInfo">
+                  <h4>time</h4>  <p>{{ post.time }}</p>
                 </div>
               </div>
-
-
-            <div class="cardInfo">
-              <h4>date</h4>  <p>{{ post.date | date }}</p>
-
             </div>
 
-              <div class="cardInfo">
-                <h4>time</h4>  <p>{{ post.time }}</p>
-              </div>
-            </div>
+
+            <button class="button primary" ui-sref="postsShow({ id: post.id })">View</button>
+
+
+
           </div>
-
-
-          <button class="button primary" ui-sref="postsShow({ id: post.id })">View</button>
-
-
-
         </div>
       </div>
     </div>
-  </div>
 
 
-  <div class="marker" id="map-new" hidden>
-    <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" geo="postsIndex.geo" ></google-map>
+    <div class="marker" id="map-new" hidden>
+      <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" geo="postsIndex.geo" ></google-map>
 
-  </div>
+    </div>
