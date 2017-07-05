@@ -12,8 +12,8 @@ ng-model="postsIndex.filtered.postcode">
 </div> -->
 
 
-  <!-- FILTERING LOGIC -->
-  <!-- <i class="col-1 fa fa-search" aria-hidden="true"></i> <input type="text" class=" col-10 searchBox" ng-model="postsIndex.q" placeholder="Search.... "> -->
+<!-- FILTERING LOGIC -->
+<!-- <i class="col-1 fa fa-search" aria-hidden="true"></i> <input type="text" class=" col-10 searchBox" ng-model="postsIndex.q" placeholder="Search.... "> -->
 
 <div class="col-10 center">
   <div class="col-lg-12 searchBox">
@@ -48,100 +48,56 @@ ng-model="postsIndex.filtered.postcode">
 
 
 
-    <div class="l-box">
-      <input type="checkbox" id="slider" ng-model="postsIndex.useSlider">
-      <label for="slider">Distance</label>
-      <input type="range" ng-model="postsIndex.slider" min="1" max="10" ng-disabled="!postsIndex.useSlider">
-      <h4>{{postsIndex.slider}}</h4>
-    </div>
+  <div class="l-box">
+    <input type="checkbox" id="slider" ng-model="postsIndex.useSlider">
+    <label for="slider">Distance</label>
+    <input type="range" ng-model="postsIndex.slider" min="1" max="10" ng-disabled="!postsIndex.useSlider">
+    <h4>{{postsIndex.slider}}</h4>
+  </div>
 
 
 
-    <!-- <label for="distance">Nearest to you
+  <!-- <label for="distance">Nearest to you
   <input type="checkbox" id="distance" ng-model="postsIndex.distance">
-    </label> -->
-  <!-- FILTERING LOGIC -->
+</label> -->
+<!-- FILTERING LOGIC -->
 
-  <!-- <input ng-model="searchText[selectedSearch]" ng-init="searchText = {}; selectedSearch=''" placeholder="Search...more specifically" />
-  <input type="radio" ng-model="selectedSearch" value="postType" > Post Type
-  <input type="radio" ng-model="selectedSearch" value="date" > Date
-  <input type="radio" ng-model="selectedSearch" value="title"> Title -->
+<!-- <input ng-model="searchText[selectedSearch]" ng-init="searchText = {}; selectedSearch=''" placeholder="Search...more specifically" />
+<input type="radio" ng-model="selectedSearch" value="postType" > Post Type
+<input type="radio" ng-model="selectedSearch" value="date" > Date
+<input type="radio" ng-model="selectedSearch" value="title"> Title -->
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 <div class="container col-10">
   <div class="row">
-
-<<<<<<< HEAD
-    <div class="indexCard col-lg-4 col-md-6 col-sm-12" ng-repeat="post in postsIndex.filtered" data-id="{{post.id}}">
-=======
     <div class="indexCard col-lg-4 col-md-6 col-sm-12" ng-repeat="post in postsIndex.filtered | filter: postsIndex.lowerThan('distance', postsIndex.slider)">
-
->>>>>>> distance-filter
-
       <div class="card shadow">
-
-      <div class="postType">
-        <p> {{ post.postType }}</p>
-      </div>
-
-      <div class="cardContent">
-
-        <div class="cardLocationAndTime">
-
-
-          <h3 class="cardTitle">{{ post.title }}</h3>
-          <div class="setHeight">
-
-<<<<<<< HEAD
-                <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> – <span>{{ post.createdBy.username }} </span> </p>
-                <div class="cardLocation">
+        <div class="postType">
+          <p> {{ post.postType }}</p>
+        </div>
+        <div class="cardContent">
+          <div class="cardLocationAndTime">
+            <h3 class="cardTitle">{{ post.title }}</h3>
+            <div class="setHeight">
+              <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> – <span>{{ post.createdBy.username }} </span> </p>
+              <div class="cardLocation">
                 <p>How close to you?</p>
                 <distance location-a="postsIndex.geo" location-b="post.coordinates" ng-model="post.distance"></distance>
-=======
-
-
-            <p>{{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> – <span> <a ui-sref="profile({ id: post.createdBy.id })"> {{ post.createdBy.username }}</a></span></p>
-
-            <div class="cardLocation">
-
-              <distance location-a="postsIndex.geo" location-b="post.coordinates" ng-model="post.distance"></distance>
-              <p>here{{post.distance}}</p>
-
-
-<<<<<<< HEAD
->>>>>>> development
+                <p>{{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> – <span> <a ui-sref="profile({ id: post.createdBy.id })"> {{ post.createdBy.username }}</a></span></p>
+                <div class="cardLocation">
+                  <distance location-a="postsIndex.geo" location-b="post.coordinates" ng-model="post.distance"></distance>
                 </div>
-=======
-            </div>
->>>>>>> distance-filter
-
-            <div class="cardInfo">
-              <h4>date</h4>  <p>{{ post.date | date}}</p>
-            </div>
-
-            <div class="cardInfo">
-              <h4>time</h4>  <p>{{ post.time }}</p>
+              </div>
+              <div class="cardInfo">
+                <h4>date</h4>  <p>{{ post.date | date}}</p>
+              </div>
+              <div class="cardInfo">
+                <h4>time</h4>  <p>{{ post.time }}</p>
+              </div>
             </div>
           </div>
-        </div>
-
-
-        <button class="button primary" ui-sref="postsShow({ id: post.id })">View</button>
-
-
-
+          <button class="button primary" ui-sref="postsShow({ id: post.id })">View</button>
         </div>
       </div>
     </div>
