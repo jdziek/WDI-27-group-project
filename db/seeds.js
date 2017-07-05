@@ -20,8 +20,6 @@ User
   email: 'simonrramor@gmail.com',
   password: 'password',
   passwordConfirmation: 'password',
-  postcode: 'ch7 6ad',
-  travelDistance: '10',
   jobTitle: 'Developer',
   bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.'
 },{
@@ -32,8 +30,6 @@ User
   email: 'james@gmail.com',
   password: 'password',
   passwordConfirmation: 'password',
-  postcode: 'ch7 6ad',
-  travelDistance: '10',
   jobTitle: 'Developer',
   bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.'
 },{
@@ -44,8 +40,6 @@ User
   email: 'Jakub@gmail.com',
   password: 'password',
   passwordConfirmation: 'password',
-  postcode: 'ch7 6ad',
-  travelDistance: '10',
   jobTitle: 'Developer',
   bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.'
 
@@ -59,8 +53,7 @@ User
     info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.',
     location: 'Somewhere',
     date: '12/12/2018',
-    time: 1230,
-    image: 'an Image',
+    time: '12:30pm',
     coordinates: { lat: 52.5221596, lng: -0.0521308 },
     createdBy: users[1]
   },{
@@ -69,10 +62,8 @@ User
     info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.',
     location: 'Somewhere',
     date: '12/12/2018',
-    time: 1240,
-    image: 'an Image',
+    time: '12:40pm',
     coordinates: { lat: 51.7221596, lng: -0.0521308 },
-    categories: ['Art'],
     createdBy: users[1]
   },{
     postType: 'Learning',
@@ -80,8 +71,7 @@ User
     info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.',
     location: 'Somewhere',
     date: '12/12/2018',
-    time: 1915,
-    image: 'an Image',
+    time: '19:15pm',
     coordinates: { lat: 51.5221596, lng: -0.1521308 },
     createdBy: users[0]
   },{
@@ -90,7 +80,7 @@ User
     info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.',
     location: 'Somewhere',
     date: '12/12/2018',
-    time: 1915,
+    time: '19:15pm',
     image: 'an Image',
     coordinates: { lat: 51.5221596, lng: -0.0521308 },
     createdBy: users[1]
@@ -100,8 +90,7 @@ User
     info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.',
     location: 'Somewhere',
     date: '12/12/2018',
-    time: 1915,
-    image: 'an Image',
+    time: '19:15',
     coordinates: { lat: 50.5221596, lng: -0.1521308 },
     createdBy: users[2]
   },{
@@ -110,8 +99,7 @@ User
     info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.',
     location: 'Somewhere',
     date: '12/12/2018',
-    time: 1915,
-    image: 'an Image',
+    time: '19:15pm',
     coordinates: { lat: 51.5221596, lng: -0.0521308 },
     createdBy: users[0]
   }])
