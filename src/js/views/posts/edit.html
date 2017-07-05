@@ -52,7 +52,7 @@
           <p class="control">
             <label  for="time">Time</label>
           </p>
-          <input type="number" class="input" id="time" name="time" ng-model="postsEdit.post.time" required>
+          <input pattern="(1[012]|[1-9]):[0-5][0-9](\\s)?(?i)(am|pm)" type="text" class="input" id="time" name="time" ng-model="postsEdit.post.time" required>
           <div ng-messages="postsEdit.postForm.time.$error" ng-show="postsEdit.postForm.$submitted || postsEdit.postForm.time.$touched">
             <div ng-message="required" class="notification">Time is required</div>
           </div>

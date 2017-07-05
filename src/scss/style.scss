@@ -70,6 +70,12 @@ strong{
   cursor: pointer;
 }
 
+.card {
+  margin: 16px 16px;
+  background-color: white;
+  border-radius: 4px;
+}
+
 
 .shadow{
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -270,29 +276,41 @@ nav a.before:hover:before,a.after:hover:after{
 
 .filter{
   height: auto;
-  margin: 48px auto;
+  margin: 16px auto;
+}
+
+.filterDropdown{
+  margin-top: 16px;
+}
+
+.showFilter{
+  margin: 24px 0px;
+  padding: 16px;
+}
+
+.overflowHidden{
+  overflow: hidden;
 }
 
 .radioSelect{
-  padding: 14px 0px;
-  text-align: center;
+  padding: 8px 16px;
   color: grey;
-  border: 2px solid grey;
+  border: 1px solid grey;
   border-radius: 4px;
-  height: 80px;
-  width: 80px;
-  margin: 24px 16px 0px 0px;
+  height: 36px;
+  width: 140px;
   &.radioSelect:hover{
-    color: $highLight;
-    border: 2px solid $highLight;
+    background-color: $highLight;
+    color: white;
+    border: 1px solid $highLight;
   }
 }
 
 input[type=radio]:checked + label {
-  color: $highLight;
-  border: 2px solid $highLight;
+  background-color: $highLight;
+  color: white;
+  border: 1px solid $highLight;
 }
-
 // ICON STYLES
 
 
@@ -305,13 +323,12 @@ input[type=radio]:checked + label {
   padding-right: 16px;
 }
 
+.spaceLeft{
+  padding-left: 16px;
+}
+
 // Index stuff
 
-.card {
-  margin: 16px 16px;
-  background-color: white;
-  border-radius: 4px;
-}
 
 .indexCard {
   display: flex;
@@ -361,7 +378,6 @@ input[type=radio]:checked + label {
 }
 
 //FORM SUFF
-
 
 
 select {
@@ -427,11 +443,6 @@ input:-webkit-autofill {
     border: 1px solid $highLight;
   }
 }
-//
-// textarea{
-//   border-radius: 4px;
-//   margin: 16px 0px;
-// }
 
 textarea{
   width: 100%;
@@ -587,6 +598,16 @@ textarea{
 .commentBox{
   outline: none
 }
+
+
+.lessMargin{
+  margin:16px;
+}
+
+
+
+
+
 
 
 @media only screen and (max-width: 760px) {

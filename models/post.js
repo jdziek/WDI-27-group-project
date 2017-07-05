@@ -24,7 +24,7 @@ const postSchema = new mongoose.Schema({
   info: String,
   location: String,
   date: Date,
-  time: Date,
+  time: String,
   image: String,
   coordinates: { lat: Number, lng: Number },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
@@ -34,12 +34,6 @@ const postSchema = new mongoose.Schema({
 }, {
   timestamps: true
 });
-postSchema
-.virtual('timeAgo')
-  .get(function getImageSRC() {
-    return timeAgo(this.createdAt);
-  });
-
 postSchema
 .virtual('timeAgo')
   .get(function getImageSRC() {

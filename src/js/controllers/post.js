@@ -36,11 +36,6 @@ function PostsIndexCtrl(Post, filterFilter, $scope, orderByFilter) {
     const params = { title: vm.q, postType: vm.postType};
 
     if(vm.useDate) params.date = vm.date;
-    console.log(vm.useDate);
-    console.log(vm.date);
-
-
-
 
     vm.filtered = filterFilter(vm.all, params);
 
