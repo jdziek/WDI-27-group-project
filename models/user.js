@@ -16,21 +16,16 @@ commentSchema
   });
 
 const userSchema = new mongoose.Schema({
-  firstName: { type: String },
-  lastName: { type: String },
+  firstName: { type: String},
+  lastName: { type: String},
   image: { type: String },
-  username: { type: String },
-  email: { type: String },
-  password: { type: String },
-  postcode: { type: String },
-  travelDistance: { type: Number },
-  jobTitle: { type: String },
-  bio: { type: String },
+  username: { type: String},
+  email: { type: String},
+  password: { type: String},
+  postcode: { type: String},
+  jobTitle: { type: String},
+  bio: { type: String},
   facebookId: { type: Number },
-  gender: {type: String},
-  age: { type: Number },
-  about: { type: String},
-  work: { type: String },
   comments: [ commentSchema ]
 });
 
