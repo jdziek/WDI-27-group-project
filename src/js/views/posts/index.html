@@ -109,14 +109,12 @@ ng-model="postsIndex.filtered.postcode">
                 </div>
 
                 <div class="cardInfo">
-
-                  <h4>Date</h4>  <p>{{ post.date | date:"MM/dd/yyyy" }}</p>
+                  <h4>date</h4>  <p>{{ post.date | date}}</p>
                 </div>
 
                 <div class="cardInfo">
-                  <h4>Time</h4>  <p>{{ post.time | date :'HH:mm' }}</p>
+                  <h4>time</h4>  <p>{{ post.time }}</p>
                 </div>
-
               </div>
             </div>
 
@@ -133,6 +131,6 @@ ng-model="postsIndex.filtered.postcode">
 
 
   <div class="marker" id="map-new" hidden>
-    <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" geo="postsIndex.geo" coordinates="postsNew.post.coordinates" postcode="postsNew.post.postcode"></google-map>
+    <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" geo="postsIndex.geo" ></google-map>
 
   </div>

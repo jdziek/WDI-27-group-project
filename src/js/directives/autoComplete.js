@@ -2,8 +2,8 @@
 /* global google */
 
 angular
-  .module('groupProject')
-  .directive('autocomplete', autocomplete);
+.module('groupProject')
+.directive('autocomplete', autocomplete);
 
 autocomplete.$inject = [];
 function autocomplete() {
@@ -27,7 +27,11 @@ function autocomplete() {
 
 
         scope.postcode = place.geometry.location.toJSON();
-      
+
+
+
+
+        console.log(scope.postcode);
 
 
         model.$setViewValue(element.val());
