@@ -16,13 +16,13 @@
 
     <div class="postTime">
       <h3> Date </h3>
-      <h3> {{postsShow.post.date}} </h3>
+      <h3> {{postsShow.post.date | date}} </h3>
     </div>
 
 
     <div class="postTime">
-      <h3> Date </h3>
-      <h3> {{postsShow.post.time}} </h3>
+      <h3> Time</h3>
+      <h3> {{postsShow.post.time }} </h3>
     </div>
     <div class="postInfo">
       <p>{{postsShow.post.info}}</p>
@@ -34,7 +34,7 @@
     <div class="geo-code"><h3>
       <reverse-geocode coordinates="postsShow.post.coordinates"/></h3>
     </div>
-    <a class="button primary" ui-sref="postsEdit({ id: postsShow.post.id})">Edit</a>
+    <a ng-if="main.currentUserId === postsShow.post.createdBy.id" class="button primary" ui-sref="postsEdit({ id: postsShow.post.id})">Edit</a>
 
     <div class="commentSection">
       <ul>
