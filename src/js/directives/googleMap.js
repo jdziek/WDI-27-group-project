@@ -11,8 +11,7 @@ function googleMap() {
     template: '<div class="map"> GOOGLE MAP HERE</div>',
     scope: {
       center: '=',
-      coordinates: '=',
-      geo: '='
+      coordinates: '='
     },
     link(scope, element) {
       let map = null;
@@ -69,7 +68,7 @@ function googleMap() {
 
               scope.infoGeoLoc = infoWindow.getPosition();
               scope.geo = { lat: scope.infoGeoLoc.lat(), lng: scope.infoGeoLoc.lng() };
-      
+
               scope.$apply();
 
 
