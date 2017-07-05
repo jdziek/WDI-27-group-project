@@ -25,70 +25,59 @@ function googleMap() {
 
 
       initMap();
-      var infoWindow;
+
       function initMap() {
-        map = new google.maps.Map(element[0], {
+        var mapOptions = {
           zoom: 12,
           scrollwheel: false,
           disableDoubleClickZoom: true,
-          styles: style1
-        });
+          styles: style1,
+          center: {lat: 51.5074, lng: 0.1278}
+        };
 
+        map = new google.maps.Map(element[0], mapOptions);
         marker = new google.maps.Marker({
           map: map,
           icon: 'http://i.imgur.com/7aCJw6L.png?1'
         });
-        if(document.getElementById('map-new').classList.contains('marker')) {
-          google.maps.event.addListener(map, 'click', function(event) {
-
-            marker.setPosition(event.latLng);
-            scope.center = marker.getPosition();
-            scope.coordinates = marker.getPosition();
-
-
-
-            console.log(scope.coordinates.lat());
-            scope.$apply();
-            // console.log(event.latLng.lat());
-            // console.log(event.latLng.lng());
-          });
-        }
-        function geoLoc() {
-          infoWindow = new google.maps.InfoWindow();
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-              var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-              };
-
-              infoWindow.setPosition(pos);
-              infoWindow.setContent('Your location. ');
-              infoWindow.open(map);
-              map.setCenter(pos);
-
-              scope.infoGeoLoc = infoWindow.getPosition();
-              scope.geo = { lat: scope.infoGeoLoc.lat(), lng: scope.infoGeoLoc.lng() };
-      
-              scope.$apply();
-
-
-
-            }, function() {
-              handleLocationError(true, infoWindow, map.getCenter());
-            });
-          }
-
-        }
-        scope.$watch('geo',  geoLoc);
-
 
       }
+      if(document.getElementById('map-new').classList.contains('marker')) {
+        google.maps.event.addListener(map, 'click', function(event) {
+          marker.setPosition(event.latLng);
+          scope.center = marker.getPosition();
+          scope.coordinates = marker.getPosition();
+          console.log(scope.coordinates.lat());
+          scope.$apply();
+        });
+      }
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+          map.setZoom(12);
+
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          marker.setPosition(pos);
+          map.setCenter(pos);
+          scope.infoGeoLoc = marker.getPosition();
+          scope.geo = { lat: scope.infoGeoLoc.lat(), lng: scope.infoGeoLoc.lng() };///doesnt like it but it works necesaryfor distance
+
+          scope.$apply();
 
 
+
+        });
+      }
 
       function setCenter() {
         map.setCenter(scope.center);
+
+
         marker.setPosition(scope.center);
 
 
@@ -96,7 +85,6 @@ function googleMap() {
       }
 
       function destroyMap() {
-        console.log('MEEEEOWWWWW!!!!');
         marker.setMap(null);
         marker = null;
         map = null;
@@ -109,85 +97,87 @@ function googleMap() {
 
 
 }
+
+
 const style1 = [
   {
-    "featureType": "administrative",
-    "elementType": "all",
-    "stylers": [
+    'featureType': 'administrative',
+    'elementType': 'all',
+    'stylers': [
       {
-        "visibility": "simplified"
+        'visibility': 'simplified'
       }
     ]
   },
   {
-    "featureType": "landscape",
-    "elementType": "geometry",
-    "stylers": [
+    'featureType': 'landscape',
+    'elementType': 'geometry',
+    'stylers': [
       {
-        "visibility": "simplified"
+        'visibility': 'simplified'
       },
       {
-        "color": "#fcfcfc"
+        'color': '#fcfcfc'
       }
     ]
   },
   {
-    "featureType": "poi",
-    "elementType": "geometry",
-    "stylers": [
+    'featureType': 'poi',
+    'elementType': 'geometry',
+    'stylers': [
       {
-        "visibility": "simplified"
+        'visibility': 'simplified'
       },
       {
-        "color": "#fcfcfc"
+        'color': '#fcfcfc'
       }
     ]
   },
   {
-    "featureType": "road.highway",
-    "elementType": "geometry",
-    "stylers": [
+    'featureType': 'road.highway',
+    'elementType': 'geometry',
+    'stylers': [
       {
-        "visibility": "simplified"
+        'visibility': 'simplified'
       },
       {
-        "color": "#dddddd"
+        'color': '#dddddd'
       }
     ]
   },
   {
-    "featureType": "road.arterial",
-    "elementType": "geometry",
-    "stylers": [
+    'featureType': 'road.arterial',
+    'elementType': 'geometry',
+    'stylers': [
       {
-        "visibility": "simplified"
+        'visibility': 'simplified'
       },
       {
-        "color": "#dddddd"
+        'color': '#dddddd'
       }
     ]
   },
   {
-    "featureType": "road.local",
-    "elementType": "geometry",
-    "stylers": [
+    'featureType': 'road.local',
+    'elementType': 'geometry',
+    'stylers': [
       {
-        "visibility": "simplified"
+        'visibility': 'simplified'
       },
       {
-        "color": "#eeeeee"
+        'color': '#eeeeee'
       }
     ]
   },
   {
-    "featureType": "water",
-    "elementType": "geometry",
-    "stylers": [
+    'featureType': 'water',
+    'elementType': 'geometry',
+    'stylers': [
       {
-        "visibility": "simplified"
+        'visibility': 'simplified'
       },
       {
-        "color": "#dddddd"
+        'color': '#dddddd'
       }
     ]
   }

@@ -70,6 +70,12 @@ strong{
   cursor: pointer;
 }
 
+.card {
+  margin: 16px 16px;
+  background-color: white;
+  border-radius: 4px;
+}
+
 
 .shadow{
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -278,8 +284,10 @@ nav a.before:hover:before,a.after:hover:after{
 }
 
 .showFilter{
-  padding: 16px;
+  margin: 24px 0px;
+  padding: 0px 16px;
 }
+
 
 .overflowHidden{
   overflow: hidden;
@@ -322,11 +330,6 @@ input[type=radio]:checked + label {
 
 // Index stuff
 
-.card {
-  margin: 16px 16px;
-  background-color: white;
-  border-radius: 4px;
-}
 
 .indexCard {
   display: flex;
