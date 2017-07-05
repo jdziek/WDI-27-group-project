@@ -270,9 +270,20 @@ nav a.before:hover:before,a.after:hover:after{
 
 .filter{
   height: auto;
-  margin: 48px auto;
+  margin: 16px auto;
 }
 
+.filterDropdown{
+  margin-top: 16px;
+}
+
+.showFilter{
+  padding: 16px;
+}
+
+.overflowHidden{
+  overflow: hidden;
+}
 
 .radioSelect{
   padding: 8px 16px;
@@ -293,7 +304,6 @@ input[type=radio]:checked + label {
   color: white;
   border: 1px solid $highLight;
 }
-
 // ICON STYLES
 
 
@@ -304,6 +314,10 @@ input[type=radio]:checked + label {
 
 .spaceRight{
   padding-right: 16px;
+}
+
+.spaceLeft{
+  padding-left: 16px;
 }
 
 // Index stuff
@@ -363,11 +377,6 @@ input[type=radio]:checked + label {
 
 //FORM SUFF
 
-.pill{
-  background-color: $highLight;
-  padding: 8px;
-  border-radius: 20px;
-}
 
 select {
   height: 48px;
