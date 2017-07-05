@@ -1,8 +1,8 @@
 angular
   .module('groupProject')
   .factory('User', User)
-  .factory('UserComment', UserComment);
-    // .factory('UserEdit', UserEdit);
+  .factory('UserComment', UserComment)
+  .factory('UserEdit', UserEdit);
 
 User.$inject = ['$resource'];
 function User($resource) {
@@ -18,7 +18,7 @@ function UserComment($resource) {
 
 UserEdit.$inject = [ '$resource'];
 function UserEdit($resource) {
-  return $resource('/api/users/:id/edit', { id: '@id' }, {
+  return new $resource('/api/users/:id/edit', { id: '@id' }, {
     update: { method: 'PUT' }
   });
 }

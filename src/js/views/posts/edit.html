@@ -3,6 +3,8 @@
   <div class="row">
     <div class="new-form col-lg-4">
       <form ng-submit="postsEdit.update()" name="postsEdit.postForm" novalidate>
+
+
         <div class="field">
           <p class="control">
             <label  for="postType">Post Type</label>
@@ -12,6 +14,8 @@
             <div ng-message="required" class="notification">Post type is required.</div>
           </div>
         </div>
+
+
         <div class="field">
           <p class="control">
             <label  for="title">Title</label>
@@ -21,24 +25,30 @@
             <div ng-message="required" class="notification">Title is required.</div>
           </div>
         </div>
+
+
         <div class="field">
           <p class="control">
-            <label  for="location">Location</label>
+            <label  for="info">Info</label>
           </p>
-          <input type="text" class="input" id="info" name="info" ng-model="postsEdit.post.info" required>
+          <textarea type="text" class="input" id="info" name="info" ng-model="postsEdit.post.info" required></textarea>
           <div ng-messages="postsEdit.postForm.info.$error" ng-show="postsEdit.postForm.$submitted || postsEdit.postForm.info.$touched">
             <div ng-message="required" class="notification">Info is required</div>
           </div>
         </div>
+
+
         <div class="field">
           <p class="control">
-            <label  for="date">Date</label>
+            <label for="date">Date</label>
           </p>
           <input type="date" class="input" id="date" name="date" ng-model="postsEdit.post.date" required>
           <div ng-messages="postsEdit.postForm.date.$error" ng-show="postsEdit.postForm.$submitted || postsEdit.postForm.date.$touched">
             <div ng-message="required" class="notification">Date is required</div>
           </div>
         </div>
+
+
         <div class="field">
           <p class="control">
             <label  for="time">Time</label>
@@ -48,11 +58,7 @@
             <div ng-message="required" class="notification">Time is required</div>
           </div>
         </div>
-        <div class="form-group">
-          <label for="image">Image</label>
-          <input base64 type="file" name="image" id="image" ng-model="postsEdit.post.base64" class="form-control">
-          <img ng-src="{{ postsEdit.post.base64 }}">
-        </div>
+
 
         <div id="map-new" class="marker">
           <google-map center="postsEdit.post.coordinates" coordinates="postsEdit.post.coordinates"></google-map>
@@ -60,7 +66,7 @@
 
         <div class="field">
           <p class="control">
-            <input type="submit" class="button is-primary is-fullwidth" value="Add">
+            <input type="submit" class="button is-primary is-fullwidth" value="Update">
           </p>
         </div>
       </form>

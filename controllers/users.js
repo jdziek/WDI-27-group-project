@@ -14,6 +14,7 @@ function showRoute(req, res, next) {
 }
 
 function userUpdate(req, res, next) {
+  if(req.file) req.body.image = req.file.key;
   User
     .findById(req.params.id)
     .exec()
@@ -28,8 +29,6 @@ function userUpdate(req, res, next) {
     .then((user) => res.json(user))
     .catch(next);
 }
-
-
 
 function userDelete(req, res, next) {
   User
