@@ -6,7 +6,7 @@ angular
 Post.$inject = ['$resource'];
 
 function Post($resource) {
-  return  $resource('/api/posts/:id',{ id: '@_id'}, {
+  return  new $resource('/api/posts/:id',{ id: '@_id'}, {
     'update': { method: 'PUT'}
   });
 }

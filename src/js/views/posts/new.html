@@ -30,7 +30,7 @@
               <label for="location">Title</label>
             </p>
 
-            <input type="text" placeholder="Title of your post"class="input col-10" id="title" name="title" ng-model="postsNew.post.title" required>
+            <input type="text" placeholder="Title of your post" class="input col-10" id="title" name="title" ng-model="postsNew.post.title" required >
 
             <div ng-messages="postsNew.postForm.title.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.title.$touched">
               <div ng-message="required" class="notificationThin ">Title is required.</div>

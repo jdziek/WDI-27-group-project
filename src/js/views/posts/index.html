@@ -5,7 +5,7 @@
   <h2> Teaching & learning in your local area </h2>
 </div>
 
-<div class="col-12 center">
+<div class="col-12 center spaceBottom">
   <div class="col-10 center">
     <div class="col-lg-12 searchBox">
       <i class="fa fa-search" aria-hidden="true"></i>
@@ -27,10 +27,11 @@
 
         <div class="showFilter card shadow" ng-show="showFilter">
 
+          <!-- <h3> Filter by </h3> -->
           <input class="hidden" type="radio" id="all" name="name" ng-model="postsIndex.postType">
           <label for="all" class="radioSelect  ShowPagemargin">
             <i class="fa fa-ellipsis-h spaceRight" aria-hidden="true"></i>
-            All
+            All Posts
           </label>
 
           <input class="hidden" type="radio" id="teaching" name="name" ng-model="postsIndex.postType" value="Teaching">
@@ -45,93 +46,128 @@
             Learning
           </label>
 
-          <!-- <input type="checkbox" name="name" ng-model="postsIndex.useDate"> -->
-          <label for="date">Date</label>
-          <input placeholder="YYYY-MM-DD" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" type="text" name="name" id="date" ng-model="postsIndex.date" value="postsIndex.date" ng-disabled="postsIndex.useDate" >
+
+
+
+
 
           <div class="l-box">
-
-            <input type="checkbox" id="slider" ng-model="postsIndex.useSlider">
-
-            <label for="slider">Distance</label>
-
-            <input type="range" ng-click="postsIndex.useSlider" ng-model="postsIndex.slider" min="1" max="10" ng-disabled="!postsIndex.useSlider">
-            <h4>{{postsIndex.slider}}</h4>
-          </div>
+            <div class="datePickerBox">
 
 
+              <input type="checkbox" id="date" name="date" ng-click="datePicker = !datePicker" ng-model="postsIndex.useDate">
 
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="container col-10">
-    <div class="row">
-
-      <div class="indexCard col-lg-4 col-md-6 col-sm-12" ng-repeat="post in postsIndex.filtered | filter: postsIndex.lowerThan('distance', postsIndex.slider)">
-
-
-        <div class="card shadow">
-
-          <div class="postType">
-            <p> {{ post.postType }}</p>
-          </div>
-
-          <div class="cardContent">
-
-            <div class="cardLocationAndTime">
-
-
-              <h3 class="cardTitle">{{ post.title }}</h3>
-              <div class="setHeight">
-
-
-                <p>{{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> –  <a ui-sref="profile({ id: post.createdBy.id })"> <span>{{ post.createdBy.username }}</span></a></p>
-
-                <div class="cardLocation">
-                  <distance location-a="postsIndex.geo" location-b="post.coordinates" ng-model="post.distance"></distance>
+              <label for="date" class="datePickerLabel">
+                <div class="checkBox">
+                  <i class="fa fa-calendar-plus-o " aria-hidden="true"></i>
                 </div>
-              </div>
+                <div class="checkboxLabel"> Filter by date </div>
+              </label>
 
-
-              <div class="cardInfo">
-                <h4>date</h4>  <p>{{ post.date | date }}</p>
-
-              </div>
-
-              <div class="cardInfo">
-                <h4>time</h4>  <p>{{ post.time }}</p>
+              <div class="datePicker controll field" ng-show="datePicker">
+                <input placeholder="YYYY-MM-DD" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" type="text" name="date" ng-model="postsIndex.date" value="postsIndex.date" ng-disabled="!postsIndex.useDate" >
               </div>
             </div>
+
+            <input type="checkbox" id="slider" ng-click="slideFilter = !slideFilter" ng-model="postsIndex.useSlider">
+
+            <label for="slider" class="checkboxLabel">
+              <div class="checkBox">
+                <i class="fa fa-compass" aria-hidden="true"></i>
+              </div>
+              <div class="checkboxLabel"> Filter by Distance </div>
+            </label>
+
+
+            <div class="col col-12 slideFilter" ng-show="slideFilter">
+              <div class="row">
+                <div class="col-8">
+                  <input type="range" class="col-12" ng-click="postsIndex.useSlider" ng-model="postsIndex.slider" min="1" max="10" ng-disabled="!postsIndex.useSlider">
+                </div>
+
+                <div class="col-2 sliderInfo">
+                  {{postsIndex.slider}} km from you
+                </div>
+
+              </div>
+            </div>
+
           </div>
-
-
-          <button class="button primary" ui-sref="postsShow({ id: post.id })">View</button>
-
-
-
         </div>
+
+
+
+
       </div>
     </div>
   </div>
+</div>
 
 
-  <div class="marker" id="map-new" hidden>
-    <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" geo="postsIndex.geo" ></google-map>
 
+
+
+
+
+
+
+
+
+
+
+
+<div class="container col-10">
+  <div class="row">
+
+    <div class="indexCard col-lg-4 col-md-6 col-sm-12" ng-repeat="post in postsIndex.filtered | filter: postsIndex.lowerThan('distance', postsIndex.slider)">
+
+
+      <div class="card shadow">
+
+        <div class="postType">
+          <p> {{ post.postType }}</p>
+        </div>
+
+        <div class="cardContent">
+
+          <div class="cardLocationAndTime">
+
+
+            <h3 class="cardTitle">{{ post.title }}</h3>
+            <div class="setHeight">
+
+
+              <p>{{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> –  <a ui-sref="profile({ id: post.createdBy.id })"> <span>{{ post.createdBy.username }}</span></a></p>
+
+              <div class="cardLocation">
+                <distance location-a="postsIndex.geo" location-b="post.coordinates" ng-model="post.distance"></distance>
+              </div>
+            </div>
+
+
+            <div class="cardInfo">
+              <h4>date</h4>  <p>{{ post.date | date }}</p>
+
+            </div>
+
+            <div class="cardInfo">
+              <h4>time</h4>  <p>{{ post.time }}</p>
+            </div>
+          </div>
+        </div>
+
+
+        <button class="button primary" ui-sref="postsShow({ id: post.id })">View</button>
+
+
+
+      </div>
+    </div>
   </div>
+</div>
+
+
+<div class="marker" id="map-new" hidden>
+  <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" geo="postsIndex.geo" ></google-map>
+
+</div>
