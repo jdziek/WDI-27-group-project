@@ -210,24 +210,68 @@ nav a.before:hover:before,a.after:hover:after{
 
 .search {
   background-color: white;
-  padding: 0px 24px;
   margin: 62px auto;
 }
 
 .searchBox{
+  padding: 8px 0px;
   border: none;
   font-size: 32px;
   color: $highLight;
   border-bottom: 2px solid $highLight;
-  margin: 24px;
   &.searchBox:focus {
+    outline:0;
+  }
+}
+
+.searchBox1{
+  border: none;
+  font-size: 32px;
+  color: $highLight;
+  margin: 0 auto;
+  &.searchBox1:focus {
     outline:0;
   }
 }
 
 .fa-search{
   color: $highLight;
-  font-size: 32px;
+  font-size: 28px;
+}
+
+.hidden{
+  position: absolute;
+  left: -9999px;
+}
+
+.filter{
+  height: auto;
+  margin: 48px auto;
+}
+
+.radioSelect{
+  padding: 14px 0px;
+  text-align: center;
+  color: grey;
+  border: 2px solid grey;
+  border-radius: 4px;
+  height: 80px;
+  width: 80px;
+  margin: 24px 16px 0px 0px;
+  &.radioSelect:hover{
+    color: $highLight;
+    border: 2px solid $highLight;
+  }
+}
+
+input[type=radio]:checked + label {
+  color: $highLight;
+  border: 2px solid $highLight;
+}
+
+
+.large {
+  font-size: 30px
 }
 
 // Index stuff
