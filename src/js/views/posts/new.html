@@ -35,19 +35,8 @@
               <div ng-message="required" class="notificationThin ">Title is required.</div>
             </div>
           </div>
-          <div class="field">
-            <p class="control">
-              <label for="location">Catagories</label>
-            </p>
-            <input type="text" name="categories" class="input col-11" ng-model="postsNew.post.categories" placeholder="Enter category here...">
-            <!-- <label for="Art">Categories</label> -->
-            <p>{{ postNew.post.categories}}</p>
-          </div>
-          <input type="text" class="input col-11" id="location" name="location" ng-model="postsNew.post.location" required>
-          <div ng-messages="postsNew.postForm.location.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.location.$touched">
-            <div ng-message="required" class="notificationThin">Location is required.</div>
-          </div>
-          <div class="field">
+
+          <div class="field fieldTogether">
             <p class="control">
               <label for="date">Date</label>
             </p>
@@ -58,28 +47,36 @@
           </div>
 
 
-            <div class="field fieldTogether">
-              <p class="control">
-                <label  for="time">Time</label>
-              </p>
-              <input placeholder="E.g. 10:30am" pattern="(1[012]|[1-9]):[0-5][0-9](\\s)?(?i)(am|pm)" id="time" type="text" class="input" name="time" ng-model="postsNew.post.time" required>
+          <div class="field fieldTogether">
+            <p class="control">
+              <label  for="time">Time</label>
+            </p>
+            <input placeholder="E.g. 10:30am" pattern="(1[012]|[1-9]):[0-5][0-9](\\s)?(?i)(am|pm)" id="time" type="text" class="input" name="time" ng-model="postsNew.post.time" required>
 
             <div ng-messages="postsNew.postForm.time.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.time.$touched">
               <div ng-message="required" class="notificationThin">Time is required</div>
             </div>
           </div>
-        </div>
-        <div class="formRight col-lg-5">
-          <label  for="title">Select location</label>
-          <input autocomplete type="text" class="input"  name="postcode" coordinates="postsNew.post.coordinates"
-          ng-model="postsNew.post.postcode">
-          <div class="marker" id="map-new">
-            <google-map center="postsNew.post.coordinates" coordinates="postsNew.post.coordinates" ></google-map>
+
+          <div class="field ">
+            <p class="control">
+              <label  for="title">Select location</label>
+                </p>
+              <input autocomplete type="text" class="input"  name="postcode" coordinates="postsNew.post.coordinates"
+              ng-model="postsNew.post.postcode">
           </div>
+
           <div class="field">
             <p class="control">
-              <input type="submit" class="button primary postSubmit" value="Submit Post">
+              <input type="submit" class="button primary postSubmit" value="Submit Post" ng-disabled="postsNew.postForm.$invalid">
             </p>
+          </div>
+
+        </div>
+
+        <div class="formRight col-lg-5">
+          <div class="marker" id="map-new">
+            <google-map center="postsNew.post.coordinates" coordinates="postsNew.post.coordinates" ></google-map>
           </div>
         </div>
 
