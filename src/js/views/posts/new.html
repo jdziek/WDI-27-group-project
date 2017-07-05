@@ -72,7 +72,7 @@
             <p class="control">
               <label  for="date">Date</label>
             </p>
-            <input type="date" class="input" id="date" name="date" ng-model="postsNew.post.date" required>
+            <input date-format="yyyy-MM-dd" type="date" class="input" id="date" name="date" ng-model="postsNew.post.date" required>
 
             <div ng-messages="postsNew.postForm.date.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.date.$touched">
               <div ng-message="required" class="notificationThin">Date is required.</div>

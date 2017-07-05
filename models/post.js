@@ -42,12 +42,6 @@ postSchema
   });
 
 postSchema
-.virtual('timeAgo')
-  .get(function getImageSRC() {
-    return timeAgo(this.createdAt);
-  });
-
-postSchema
 .virtual('imageSRC')
 .get(function getImageSRC() {
   if(!this.image) return null;
