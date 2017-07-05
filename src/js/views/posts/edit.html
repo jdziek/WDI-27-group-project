@@ -7,9 +7,18 @@
           <p class="control">
             <label  for="postType">Post Type</label>
           </p>
-          <input type="text" class="input" id="postType" name="postType"  required>
-          <div ng-messages="postsEdit.postForm.postType.$error" ng-show="postsEdit.postForm.$submitted || postsEdit.postForm.image.$touched">
-            <div ng-message="required" class="notification">Post type is required.</div>
+          <input class="hidden" type="radio" id="teaching" name="name" value="Teaching" ng-model="postEdit.post.postType">
+          <label for="teaching" class="radioSelect">
+            <i class="fa fa-comments spaceRight" aria-hidden="true"></i>
+            Teaching
+          </label>
+          <input  class="hidden" type="radio" id="learning" name="name" value="Learning" ng-model="postEdit.post.postType">
+          <label for="learning" class="radioSelect">
+            <i class="fa fa-graduation-cap spaceRight" aria-hidden="true"></i>
+            Learning
+          </label>
+          <div ng-messages="postEdit.postForm.postType.$error" ng-show="postEdit.postForm.$submitted || postEdit.postForm.postType.$touched">
+            <div ng-message="required" class="notificationThin" required>Post type is required.</div>
           </div>
         </div>
         <div class="field">

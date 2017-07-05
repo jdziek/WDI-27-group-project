@@ -11,7 +11,8 @@ function autocomplete() {
     restrict: 'A',
     require: 'ngModel',
     scope: {
-      postcode: '='
+      postcode: '=',
+      coordinates: '='
     },
     link: function(scope, element, attrs, model) {
       const options = {
@@ -31,7 +32,10 @@ function autocomplete() {
 
 
 
-        console.log(scope.postcode);
+
+
+
+
 
 
         model.$setViewValue(element.val());
