@@ -5,6 +5,7 @@
 </div>
 
 
+
 <!-- <div class="autocomplete">
 <input autocomplete type="text" class="input"  name="postcode" postcode="postsIndex.postcode"
 ng-model="postsIndex.filtered.postcode">
@@ -40,10 +41,12 @@ ng-model="postsIndex.filtered.postcode">
     <br>Learning
   </label>
 
-
-    <label for="distance">Nearest to you
-  <input type="checkbox" id="distance" ng-model="postsIndex.distance">
-    </label>
+    <div class="l-box">
+      <input type="checkbox" id="slider" ng-model="postsIndex.useSlider">
+      <label for="slider">Distance</label>
+      <input type="range" ng-model="postsIndex.slider" min="1" max="10" ng-disabled="!postsIndex.useSlider">
+      <h4>{{postsIndex.slider}}</h4>
+    </div>
 
 
   <!-- FILTERING LOGIC -->
@@ -68,57 +71,58 @@ ng-model="postsIndex.filtered.postcode">
 <div class="container col-10">
   <div class="row">
 
-    <div class="indexCard col-lg-4 col-md-6 col-sm-12" ng-repeat="post in postsIndex.filtered | orderBy:'distance'" data-id="{{post.id}}">
+    <div class="indexCard col-lg-4 col-md-6 col-sm-12" ng-repeat="post in postsIndex.filtered | filter: postsIndex.lowerThan('distance', postsIndex.slider)">
+
 
       <div class="card shadow">
 
-        <div class="postType">
-          <p> {{ post.postType }}</p>
-        </div>
+      <div class="postType">
+        <p> {{ post.postType }}</p>
+      </div>
 
-        <div class="cardContent">
+      <div class="cardContent">
 
-          <div class="cardLocationAndTime">
-
-
-            <h3 class="cardTitle">
-              {{ post.title }}</h3>
-              <div class="setHeight">
+        <div class="cardLocationAndTime">
 
 
-
-                <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> – <span> <a ui-sref="profile({ id: post.createdBy.id })"> {{ post.createdBy.username }} </a> </span> </p>
-
-                <div class="cardLocation">
-
-                  <distance location-a="postsIndex.geo" location-b="post.coordinates" ng-model="post.distance"></distance>
+          <h3 class="cardTitle">{{ post.title }}</h3>
+          <div class="setHeight">
 
 
-                </div>
 
-                <div class="cardInfo">
-                  <h4>date</h4>  <p>{{ post.date | date}}</p>
-                </div>
+            <p>{{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> – <span> <a ui-sref="profile({ id: post.createdBy.id })"> {{ post.createdBy.username }}</a></span></p>
 
-                <div class="cardInfo">
-                  <h4>time</h4>  <p>{{ post.time }}</p>
-                </div>
-              </div>
+            <div class="cardLocation">
+
+              <distance location-a="postsIndex.geo" location-b="post.coordinates" ng-model="post.distance"></distance>
+              <p>here{{post.distance}}</p>
+
+
             </div>
 
+            <div class="cardInfo">
+              <h4>date</h4>  <p>{{ post.date | date}}</p>
+            </div>
 
-            <button class="button primary" ui-sref="postsShow({ id: post.id })">View</button>
-
-
-
+            <div class="cardInfo">
+              <h4>time</h4>  <p>{{ post.time }}</p>
+            </div>
           </div>
+        </div>
+
+
+        <button class="button primary" ui-sref="postsShow({ id: post.id })">View</button>
+
+
+
         </div>
       </div>
     </div>
   </div>
+</div>
 
 
-  <div class="marker" id="map-new" hidden>
-    <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" geo="postsIndex.geo" ></google-map>
+<div class="marker" id="map-new" hidden>
+  <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" geo="postsIndex.geo" ></google-map>
 
-  </div>
+</div>
