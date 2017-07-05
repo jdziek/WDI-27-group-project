@@ -24,9 +24,11 @@
     "angular-animate": "^1.6.4",
     "angular-messages": "^1.6.4",
     "angular-google-places-autocomplete": "0.2.7",
-    "Geolib": "geolib#^2.0.22"
+    "Geolib": "geolib#^2.0.22",
+    "angularjs-datepicker": "^2.1.23",
+    "smDateTimeRangePicker": "^2.0.11"
   },
   "resolutions": {
-    "angular": "1.6.4"
+    "angular": ">=1.4.0"
   }
 }

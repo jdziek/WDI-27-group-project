@@ -72,6 +72,7 @@ User
     time: 1240,
     image: 'an Image',
     coordinates: { lat: 51.7221596, lng: -0.0521308 },
+    categories: ['Art'],
     createdBy: users[1]
   },{
     postType: 'Learning',
