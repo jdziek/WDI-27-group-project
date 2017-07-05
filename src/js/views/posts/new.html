@@ -1,5 +1,7 @@
 <h1>New</h1>
-<h3>{{postsNew.post}}</h3>
+<h3>coordinates: {{postsNew.post.coordinates}}</h3>
+<h3>postcode: {{postsNew.postcode}} </h3>
+<h3>center: {{postsNew.center}} </h3>
 <section class="section">
   <div class="row">
     <div class="new-form col-lg-4">
@@ -47,60 +49,58 @@
         </div>
 
         <!-- <div>
-          <div uib-timepicker ng-model="postsNew.post.time" hour-step="1" minute-step="1"></div>
-        </div> -->
+        <div uib-timepicker ng-model="postsNew.post.time" hour-step="1" minute-step="1"></div>
+      </div> -->
 
-        <div class="field">
-          <p class="control">
-            <label  for="time">Time</label>
-          </p>
-          <input pattern="([01]?[0-9]{1}|2[0-3]{1}):[0-5]{1}[0-9]{1}" id="time" type="time" class="input" name="time" ng-model="postsNew.post.time" required>
+      <div class="field">
+        <p class="control">
+          <label  for="time">Time</label>
+        </p>
+        <input pattern="([01]?[0-9]{1}|2[0-3]{1}):[0-5]{1}[0-9]{1}" id="time" type="time" class="input" name="time" ng-model="postsNew.post.time" required>
 
-          <div ng-messages="postsNew.postForm.time.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.time.$touched">
-            <div ng-message="required" class="notification">Time is required</div>
-          </div>
+        <div ng-messages="postsNew.postForm.time.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.time.$touched">
+          <div ng-message="required" class="notification">Time is required</div>
         </div>
-
-
-
-        <div class="form-group">
-          <label for="image">Image</label>
-          <input base64 type="file" name="image" id="image" ng-model="postsNew.post.base64" class="form-control">
-          <img ng-src="{{ postsNew.post.base64 }}">
-        </div>
-
-          <!-- <div class="field">
-            <p class="control">
-              <label  for="time">Time</label>
-            </p>
-            <input type="number" class="input" id="time" name="time" ng-model="postsNew.post.time" required>
-            <div ng-messages="postsNew.postForm.time.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.time.$touched">
-              <div ng-message="required" class="notification">Time is required</div>
-            </div>
-          </div> -->
-
-          <input autocomplete type="text" class="input"  name="postcode" postcode="postsNew.post.postcode"
-          ng-model="postsNew.post.postcode">
-
-          <div class="marker" id="map-new">
-            <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" coordinates="postsNew.post.coordinates" postcode="postsNew.post.postcode"></google-map>
-            <p>here: {{postsNew.post.postcode}}</p>
-          </div>
-
-
-          <div class="field">
-            <p class="control">
-              <input type="submit" class="button primary" value="Add">
-            </p>
-          </div>
-
-        <div class="marker" id="map-new">
-          <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" coordinates="postsNew.post.coordinates" geo="postsNew.geo"></google-map>
-
-        </div>
-
-
-        </form>
       </div>
-    </div>
-  </section>
+
+
+
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input base64 type="file" name="image" id="image" ng-model="postsNew.post.base64" class="form-control">
+        <img ng-src="{{ postsNew.post.base64 }}">
+      </div>
+
+      <!-- <div class="field">
+      <p class="control">
+      <label  for="time">Time</label>
+    </p>
+    <input type="number" class="input" id="time" name="time" ng-model="postsNew.post.time" required>
+    <div ng-messages="postsNew.postForm.time.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.time.$touched">
+    <div ng-message="required" class="notification">Time is required</div>
+  </div>
+</div> -->
+
+<input autocomplete type="text" class="input"  name="postcode" postcode="postsNew.postcode"
+ng-model="postsNew.post.postcode">
+
+
+<div class="marker" id="map-new">
+  <google-map center="postsNew.postcode" coordinates="postsNew.post.coordinates" ></google-map>
+
+</div>
+
+<!-- postcode="postsNew.center" coordinates="postsNew.postcode" -->
+<div class="field">
+  <p class="control">
+    <input type="submit" class="button primary" value="Add">
+  </p>
+</div>
+
+
+
+
+</form>
+</div>
+</div>
+</section>
