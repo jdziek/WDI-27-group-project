@@ -99,10 +99,6 @@ ng-model="postsIndex.filtered.postcode">
 
           <h3 class="cardTitle">{{ post.title }}</h3>
           <div class="setHeight">
-                <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> – <span>{{ post.createdBy.username }} </span> </p>
-                <div class="cardLocation">
-                <p>How close to you?</p>
-                <distance location-a="postsIndex.geo" location-b="post.coordinates" ng-model="post.distance"></distance>
 
 
             <p>{{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> – <span> <a ui-sref="profile({ id: post.createdBy.id })"> {{ post.createdBy.username }}</a></span></p>
@@ -110,7 +106,7 @@ ng-model="postsIndex.filtered.postcode">
             <div class="cardLocation">
 
               <distance location-a="postsIndex.geo" location-b="post.coordinates" ng-model="post.distance"></distance>
-              <p>here{{post.distance}}</p>
+            
 
 
                 </div>
