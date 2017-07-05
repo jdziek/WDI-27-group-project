@@ -16,20 +16,25 @@
   <i class="col-1 fa fa-search" aria-hidden="true"></i> <input type="text" class=" col-10 searchBox" ng-model="postsIndex.q" placeholder="Search.... ">
 
   <label for="all">All</label>
-  <input type="radio" id="all" name="postType" ng-model="postsIndex.postType">
+  <input selected type="radio" id="all" name="name" ng-model="postsIndex.postType">
 
   <label for="teaching">Teaching</label>
-  <input type="radio" id="teaching" name="postType" ng-model="postsIndex.postType" value="Teaching">
+  <input type="radio" id="teaching" name="name" ng-model="postsIndex.postType" value="Teaching">
 
   <label for="learning">Learning</label>
-  <input type="radio" id="learning" name="postType" ng-model="postsIndex.postType" value="Learning">
+  <input type="radio" id="learning" name="name" ng-model="postsIndex.postType" value="Learning">
 
-    <label for="distance">Nearest to you
+  <input type="checkbox" name="name" ng-model="postsIndex.useDate">
+  <label for="date">Date</label>
+  <input type="date" name="name" id="date" ng-model="postsIndex.date" value="postsIndex.date" ng-disabled="!postsIndex.useDate" >
+
+
+
+    <!-- <label for="distance">Nearest to you
   <input type="checkbox" id="distance" ng-model="postsIndex.distance">
-    </label>
-
-
+    </label> -->
   <!-- FILTERING LOGIC -->
+
   <!-- <input ng-model="searchText[selectedSearch]" ng-init="searchText = {}; selectedSearch=''" placeholder="Search...more specifically" />
   <input type="radio" ng-model="selectedSearch" value="postType" > Post Type
   <input type="radio" ng-model="selectedSearch" value="date" > Date
@@ -39,7 +44,7 @@
 <div class="container col-10">
   <div class="row">
 
-    <div class="indexCard col-lg-4 col-md-6 col-sm-12" ng-repeat="post in postsIndex.filtered | orderBy:'distance'" data-id="{{post.id}}">
+    <div class="indexCard col-lg-4 col-md-6 col-sm-12" ng-repeat="post in postsIndex.filtered" data-id="{{post.id}}">
 
       <div class="card shadow">
 
@@ -56,12 +61,10 @@
               {{ post.title }}</h3>
               <div class="setHeight">
 
-
                 <p> {{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> – <span>{{ post.createdBy.username }} </span> </p>
                 <div class="cardLocation">
                 <p>How close to you?</p>
                 <distance location-a="postsIndex.geo" location-b="post.coordinates" ng-model="post.distance"></distance>
-
                 </div>
 
                 <div class="cardInfo">

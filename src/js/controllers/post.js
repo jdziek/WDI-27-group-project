@@ -31,7 +31,12 @@ function PostsIndexCtrl(Post, filterFilter, $scope, orderByFilter) {
 
 
   function filterPosts() {
-    const params = { name: vm.q, postType: vm.postType };
+    const params = { name: vm.q, postType: vm.postType};
+
+    if(vm.useDate) params.date = vm.date;
+    console.log(vm.useDate);
+    console.log(vm.date);
+
     vm.filtered = filterFilter(vm.all, params);
 
     vm.filtered = orderByFilter(vm.filtered, vm.distanceP);
@@ -40,7 +45,8 @@ function PostsIndexCtrl(Post, filterFilter, $scope, orderByFilter) {
 
   $scope.$watchGroup([
     () => vm.q,
-    () => vm.postType
+    () => vm.postType,
+    () => vm.date
   ], filterPosts);
 }
 

@@ -1,4 +1,5 @@
 /* global google */
+/* global google */
 angular
 .module('groupProject')
 .directive('googleMap', googleMap);
