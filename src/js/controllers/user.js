@@ -54,7 +54,6 @@ function EditProfileCtrl($auth, User, $state) {
     .update($state.params, vm.user)
     .$promise
     .then(() => {
-      console.log('in here');
       $state.go('profile', $state.params);
     });
   }

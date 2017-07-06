@@ -8,9 +8,9 @@
 
         <img ng-src="{{ profile.user.imageSRC }}" alt="profile.user.imageSRC" class="profileImage">
 
-        <button class="button primary" ui-sref="profileEdit({id: profile.user.id})"> Edit </button>
+        <button ng-if="main.isAuthenticated() && main.currentUserId === profile.user.id" class="button primary" ui-sref="profileEdit({id: profile.user.id})"> Edit </button>
 
-        <button class="button secondary margin"  ng-click="main.logout()"> logout </button>
+        <button class="button secondary margin" ng-if="main.isAuthenticated() && main.currentUserId === profile.user.id" ng-click="main.logout()"> logout </button>
 
         <div class="bio">
           <span> About</span>
@@ -22,9 +22,9 @@
 
     <div class="col col-md-7 profileInfo">
 
-      <h2 ng-if="profile.user">  {{ profile.user.firstName }} {{ profile.user.lastName }} – <span> {{ profile.user.jobTitle }}</span></h2>
+      <h2 ng-if="profile.user"> {{ profile.user.username }}  – <span> {{ profile.user.jobTitle }}</span></h2>
 
-      <h2 ng-if="profile.user.facebookId"><strong>{{ profile.user.username }}</strong><span> </span></h2>
+      <h2 ng-if="profile.user.facebookId"><strong></strong><span>{{ profile.user.firstName }} {{ profile.user.lastName }} </span></h2>
 
 
       <div class="rating">
