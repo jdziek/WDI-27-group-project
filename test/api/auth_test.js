@@ -10,23 +10,6 @@ describe('Authentications tests', () => {
     done();
   });
 
-  describe('POST /api/register with good credentials', () => {
-    it('should return a message', (done) => {
-      api.post('/api/register')
-        .set('Accept', 'application/json')
-        .send({
-          username: 'test',
-          email: 'test@test.com',
-          password: 'password',
-          passwordConfirmation: 'password'
-        })
-        .end((err, res) => {
-          expect(res.body.message).to.be.a('string');
-          done();
-        });
-    });
-  });
-
   describe('POST /api/register with bad credentials', () => {
     it('should return a 400 response', (done) => {
       api.post('/api/register')

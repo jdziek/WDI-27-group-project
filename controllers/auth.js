@@ -10,7 +10,7 @@ function register(req, res, next) {
   .create(req.body)
   .then((err) => {
     if (err) return res.status(400).json(err);
-    return res.status(200).json({ message: 'Thanks for registering!' });
+    return res.status(200).json({ message: 'Thank you for registering!' });
   })
 
   .catch(next);

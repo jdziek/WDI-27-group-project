@@ -97,8 +97,6 @@ function PostsShowCtrl($state, Post, PostComment) {
 }
 
 
-
-
 PostsNewCtrl.$inject = ['$state', 'Post'];
 function PostsNewCtrl($state, Post) {
   const vm  = this;

@@ -15,6 +15,8 @@
               <i class="fa fa-comments spaceRight" aria-hidden="true"></i>
               Teaching
             </label>
+
+
             <input  class="hidden" type="radio" id="learning" name="name" value="Learning" ng-model="postsNew.post.postType">
             <label for="learning" class="radioSelect">
               <i class="fa fa-graduation-cap spaceRight" aria-hidden="true"></i>
@@ -24,17 +26,30 @@
               <div ng-message="required" class="notificationThin" required>Post type is required.</div>
             </div>
           </div>
+
+
           <div class="field">
             <p class="control">
               <label for="location">Title</label>
             </p>
-
             <input type="text" placeholder="Title of your post" class="input col-10" id="title" name="title" ng-model="postsNew.post.title" required >
 
             <div ng-messages="postsNew.postForm.title.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.title.$touched">
               <div ng-message="required" class="notificationThin ">Title is required.</div>
             </div>
           </div>
+
+          <div class="field">
+            <p class="control">
+              <label for="info">Information</label>
+            </p>
+            <textarea type="text" class="input" id="info" name="info" ng-model="postsNew.post.info" required></textarea>
+
+            <div ng-messages="postsNew.postForm.info.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.info.$touched">
+              <div ng-message="required" class="notificationThin ">Information is required.</div>
+            </div>
+          </div>
+
 
           <div class="field fieldTogether">
             <p class="control">
