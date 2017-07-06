@@ -1,7 +1,6 @@
 <section class="section">
   <div class="row">
     <div class="formBox  col-lg-10">
-    <h1>{{postsNew.post.coordinates}}</h1>
 
       <h2> New Post </h2>
       <form ng-submit="postsNew.create()" name="postsNew.postForm" novalidate>
@@ -38,17 +37,6 @@
             </div>
           </div>
 
-          <div class="field">
-            <p class="control">
-              <label for="info">Information</label>
-            </p>
-            <textarea type="text" class="input" id="info" name="info" ng-model="postsNew.post.info" required></textarea>
-
-            <div ng-messages="postsNew.postForm.info.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.info.$touched">
-              <div ng-message="required" class="notificationThin ">Information is required.</div>
-            </div>
-          </div>
-
 
           <div class="field fieldTogether">
             <p class="control">
@@ -71,14 +59,15 @@
               <div ng-message="required" class="notificationThin">Time is required</div>
             </div>
           </div>
-          <div class="field fieldTogether">
+
+          <div class="field">
             <p class="control">
-              <label  for="info">Information</label>
+              <label  for="info">About</label>
             </p>
-            <textarea  id="info" type="text" class="input" name="info" ng-model="postsNew.post.info" required></textarea>
+            <textarea type="text" class="input" name="info" ng-model="postsNew.post.info" required></textarea>
 
             <div ng-messages="postsNew.postForm.info.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.info.$touched">
-              <div ng-message="required" class="notificationThin">Information is required</div>
+              <div ng-message="required" class="notificationThin">About is required</div>
             </div>
           </div>
 
@@ -92,7 +81,8 @@
 
           <div class="field">
             <p class="control">
-              <input type="submit" class="button primary postSubmit" value="Submit Post" > </p>
+              <input type="submit" class="button primary" value="Submit Post" ng-disabled="postsNew.postForm.$invalid">
+            </p>
           </div>
 
         </div>

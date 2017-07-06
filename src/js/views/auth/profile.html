@@ -40,7 +40,7 @@
 
         <h3>User Reviews</h3>
 
-          <div ng-if="(profile.user.comments).length === 0"> THIS USER HAS NO RATINGS </div>
+          <div ng-if="(profile.user.comments).length === 0" class="noRating"> This user currently has no reviews, you can add one below. </div>
 
         <ul ng-if="(profile.user.comments).length !== 0" class="reviewSection">
 
@@ -61,7 +61,7 @@
 
 
 
-        <div class="reviewInput">
+        <div class="reviewInput" ng-if="(main.currentUserId !== profile.user.id )">
           <h3>Write a Review</h3>
 
           <div class="rating">
@@ -71,7 +71,7 @@
 
           <form ng-if="main.isAuthenticated()" ng-submit="profile.addComment()">
             <textarea class="reviewBox" placeholder="Write a user review" ng-model="profile.newComment.text"></textarea>
-            <button class="button primary">Post Review</button>
+            <button class="button primary marginTop">Post Review</button>
           </form>
         </div>
 
