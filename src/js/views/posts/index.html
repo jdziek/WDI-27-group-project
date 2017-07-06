@@ -64,9 +64,16 @@
                 <div class="checkboxLabel"> Filter by date </div>
               </label>
 
-              <div class="datePicker controll field" ng-show="datePicker">
+              <!-- <div class="datePicker controll field" ng-show="datePicker">
                 <input placeholder="YYYY-MM-DD" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" type="text" name="date" ng-model="postsIndex.date" value="postsIndex.date" ng-disabled="!postsIndex.useDate" >
-              </div>
+              </div> -->
+
+
+              <input type="date" ng-model="postsIndex.dateStart" ng-show="datePicker">
+              <input type="date" ng-model="postsIndex.dateEnd" ng-show="datePicker">
+
+              {{ postsIndex.dateStart }}
+              {{ postsIndex.dateEnd }}
             </div>
 
             <input type="checkbox" id="slider" ng-click="slideFilter = !slideFilter" ng-model="postsIndex.useSlider">
@@ -106,7 +113,7 @@
 <div class="container col-10">
   <div class="row">
 
-    <div class="indexCard col-lg-4 col-md-6 col-sm-12" ng-repeat="post in postsIndex.filtered | filter: postsIndex.lowerThan('distance', postsIndex.slider)">
+    <div class="indexCard col-lg-4 col-md-6 col-sm-12" ng-repeat="post in postsIndex.filtered | filter: postsIndex.lowerThan('distance', postsIndex.slider) | filter: postsIndex.dateFilter(postsIndex.dateStart, postsIndex.dateEnd)">
 
 
       <div class="card shadow">
@@ -124,7 +131,8 @@
             <div class="setHeight">
 
 
-              <p>{{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> –  <a ui-sref="profile({ id: post.createdBy.id })"> <span>{{ post.createdBy.username }}</span></a></p>
+              <p>{{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> –  <a ui-sref="profile({ id: post.createdBy.id })"> <span>
+                {{ post.createdBy.username }}</span></a></p>
 
               <div class="cardLocation">
                 <distance location-a="postsIndex.geo" location-b="post.coordinates" ng-model="post.distance"></distance>
@@ -133,12 +141,13 @@
 
 
             <div class="cardInfo">
-              <h4>date</h4>  <p>{{ post.date | date }}</p>
+              <h4>Date</h4>  <p>{{ post.date | date }}</p>
+              {{ post.date }}
 
             </div>
 
             <div class="cardInfo">
-              <h4>time</h4>  <p>{{ post.time }}</p>
+              <h4>Time</h4>  <p>{{ post.time }}</p>
             </div>
           </div>
         </div>

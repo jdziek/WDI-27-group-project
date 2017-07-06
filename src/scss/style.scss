@@ -53,7 +53,7 @@ h3 {
 
 h4 {
   font-size: 16px;
-  font-weight: 800;
+  font-weight: 500;
 }
 
 p{
@@ -64,7 +64,13 @@ p{
 
 a{
   text-decoration: none;
+  color: $textColor;
 }
+
+.floatRight{
+  float: right;
+}
+
 
 strong{
   font-weight: bolder;
@@ -99,6 +105,23 @@ strong{
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.editPostButton{
+  display: inline-block;
+  padding: 8px 42px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: $borderColor;
+  color: $textColor;
+  margin-top: 16px;
+  margin-left: 8px;
+  text-align: center;
+width: calc(20% - 5px);
+  &.editPostButton:hover{
+    background-color: darken($borderColor, 10%);
+  }
 }
 
 .login{
@@ -159,11 +182,8 @@ span{
 }
 
 .notificationThin{
-  margin: 16px auto;
-  background-color: $delete;
-  color: white;
-  padding: 8px;
-  border-radius: 4px;
+  margin: 8px 4px;
+  color: $delete;
 }
 
 
@@ -491,6 +511,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 .cardInfo{
   display: inline-block;
+  margin-right: 16px;
 }
 
 .margin{
@@ -575,6 +596,10 @@ textarea{
   }
 }
 
+.formRight{
+  height: 55vh;
+}
+
 //PROFILE PAGE
 
 .profileImage{
@@ -655,6 +680,7 @@ textarea{
   height: auto;
 }
 
+
 .mapSide{
   margin: 24px 0px;
   height:  50vh;
@@ -679,7 +705,7 @@ textarea{
 
 
 #map-new {
-  height: 350px;
+  height: 100%;
 }
 
 //POST SHOW COMMENTS
@@ -735,6 +761,7 @@ textarea{
 }
 
 .commentBox{
+  margin-top: 16px;
   outline: none
 }
 

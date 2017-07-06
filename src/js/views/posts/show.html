@@ -9,10 +9,22 @@
 
 
 
-  <div class=" col-7 showInfo shadow">
 
-    <h2>{{ postsShow.post.title}}</h2>
-    <a ui-sref="profile({ id: post.createdBy.id })" class="cursor"><h3><span>{{ postsShow.post.createdBy.username }} – </span></h3> </a> <p> <a ng-if="main.currentUserId === postsShow.post.createdBy.id" ui-sref="postsEdit({ id: postsShow.post.id})">Edit your post </a></p>
+  <div class="col-7 showInfo shadow">
+
+    <div class="row">
+      <h2>{{ postsShow.post.title}}</h2>
+
+    </div>
+
+
+
+  <a ui-sref="profile({ id: post.createdBy.id })" class="cursor marginTop">
+    <h4 class=" marginTop">Posted by - <span>{{ postsShow.post.createdBy.username }} </span></h4>
+  </a>
+
+
+
 
     <div class="row marginTop">
       <div class="col-5 showInfoBio">
@@ -23,43 +35,34 @@
       </div>
 
       <div class=" col-6 showInfoStats">
-        <div class="postTime">
-          <h3> <i class="fa fa-calendar-o" aria-hidden="true"></i>
-            {{postsShow.post.date | date}}  </h3>
-          </div>
 
+        <div class="geo-code"><h3>
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+<reverse-geocode class="inlineBlock" coordinates="postsShow.post.coordinates"/></h3>
+        </div>
+
+
+          <div class="postTime">
+            <h3> <i class="fa fa-calendar-o" aria-hidden="true"></i>
+              {{postsShow.post.date | date}}  </h3>
+          </div>
 
           <div class="postTime">
             <h3> <i class="fa fa-clock-o" aria-hidden="true"></i>
               {{postsShow.post.time }}  </h3>
             </div>
 
-            <div class="geo-code"><h3>
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
-  <reverse-geocode class="inlineBlock" coordinates="postsShow.post.coordinates"/></h3>
-            </div>
-
           </div>
+
+
         </div>
 
-
-        <!-- <p>{{postsShow.post}}</p> -->
-
-
         <div class="commentSection">
-
-
-
-
           <ul>
             <h3>Comments</h3>
-
             <div ng-if="(postsShow.post.comments).length === 0" class="noRating"> This post has no comments, you can add one below.</div>
 
-
             <li ng-repeat="comment in postsShow.post.comments track by $index" class="col-md-12">
-
-
 
               <img ng-src="{{ comment.createdBy.imageSRC }}" alt="profile.user.image" class="commentProfileImage">
               <p class="commentText">
@@ -67,8 +70,7 @@
                 – {{ comment.text }}
                 <br>
                 <button class="deleteComment" ng-click="postsShow.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">
-                  Delete</button> {{ comment.timeAgo }}
-
+                  Delete</button> .  {{ comment.timeAgo }}
                 </p>
               </li>
             </ul>
@@ -76,9 +78,14 @@
             <div class="commentInput">
               <form ng-if="main.isAuthenticated()" ng-submit="postsShow.addComment()">
                 <textarea class="col-12 commentBox" placeholder="Write a comment" ng-model="postsShow.newComment.text"></textarea>
-                <button class="button primary">Comment</button>
+                <button class="button primary marginTop">Comment</button>
               </form>
+
+
+
             </div>
+            <hr ng-if="main.currentUserId === postsShow.post.createdBy.id">
+            <a ng-if="main.currentUserId === postsShow.post.createdBy.id" ui-sref="postsEdit({ id: postsShow.post.id})" class="button secondary floatRight"> Edit your post </a>
           </div>
         </div>
       </div>
