@@ -17,11 +17,9 @@
     <div class="logo" ui-sref="postsIndex"></div>
 
 
-    <li class="menu cursor" ng-click="showNav = !showNav"> &#9776; </li>
-
 
     <ul>
-      <div class="dropdown" ng-show="showNav">
+      <div class="dropdown">
 
         <li ng-if="!main.isAuthenticated()">
           <a class="navLink first after" ui-sref="login"> Login </a>
