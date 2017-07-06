@@ -13,9 +13,14 @@ $inputColor: #d8d4d4;
 $grid-gutter-width: 16px;
 
 //OVERALL STYLES
-
+html {
+  height: 100%;
+  margin: 0;
+}
 body{
   overflow-x: hidden;
+  height: 100%;
+  margin: 0;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -118,7 +123,7 @@ strong{
   margin-top: 16px;
   margin-left: 8px;
   text-align: center;
-width: calc(20% - 5px);
+  width: calc(20% - 5px);
   &.editPostButton:hover{
     background-color: darken($borderColor, 10%);
   }
@@ -376,7 +381,7 @@ input[type=radio]:checked + label {
 }
 
 [type="checkbox"]:hover + label{
-    color: $highLight;
+  color: $highLight;
 }
 [type="checkbox"]:checked + label {
   position: relative;
@@ -411,45 +416,45 @@ input[type=radio]:checked + label {
 // slider styling
 
 input[type=range]{
-    -webkit-appearance: none;
-    width: 80%;
-    display: inline-block;
+  -webkit-appearance: none;
+  width: 80%;
+  display: inline-block;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
 
-    height: 8px;
-    background: #ddd;
-    border: none;
-    border-radius: 3px;
+  height: 8px;
+  background: #ddd;
+  border: none;
+  border-radius: 3px;
 
 }
 
 input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    cursor:grab;
-    border: none;
-    height: 24px;
-    width: 24px;
-    border-radius: 50%;
-    background: $highLight;
-    margin-top: -8px;
-  }
+  -webkit-appearance: none;
+  cursor:grab;
+  border: none;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: $highLight;
+  margin-top: -8px;
+}
 
-    input[type=range]:hover::-webkit-slider-thumb{
-      background: darken($highLight, 10%);
-    }
+input[type=range]:hover::-webkit-slider-thumb{
+  background: darken($highLight, 10%);
+}
 
 input[type=range]:focus {
-    outline: none;
+  outline: none;
 }
 
 input[type=range]:hover {
-    outline: none;
+  outline: none;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #ccc;
+  background: #ccc;
 }
 
 
@@ -662,7 +667,7 @@ textarea{
 //POST SHOW
 
 .showInfoStats{
- padding-left: 42px;
+  padding-left: 42px;
 }
 
 .showInfoBio{
@@ -775,19 +780,28 @@ textarea{
 .spaceBottom{
   margin-bottom: 42px;
 }
+.wrapper {
+  min-height: 100%;
 
-footer{
-  clear: both;
-  position:fixed;
-  bottom:0;
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -50px;
+}
+
+footer.footer{
   height: 50px;
+  clear: both;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
   width: 100%;
   background-color: $textColor;
   color: white;
-  margin-top: 48px;
 }
-
-
+.push {
+  height: 50px;
+}
 
 .showMobile{
   display:none;
@@ -806,34 +820,34 @@ footer{
     overflow-x: hidden;
   }
 
-.dropdown{
-  overflow-y: hidden;
-  overflow-x: hidden;
-  border: 1px solid $borderColor;
-  background-color: white;
-  height: 48px;
-  position: fixed;
-  bottom: 0;
-  left:0;
-  z-index: 99;
-  width: 100%;
-  margin: 0 auto;
-}
+  .dropdown{
+    overflow-y: hidden;
+    overflow-x: hidden;
+    border: 1px solid $borderColor;
+    background-color: white;
+    height: 48px;
+    position: fixed;
+    bottom: 0;
+    left:0;
+    z-index: 99;
+    width: 100%;
+    margin: 0 auto;
+  }
 
-.mobileNav{
-  overflow-y: hidden;
-  overflow-x: hidden;
-  margin: 0 auto;
-  width: 90%;
-  display: flex;
-  justify-content: space-around;
-}
+  .mobileNav{
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+  }
 
-.showMobile{
-  display:inline;
-}
+  .showMobile{
+    display:inline;
+  }
 
-footer{
-  display:none;
-}
+  footer{
+    display:none;
+  }
 }
