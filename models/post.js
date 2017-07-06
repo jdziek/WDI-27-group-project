@@ -25,7 +25,7 @@ const postSchema = new mongoose.Schema({
   location: {type: String, required: true},
   date: {type: Date, required: true},
   time: {type: String, required: true},
-  coordinates: { lat: Number, lng: Number, required: true},
+  coordinates: { lat: Number, lng: Number},
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
   geo: { lat: Number, lng: Number },
   comments: [ commentSchema ]
