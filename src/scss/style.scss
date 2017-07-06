@@ -14,6 +14,10 @@ $grid-gutter-width: 16px;
 
 //OVERALL STYLES
 
+body{
+  overflow-x: hidden;
+}
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: $inputColor;;
 }
@@ -76,7 +80,9 @@ strong{
   border-radius: 4px;
 }
 
-
+.inlineBlock{
+  display: inline-block;
+}
 
 
 .shadow{
@@ -305,6 +311,7 @@ nav a.before:hover:before,a.after:hover:after{
   padding: 8px 0px;
   border-radius: 8px;
   text-align: center;
+  width: calc(15% - 5px);
 }
 
 .l-box{
@@ -383,6 +390,8 @@ input[type=radio]:checked + label {
 
 input[type=range]{
     -webkit-appearance: none;
+    width: 80%;
+    display: inline-block;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
@@ -391,6 +400,7 @@ input[type=range]::-webkit-slider-runnable-track {
     background: #ddd;
     border: none;
     border-radius: 3px;
+
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -624,12 +634,20 @@ textarea{
 
 //POST SHOW
 
+.showInfoStats{
+ padding-left: 42px;
+}
+
+.showInfoBio{
+
+}
+
 .showInfo{
   border-radius: 4px;
   padding: 24px;
   margin: auto;
   position: relative;
-  top: -20vh;
+  top: -18vh;
   left: 0;
   bottom: 0;
   right: 0;
@@ -656,7 +674,6 @@ textarea{
 }
 
 .postTime{
-  display: inline-block;
   margin: 16px 16px 16px 0px;
 }
 
