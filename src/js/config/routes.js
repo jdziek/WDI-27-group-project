@@ -23,7 +23,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     controller: 'PostsEditCtrl as postsEdit'
   })
   .state('postsShow', {
-    url: '/posts/:sid',
+    url: '/posts/:id',
     templateUrl: 'js/views/posts/show.html',
     controller: 'PostsShowCtrl as postsShow'
   })

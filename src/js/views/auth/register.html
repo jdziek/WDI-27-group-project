@@ -14,11 +14,12 @@
       <p class="control">
         <input class="input col-12" placeholder="First Name" type="text" name="firstName" id="firstName" ng-model="register.user.firstName" required>
       </p>
+      <div ng-messages="register.registrationForm.firstName.$error" ng-show="register.registrationForm.$submitted || register.registrationForm.firstName.$touched">
+        <div ng-message="required" class="notificationThin" required>First Name is required.</div>
+      </div>
     </div>
     <!--FIRST NAME VALIDATION  -->
-    <div ng-messages="register.registrationForm.firstName.$error" ng-show="register.registrationForm.$submitted || register.registrationForm.firstName.$touched">
-      <div ng-message="required" class="notificationThin" required>First Name is required.</div>
-    </div>
+
 
 
     <!--LAST NAME  -->
@@ -27,11 +28,12 @@
       <p class="control">
         <input class="input col-12" placeholder="Last Name" type="text" name="lastName" id="lastName" ng-model="register.user.lastName" required>
       </p>
+      <div ng-messages="register.registrationForm.lastName.$error" ng-show="register.registrationForm.$submitted || register.registrationForm.lastName.$touched">
+        <div ng-message="required" class="notificationThin" required>Last Name is required.</div>
+      </div>
     </div>
     <!--LAST NAME VALIDATION  -->
-    <div ng-messages="register.registrationForm.lastName.$error" ng-show="register.registrationForm.$submitted || register.registrationForm.lastName.$touched">
-      <div ng-message="required" class="notificationThin" required>Last Name is required.</div>
-    </div>
+
 
 
 <!--USERNAME -->

@@ -124,7 +124,8 @@
             <div class="setHeight">
 
 
-              <p>{{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> –  <a ui-sref="profile({ id: post.createdBy.id })"> <span>{{ post.createdBy.username }}</span></a></p>
+              <p>{{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> –  <a ui-sref="profile({ id: post.createdBy.id })"> <span>
+                {{ post.createdBy.username }}</span></a></p>
 
               <div class="cardLocation">
                 <distance location-a="postsIndex.geo" location-b="post.coordinates" ng-model="post.distance"></distance>
