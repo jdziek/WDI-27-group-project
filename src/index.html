@@ -24,36 +24,42 @@
     <!-- <li class="menu" ng-click="main.menuIsOpen = !main.menuIsOpen"> &#9776; </li> -->
 
 
-      <ul>
-        <div class="dropdown" ng-class="{ open: main.menuIsOpen }">
-          <div class="mobileNav">
+    <ul>
+      <div class="dropdown" ng-class="{ open: main.menuIsOpen }">
+        <div class="mobileNav">
           <li ng-if="!main.isAuthenticated()">
-            <a class="navLink first after showMobile" ui-sref="login"> <p><i class="fa fa-sign-in" aria-hidden="true"></i>
-</p> Login </a>
+            <a class="navLink first after" ui-sref="login"> <p><i class="fa fa-sign-in showMobile" aria-hidden="true"></i>
+            </p> Login </a>
           </li>
 
           <li ng-if="main.isAuthenticated()">
             <a class="navLink first after cursor" ui-sref="#" ng-click="main.logout()">
               <p><i class="fa fa-sign-out showMobile" aria-hidden="true"></i></p>
- Logout </a>
+              Logout
+            </a>
           </li>
 
           <li ng-if="!main.isAuthenticated()">
-            <a class="navLink first after mobileShow" ui-sref="register"> <p> <i class="fa fa-id-card-o" aria-hidden="true"></i></p>
-              Register </a>
+            <a class="navLink first after" ui-sref="register">
+              <p> <i class="fa fa-id-card-o showMobile" aria-hidden="true"></i></p>
+              Register
+            </a>
           </li>
 
           <li ng-if="main.isAuthenticated()">
             <a class="navLink first after" ui-sref="postsNew">
-            <p>  <i class="fa fa-plus-square-o showMobile" aria-hidden="true"></i></p>
+              <p>  <i class="fa fa-plus-square-o showMobile" aria-hidden="true"></i></p>
               Post </a>
-          </li>
+            </li>
 
-          <li ng-if="main.isAuthenticated()">
-            <a class="navLink first after" ui-sref="profile({ id: main.currentUserId })" > <p><i class="fa fa-user showMobile" aria-hidden="true"></i>
-</p> Profile </a>
-          </li>
-        </div>
+            <li ng-if="main.isAuthenticated()">
+              <a class="navLink first after" ui-sref="profile({ id: main.currentUserId })" >
+                <p><i class="fa fa-user showMobile" aria-hidden="true"></i></p>
+                Profile
+              </a>
+            </li>
+
+          </div>
         </div>
       </ul>
     </nav>
@@ -62,6 +68,6 @@
 
 
     <main ui-view></main>
-  <footer>Hello</footer>
-</body>
-</html>
+    <!-- <footer>Hello</footer> -->
+  </body>
+  </html>

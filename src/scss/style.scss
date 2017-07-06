@@ -776,16 +776,16 @@ textarea{
   margin-bottom: 42px;
 }
 
-// footer{
-//   clear: both;
-//   position:fixed;
-//   bottom:0;
-//   height: 50px;
-//   width: 100%;
-//   background-color: $textColor;
-//   color: white;
-//   margin-top: 48px;
-// }
+footer{
+  clear: both;
+  position:fixed;
+  bottom:0;
+  height: 50px;
+  width: 100%;
+  background-color: $textColor;
+  color: white;
+  margin-top: 48px;
+}
 
 
 
@@ -831,5 +831,9 @@ textarea{
 
 .showMobile{
   display:inline;
+}
+
+footer{
+  display:none;
 }
 }
