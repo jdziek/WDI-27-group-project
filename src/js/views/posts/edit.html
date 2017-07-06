@@ -56,10 +56,11 @@
             <p class="control">
               <label  for="time">Time</label>
             </p>
-            <input placeholder="E.g. 10:30am" id="time" type="text" class="input" name="time" ng-model="postsEdit.post.time" required>
+            <input placeholder="E.g. 10:30am" pattern="((1[0-2]|0?[1-9]):([0-5][0-9])([AaPp][Mm]))" id="time" type="text" class="input" name="time" ng-model="postsEdit.post.time" required>
 
             <div ng-messages="postsEdit.postForm.time.$error" ng-show="postsEdit.postForm.$submitted || postsEdit.postForm.time.$touched">
               <div ng-message="required" class="notificationThin">Time is required</div>
+                <div ng-message="pattern" class="notificationThin">Incorrect format</div>
             </div>
           </div>
 
