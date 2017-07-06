@@ -33,7 +33,7 @@ function postUpdate(req, res, next) {
   .findById(req.params.id)
   .exec()
   .then((post) => {
-    if(!post) return res.notFound();
+  
 
     for(const field in req.body) {
       post[field] = req.body[field];
@@ -43,6 +43,10 @@ function postUpdate(req, res, next) {
   .then((post) => res.json(post))
   .catch(next);
 }
+
+
+
+
 
 function postDelete(req, res, next) {
   Post

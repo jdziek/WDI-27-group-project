@@ -28,7 +28,7 @@
 
           <div class="field">
             <p class="control">
-              <label for="location">Title</label>
+              <label for="title">Title</label>
             </p>
             <input type="text" placeholder="Title of your post" class="input col-10" id="title" name="title" ng-model="postsNew.post.title" required >
 
@@ -77,14 +77,13 @@
           <div class="field">
             <p class="control">
               <label  for="title">Select location</label>
-            </p>
-            <input autocomplete type="text" class="input col-10"  name="postcode" coordinates="postsNew.post.coordinates"
-            >
+                </p>
+              <input autocomplete type="text" class="input"  name="postcode" coordinates="postsNew.post.coordinates" ng-model="postsNew.post.postcode">
           </div>
 
           <div class="field">
             <p class="control">
-              <input type="submit" class="button primary" value="Submit Post" ng-disabled="postsNew.postForm.$invalid">
+              <input type="submit" class="button primary" value="Submit Post">
             </p>
           </div>
 

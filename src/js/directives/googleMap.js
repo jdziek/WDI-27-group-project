@@ -12,7 +12,8 @@ function googleMap() {
     scope: {
       center: '=',
       coordinates: '=',
-      geo: '='
+      geo: '=',
+      geoShow: '='
     },
     link(scope, element) {
       let map = null;
@@ -42,6 +43,31 @@ function googleMap() {
         });
 
       }
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+
+          map.setZoom(12);
+
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          scope.geoShow = { lat: position.coords.latitude, lng: position.coords.longitude };
+          console.log(scope.geoShow);
+          scope.$apply();
+
+          if(document.getElementById('map-new').classList.contains('marker')) {
+            map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+            marker.setPosition(pos);
+            map.setCenter(pos);
+          }
+          scope.infoGeoLoc = marker.getPosition();
+          scope.geo = { lat: scope.infoGeoLoc.lat(), lng: scope.infoGeoLoc.lng() };///doesnt like it but it works necesaryfor distance
+          scope.$apply();
+        });
+      }
+
+
       if(document.getElementById('map-new').classList.contains('marker')) {
         google.maps.event.addListener(map, 'click', function(event) {
           marker.setPosition(event.latLng);
@@ -52,27 +78,7 @@ function googleMap() {
         });
       }
 
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-          map.setZoom(12);
 
-          var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };
-
-          marker.setPosition(pos);
-          map.setCenter(pos);
-          scope.infoGeoLoc = marker.getPosition();
-          scope.geo = { lat: scope.infoGeoLoc.lat(), lng: scope.infoGeoLoc.lng() };///doesnt like it but it works necesaryfor distance
-
-          scope.$apply();
-
-
-
-        });
-      }
 
       function setCenter() {
         map.setCenter(scope.center);

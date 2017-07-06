@@ -145,7 +145,7 @@ function PostsNewCtrl($state, Post) {
 PostsEditCtrl.$inject = ['$state', 'Post'];
 function PostsEditCtrl($state, Post) {
   const vm = this;
-  vm.post = {};
+  vm.post = Post.get($state.params);
   vm.update = postsUpdate;
 
   function postsUpdate(){
