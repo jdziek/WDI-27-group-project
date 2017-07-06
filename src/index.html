@@ -4,6 +4,7 @@
   <base href="/">
   <meta charset="utf-8">
   <title>Notitia - Teaching and learning</title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
   <link href="https://fonts.googleapis.com/css?family=Yantramanav:100,300,400,500,700,900" rel="stylesheet">
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqxWYoNwAARp2mliTZTeiMaL3dXJKSnsE&libraries=places,geometry"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,39 +15,57 @@
 </head>
 <body ng-controller="MainCtrl as main">
   <nav>
+
+
     <div class="logo" ui-sref="postsIndex"></div>
 
 
 
-    <ul>
-      <div class="dropdown">
-
-        <li ng-if="!main.isAuthenticated()">
-          <a class="navLink first after" ui-sref="login"> Login </a>
-        </li>
-
-        <li ng-if="main.isAuthenticated()">
-          <a class="navLink first after cursor" ui-sref="#" ng-click="main.logout()"> Logout </a>
-        </li>
-
-        <li ng-if="!main.isAuthenticated()">
-          <a class="navLink first after" ui-sref="register"> Register </a>
-        </li>
-
-        <li ng-if="main.isAuthenticated()">
-          <a class="navLink first after" ui-sref="postsNew"> Post </a>
-        </li>
-
-        <li ng-if="main.isAuthenticated()">
-          <a class="navLink first after" ui-sref="profile({ id: main.currentUserId })" > Profile </a>
-        </li>
-      </div>
-    </ul>
-  </nav>
-
-  <div class="notification col-10" ng-if="main.message" > <i class="fa fa-exclamation-triangle spaceRight" aria-hidden="true"></i> {{ main.message }}</div>
+    <!-- <li class="menu" ng-click="main.menuIsOpen = !main.menuIsOpen"> &#9776; </li> -->
 
 
-  <main ui-view></main>
+      <ul>
+        <div class="dropdown" ng-class="{ open: main.menuIsOpen }">
+          <div class="mobileNav">
+          <li ng-if="!main.isAuthenticated()">
+            <a class="navLink first after showMobile" ui-sref="login"> <p><i class="fa fa-sign-in" aria-hidden="true"></i>
+</p> Login </a>
+          </li>
+
+          <li ng-if="main.isAuthenticated()">
+            <a class="navLink first after cursor" ui-sref="#" ng-click="main.logout()">
+              <p><i class="fa fa-sign-out showMobile" aria-hidden="true"></i></p>
+ Logout </a>
+          </li>
+
+          <li ng-if="!main.isAuthenticated()">
+            <a class="navLink first after mobileShow" ui-sref="register"> <p> <i class="fa fa-id-card-o" aria-hidden="true"></i></p>
+              Register </a>
+          </li>
+
+          <li ng-if="main.isAuthenticated()">
+            <a class="navLink first after" ui-sref="postsNew">
+            <p>  <i class="fa fa-plus-square-o showMobile" aria-hidden="true"></i></p>
+              Post </a>
+          </li>
+
+          <li ng-if="main.isAuthenticated()">
+            <a class="navLink first after" ui-sref="profile({ id: main.currentUserId })" > <p><i class="fa fa-user showMobile" aria-hidden="true"></i>
+</p> Profile </a>
+          </li>
+        </div>
+        </div>
+      </ul>
+    </nav>
+
+    <div class="notification col-10" ng-if="main.message" > <i class="fa fa-exclamation-triangle spaceRight" aria-hidden="true"></i> {{ main.message }}</div>
+
+
+    <main ui-view></main>
+
+    <!-- <footer>
+    <p> made by JJS </p>
+  </footer> -->
+
 </body>
 </html>
