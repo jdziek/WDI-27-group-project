@@ -54,6 +54,7 @@
         <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"  class="input" type="email" placeholder="E.g JohnSmith@email.com" name="email" id="email" ng-model="register.user.email" required>
       </p>
     </div>
+
     <!--EMAIL VALIDATION  -->
     <div ng-messages="register.registrationForm.email.$error" ng-show="register.registrationForm.$submitted || register.registrationForm.email.$touched">
       <div ng-message="required" class="notificationThin" required>Email is required.</div>
@@ -101,7 +102,7 @@
     <div class="field">
       <label class="label" for="bio">Bio</label>
       <p class="control">
-        <textarea> class="col-12 textarea" maxlength="500"name="bio" id="bio" placeholder="Tell us about your self..." ng-model="register.user.bio"</textarea>
+        <textarea class="col-12 textarea" maxlength="500" name="bio" placeholder="Tell us about your self..." ng-model="register.user.bio"></textarea>
       </p>
     </div>
 
