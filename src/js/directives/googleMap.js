@@ -39,7 +39,7 @@ function googleMap() {
         map = new google.maps.Map(element[0], mapOptions);
         marker = new google.maps.Marker({
           map: map,
-          icon: 'http://i.imgur.com/7aCJw6L.png?1'
+          icon: 'https://image.ibb.co/e9sCsv/logo.png'
         });
 
       }

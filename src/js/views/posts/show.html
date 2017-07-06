@@ -9,57 +9,87 @@
 
 
 
-  <div class=" col-10 showInfo shadow">
 
-    <h2>{{ postsShow.post.title}}</h2>
-    <h3><span> {{ postsShow.post.createdBy.username }} </span> </h3>
+  <div class="col-7 showInfo shadow">
 
-    <div class="postTime">
-      <h3> Date </h3>
-      <h3> {{postsShow.post.date | date}} </h3>
+    <div class="row">
+      <h2>{{ postsShow.post.title}}</h2>
+
     </div>
 
 
-    <div class="postTime">
-      <h3> Time</h3>
-      <h3> {{postsShow.post.time }} </h3>
-    </div>
-    <div class="postInfo">
-      <p>{{postsShow.post.info}}</p>
-    </div>
+
 
 <distance location-a="postsShow.geoShow" location-b="postsShow.post.coordinates" ng-model="postsShow.distance"></distance>
 
+  <a ui-sref="profile({ id: post.createdBy.id })" class="cursor marginTop">
+    <h4 class=" marginTop">Posted by - <span>{{ postsShow.post.createdBy.username }} </span></h4>
+  </a>
 
-    <!-- <p>{{postsShow.post}}</p> -->
-    <div class="geo-code"><h3>
-      <reverse-geocode coordinates="postsShow.post.coordinates"/></h3>
-    </div>
-    <a ng-if="main.currentUserId === postsShow.post.createdBy.id" class="button primary" ui-sref="postsEdit({ id: postsShow.post.id})">Edit</a>
 
-    <div class="commentSection">
-      <ul>
-        <h3>Comments</h3>
-        <li ng-repeat="comment in postsShow.post.comments track by $index" class="col-md-12">
 
-          <img ng-src="{{ comment.createdBy.imageSRC }}" alt="profile.user.image" class="commentProfileImage">
-          <p class="commentText">
-            <span> <strong> {{ comment.createdBy.username }} </strong> </span>
-            – {{ comment.text }}
-            <br>
-            <button class="deleteComment" ng-click="postsShow.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">
-              Delete</button> {{ comment.timeAgo }}
 
-            </p>
-          </li>
-        </ul>
 
-        <div class="commentInput">
-          <form ng-if="main.isAuthenticated()" ng-submit="postsShow.addComment()">
-            <textarea class="col-12 commentBox" placeholder="Write a comment" ng-model="postsShow.newComment.text"></textarea>
-            <button class="button primary">Comment</button>
-          </form>
+    <div class="row marginTop">
+      <div class="col-5 showInfoBio">
+        <h3> About </h3>
+        <div class="postInfo">
+          <p>{{postsShow.post.info}}</p>
         </div>
       </div>
-    </div>
-  </div>
+
+      <div class=" col-6 showInfoStats">
+
+        <div class="geo-code"><h3>
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+<reverse-geocode class="inlineBlock" coordinates="postsShow.post.coordinates"/></h3>
+        </div>
+
+
+          <div class="postTime">
+            <h3> <i class="fa fa-calendar-o" aria-hidden="true"></i>
+              {{postsShow.post.date | date}}  </h3>
+          </div>
+
+          <div class="postTime">
+            <h3> <i class="fa fa-clock-o" aria-hidden="true"></i>
+              {{postsShow.post.time }}  </h3>
+            </div>
+
+          </div>
+
+
+        </div>
+
+        <div class="commentSection">
+          <ul>
+            <h3>Comments</h3>
+            <div ng-if="(postsShow.post.comments).length === 0" class="noRating"> This post has no comments, you can add one below.</div>
+
+            <li ng-repeat="comment in postsShow.post.comments track by $index" class="col-md-12">
+
+              <img ng-src="{{ comment.createdBy.imageSRC }}" alt="profile.user.image" class="commentProfileImage">
+              <p class="commentText">
+                <span> <strong> {{ comment.createdBy.username }} </strong> </span>
+                – {{ comment.text }}
+                <br>
+                <button class="deleteComment" ng-click="postsShow.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">
+                  Delete</button> .  {{ comment.timeAgo }}
+                </p>
+              </li>
+            </ul>
+
+            <div class="commentInput">
+              <form ng-if="main.isAuthenticated()" ng-submit="postsShow.addComment()">
+                <textarea class="col-12 commentBox" placeholder="Write a comment" ng-model="postsShow.newComment.text"></textarea>
+                <button class="button primary marginTop">Comment</button>
+              </form>
+
+
+
+            </div>
+            <hr ng-if="main.currentUserId === postsShow.post.createdBy.id">
+            <a ng-if="main.currentUserId === postsShow.post.createdBy.id" ui-sref="postsEdit({ id: postsShow.post.id})" class="button secondary floatRight"> Edit your post </a>
+          </div>
+        </div>
+      </div>

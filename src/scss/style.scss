@@ -14,6 +14,10 @@ $grid-gutter-width: 16px;
 
 //OVERALL STYLES
 
+body{
+  overflow-x: hidden;
+}
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: $inputColor;;
 }
@@ -49,7 +53,7 @@ h3 {
 
 h4 {
   font-size: 16px;
-  font-weight: 800;
+  font-weight: 500;
 }
 
 p{
@@ -60,7 +64,13 @@ p{
 
 a{
   text-decoration: none;
+  color: $textColor;
 }
+
+.floatRight{
+  float: right;
+}
+
 
 strong{
   font-weight: bolder;
@@ -76,7 +86,9 @@ strong{
   border-radius: 4px;
 }
 
-
+.inlineBlock{
+  display: inline-block;
+}
 
 
 .shadow{
@@ -93,6 +105,23 @@ strong{
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.editPostButton{
+  display: inline-block;
+  padding: 8px 42px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: $borderColor;
+  color: $textColor;
+  margin-top: 16px;
+  margin-left: 8px;
+  text-align: center;
+width: calc(20% - 5px);
+  &.editPostButton:hover{
+    background-color: darken($borderColor, 10%);
+  }
 }
 
 .login{
@@ -116,7 +145,6 @@ strong{
   color: $delete;
   text-transform: uppercase;
   padding-left: 0px;
-  margin: 16px 0px;
   &.delete:hover{
     color: darken($delete, 10%);
   }
@@ -265,7 +293,9 @@ nav a.before:hover:before,a.after:hover:after{
     outline:0;
   }
 }
-
+.marginTop{
+  margin-top:24px;
+}
 .fa-search{
   color: $highLight;
   font-size: 28px;
@@ -283,7 +313,6 @@ nav a.before:hover:before,a.after:hover:after{
 
 .filterDropdown{
   margin-top: 16px;
-
 }
 
 .showFilter{
@@ -305,6 +334,7 @@ nav a.before:hover:before,a.after:hover:after{
   padding: 8px 0px;
   border-radius: 8px;
   text-align: center;
+  width: calc(15% - 5px);
 }
 
 .l-box{
@@ -383,6 +413,8 @@ input[type=radio]:checked + label {
 
 input[type=range]{
     -webkit-appearance: none;
+    width: 80%;
+    display: inline-block;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
@@ -391,6 +423,7 @@ input[type=range]::-webkit-slider-runnable-track {
     background: #ddd;
     border: none;
     border-radius: 3px;
+
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -481,6 +514,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 .cardInfo{
   display: inline-block;
+  margin-right: 16px;
 }
 
 .margin{
@@ -601,6 +635,8 @@ textarea{
 .reviewSection{
   height: 400px;
   overflow-y: auto;
+  background-color: #fbfbfb;
+  margin: 16px 0px;
 }
 
 .commentsCard{
@@ -615,15 +651,27 @@ textarea{
   margin: 20px 0px;
 }
 
+.rating{
+  margin-bottom: 16px;
+}
+
 
 //POST SHOW
+
+.showInfoStats{
+ padding-left: 42px;
+}
+
+.showInfoBio{
+
+}
 
 .showInfo{
   border-radius: 4px;
   padding: 24px;
   margin: auto;
   position: relative;
-  top: -20vh;
+  top: -18vh;
   left: 0;
   bottom: 0;
   right: 0;
@@ -650,7 +698,6 @@ textarea{
 }
 
 .postTime{
-  display: inline-block;
   margin: 16px 16px 16px 0px;
 }
 
@@ -666,7 +713,13 @@ textarea{
 }
 
 .sendMessage{
-  margin: 0px 0px;
+  margin: 8px 0px 16px 0px;
+}
+
+.noRating{
+  background-color: $borderColor;
+  padding: 16px;
+  margin: 16px 0px;
 }
 
 .reviewSection{
@@ -706,6 +759,7 @@ textarea{
 }
 
 .commentBox{
+  margin-top: 16px;
   outline: none
 }
 

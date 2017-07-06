@@ -80,12 +80,11 @@
 
 
             <div class="col col-12 slideFilter" ng-show="slideFilter">
-              <div class="row">
-                <div class="col-8">
-                  <input type="range" class="col-12" ng-click="postsIndex.useSlider" ng-model="postsIndex.slider" min="1" max="10" ng-disabled="!postsIndex.useSlider">
-                </div>
 
-                <div class="col-2 sliderInfo">
+                  <input type="range" class="col-12" ng-click="postsIndex.useSlider" ng-model="postsIndex.slider" min="1" max="100" ng-disabled="!postsIndex.useSlider">
+
+
+                <div class="sliderInfo">
                   {{postsIndex.slider}} km from you
                 </div>
 
@@ -102,18 +101,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <div class="container col-10">
@@ -146,12 +133,12 @@
 
 
             <div class="cardInfo">
-              <h4>date</h4>  <p>{{ post.date | date }}</p>
+              <h4>Date</h4>  <p>{{ post.date | date }}</p>
 
             </div>
 
             <div class="cardInfo">
-              <h4>time</h4>  <p>{{ post.time }}</p>
+              <h4>Time</h4>  <p>{{ post.time }}</p>
             </div>
           </div>
         </div>

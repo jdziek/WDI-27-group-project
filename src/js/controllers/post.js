@@ -120,23 +120,27 @@ function PostsNewCtrl($state, Post) {
     vm.mytime = d;
   };
 
+  // vm.changed = function () {
+  //   $log.log('Time changed to: ' + vm.mytime);
+  // };
 
+  // vm.clear = function() {
+  //   vm.mytime = null;
+  // };
 }
 
-
-PostsEditCtrl.$inject = ['Post', '$stateParams', '$state'];
-function PostsEditCtrl(Post, $stateParams, $state) {
+PostsEditCtrl.$inject = ['$state', 'Post'];
+function PostsEditCtrl($state, Post) {
   const vm = this;
-
-  vm.post = Post.get($stateParams);
-
-  function postsUpdate() {
-    if (vm.postForm.$valid) {
-      vm.post
-        .$update()
-        .then(() => $state.go('postsShow', $stateParams));
-    }
-  }
-
+  vm.post = {};
   vm.update = postsUpdate;
+
+  function postsUpdate(){
+    Post
+    .update($state.params, vm.post)
+    .$promise
+    .then(() => {
+      $state.go('postsShow', $state.params);
+    });
+  }
 }

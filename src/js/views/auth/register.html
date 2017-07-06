@@ -1,56 +1,96 @@
 <!DOCTYPE html>
 <div class="col col-5 formBox shadow">
 
-  <form ng-submit="register.submit()">
+  <form ng-submit="register.submit()" name="register.registrationForm" novalidate>
 
     <div class="formTitle">
       <h3> Register </h3>
     </div>
 
 
+    <!--FIRST NAME  -->
     <div class="field fieldTogether">
       <label class="label" for="firstName">First Name</label>
       <p class="control">
-        <input class="input col-12" placeholder="First Name" type="text" name="firstName" id="firstName" ng-model="register.user.firstName">
+        <input class="input col-12" placeholder="First Name" type="text" name="firstName" id="firstName" ng-model="register.user.firstName" required>
       </p>
     </div>
+    <!--FIRST NAME VALIDATION  -->
+    <div ng-messages="register.registrationForm.firstName.$error" ng-show="register.registrationForm.$submitted || register.registrationForm.firstName.$touched">
+      <div ng-message="required" class="notificationThin" required>First Name is required.</div>
+    </div>
 
+
+    <!--LAST NAME  -->
     <div class="field fieldTogether">
       <label class="label" for="lastName">Last Name</label>
       <p class="control">
-        <input class="input col-12" placeholder="Last Name" type="text" name="lastName" id="lastName" ng-model="register.user.lastName">
+        <input class="input col-12" placeholder="Last Name" type="text" name="lastName" id="lastName" ng-model="register.user.lastName" required>
       </p>
     </div>
+    <!--LAST NAME VALIDATION  -->
+    <div ng-messages="register.registrationForm.lastName.$error" ng-show="register.registrationForm.$submitted || register.registrationForm.lastName.$touched">
+      <div ng-message="required" class="notificationThin" required>Last Name is required.</div>
+    </div>
 
+
+<!--USERNAME -->
     <div class="field">
       <label class="label" for="username">Username</label>
       <p class="control">
-        <input class="input" type="text" placeholder="Username" name="username" id="username" ng-model="register.user.username">
+        <input class="input" type="text" placeholder="Username" name="username" id="username" ng-model="register.user.username" required>
       </p>
     </div>
+    <!--USERNAME VALIDATION  -->
+    <div ng-messages="register.registrationForm.username.$error" ng-show="register.registrationForm.$submitted || register.registrationForm.username.$touched">
+      <div ng-message="required" class="notificationThin" required>Username is required.</div>
+    </div>
 
-   <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" -->
 
+<!--EMAIL -->
     <div class="field">
       <label class="label" for="email">Email</label>
       <p class="control">
-        <input class="input" type="text" placeholder="name@email.com" name="email" id="email" ng-model="register.user.email" >
+        <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"  class="input" type="email" placeholder="E.g JohnSmith@email.com" name="email" id="email" ng-model="register.user.email" required>
       </p>
     </div>
 
+    <!--EMAIL VALIDATION  -->
+    <div ng-messages="register.registrationForm.email.$error" ng-show="register.registrationForm.$submitted || register.registrationForm.email.$touched">
+      <div ng-message="required" class="notificationThin" required>Email is required.</div>
+      <div ng-message="pattern" ng-show="register.registrationForm.$submitted || register.registrationForm.email.$touched" class="notificationThin" required>This Email is not valid</div>
+    </div>
+
+
+
+<!--PASSWORD -->
     <div class="field">
       <label class="label" for="password">Password</label>
       <p class="control">
-        <input class="input" type="password" placeholder="Password" name="password" id="password" ng-model="register.user.password">
+        <input pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" class="input" type="password" placeholder="Password" name="password" id="password" data-ng-model="register.user.password" required>
       </p>
     </div>
+    <!--PASSWORD VALIDATION  -->
+    <div ng-messages="register.registrationForm.password.$error" ng-show="register.registrationForm.$submitted || register.registrationForm.password.$touched">
+      <div ng-message="required" class="notificationThin" required>Password is required.</div>
+      <div ng-message="pattern" ng-show="register.registrationForm.$submitted || register.registrationForm.password.$touched" class="notificationThin" required>Password requires a minimum of eight characters, at least one uppercase letter, one lowercase letter and one number</div>
+    </div>
 
+
+<!--PASSWORD CONFIRMATION -->
     <div class="field">
       <label class="label" for="passwordConfirmation">Password Confirmation</label>
       <p class="control">
-        <input class="input" type="password" placeholder="Password Confirmation" name="passwordConfirmation" id="passwordConfirmation" ng-model="register.user.passwordConfirmation">
+        <input pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" class="input" type="password" placeholder="Password Confirmation" name="passwordConfirmation" id="passwordConfirmation" ng-model="register.user.passwordConfirmation" data-password-verify="register.user.password">
       </p>
     </div>
+    <!--PASSWORD CONFIRMATION VALIDATION  -->
+    <div ng-messages="register.registrationForm.passwordConfirmation.$error" ng-show="register.registrationForm.$submitted || register.registrationForm.passwordConfirmation.$touched">
+      <div ng-message="required" class="notificationThin" required>Password Confirmation is required.</div>
+      <div ng-message="pattern" ng-show="register.registrationForm.$submitted || register.registrationForm.passwordConfirmation.$touched" class="notificationThin" required>Password requires a minimum of eight characters, at least one uppercase letter, one lowercase letter and one number</div>
+    </div>
+
+
 
     <div class="field">
       <label class="label" for="jobTitle">Job Title</label>
@@ -62,7 +102,7 @@
     <div class="field">
       <label class="label" for="bio">Bio</label>
       <p class="control">
-        <textarea class="col-12 textarea" maxlength="500"name="bio" id="bio" placeholder="Tell us about your self..." ng-model="register.user.bio"></textarea>
+        <textarea class="col-12 textarea" maxlength="500" name="bio" placeholder="Tell us about your self..." ng-model="register.user.bio"></textarea>
       </p>
     </div>
 

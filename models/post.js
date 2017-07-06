@@ -19,18 +19,16 @@ commentSchema
 
 const postSchema = new mongoose.Schema({
 
-  postType: String,
-  title: String,
-  info: String,
-  location: String,
-  date: Date,
-  time: String,
-  image: String,
-  coordinates: { lat: Number, lng: Number },
+  postType: {type: String, required: true},
+  title: {type: String, required: true},
+  info: {type: String, required: true},
+  location: {type: String, required: true},
+  date: {type: Date, required: true},
+  time: {type: String, required: true},
+  coordinates: { lat: Number, lng: Number},
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
   geo: { lat: Number, lng: Number },
-  comments: [ commentSchema ],
-  categories: [String]
+  comments: [ commentSchema ]
 }, {
   timestamps: true
 });
