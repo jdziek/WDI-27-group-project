@@ -28,7 +28,7 @@ function login(req, res, next) {
     const token = jwt.sign(payload, secret, { expiresIn: 60*60*24 });
     console.log('TOKEN:', token);
     return res.status(200).json({
-      message: 'Login successful!',
+      message: `Welcome Back ${user.username}!`,
       token
     });
   })
