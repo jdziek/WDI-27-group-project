@@ -16,13 +16,12 @@ commentSchema
   });
 
 const userSchema = new mongoose.Schema({
-  firstName: { type: String},
-  lastName: { type: String},
+  firstName: { type: String, required: true},
+  lastName: { type: String, required: true},
   image: { type: String },
-  username: { type: String},
-  email: { type: String},
-  password: { type: String},
-  postcode: { type: String},
+  username: { type: String, required: true},
+  email: { type: String, unique: true, required: true},
+  password: { type: String, required: true},
   jobTitle: { type: String},
   bio: { type: String},
   facebookId: { type: Number },
