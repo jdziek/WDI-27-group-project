@@ -19,6 +19,8 @@ function googleMap() {
       let map = null;
       let marker = null;
 
+      const newMap = document.getElementById('map-new');
+
       scope.$watch('center',  setCenter);
       scope.$on('$destroy', destroyMap);
 
@@ -56,7 +58,7 @@ function googleMap() {
           console.log(scope.geoShow);
           scope.$apply();
 
-          if(document.getElementById('map-new').classList.contains('marker')) {
+          if(newMap && newMap.classList.contains('marker')) {
             map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
             marker.setPosition(pos);
             map.setCenter(pos);
@@ -68,7 +70,7 @@ function googleMap() {
       }
 
 
-      if(document.getElementById('map-new').classList.contains('marker')) {
+      if(newMap && newMap.classList.contains('marker')) {
         google.maps.event.addListener(map, 'click', function(event) {
           marker.setPosition(event.latLng);
           scope.center = marker.getPosition();

@@ -146,7 +146,14 @@ PostsEditCtrl.$inject = ['$state', 'Post'];
 function PostsEditCtrl($state, Post) {
   const vm = this;
 
-  vm.post = Post.get($state.params);
+  Post.get($state.params)
+    .$promise
+    .then((post) => {
+      vm.post = post;
+      vm.post.createdBy = vm.post.createdBy.id;
+      vm.post.date = new Date(vm.post.date);
+    });
+
   vm.update = postsUpdate;
 
   function postsUpdate(){
