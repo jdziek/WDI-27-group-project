@@ -2,18 +2,13 @@ const User = require('../models/user');
 const { secret } = require('../config/environment');
 const jwt = require('jsonwebtoken');
 
-function register(req, res, next) {
-
-  if(req.file) req.body.image = req.file.filename;
-
+function register(req, res) {
   User
-  .create(req.body)
-  .then((err) => {
-    if (err) return res.status(400).json(err);
-    return res.status(200).json({ message: 'Thank you for registering!' });
-  })
+    .create(req.body, (err) => {
+      if (err) return res.status(400).json(err);
 
-  .catch(next);
+      return res.status(200).json({ message: 'Thanks for registering!' });
+    });
 }
 
 function login(req, res, next) {
