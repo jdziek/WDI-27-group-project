@@ -15,14 +15,33 @@
 <body ng-controller="MainCtrl as main">
   <nav>
     <div class="logo" ui-sref="postsIndex"></div>
+
+
+    <li class="menu cursor" ng-click="showNav = !showNav"> &#9776; </li>
+
+
     <ul>
-      <li class="menu"> &#9776; </li>
-      <div class="dropdown">
-        <li ng-if="!main.isAuthenticated()"> <a class="navLink first after" ui-sref="login"> Login </a></li>
-        <li ng-if="main.isAuthenticated()"> <a class="navLink first after cursor" ui-sref="#" ng-click="main.logout()"> Logout </a></li>
-        <li ng-if="!main.isAuthenticated()"> <a class="navLink first after" ui-sref="register"> Register </a></li>
-        <li ng-if="main.isAuthenticated()"> <a class="navLink first after" ui-sref="postsNew"> Post </a></li>
-        <li ng-if="main.isAuthenticated()"> <a class="navLink first after" ui-sref="profile({ id: main.currentUserId })" > Profile </a></li>
+      <div class="dropdown" ng-show="showNav">
+
+        <li ng-if="!main.isAuthenticated()">
+          <a class="navLink first after" ui-sref="login"> Login </a>
+        </li>
+
+        <li ng-if="main.isAuthenticated()">
+          <a class="navLink first after cursor" ui-sref="#" ng-click="main.logout()"> Logout </a>
+        </li>
+
+        <li ng-if="!main.isAuthenticated()">
+          <a class="navLink first after" ui-sref="register"> Register </a>
+        </li>
+
+        <li ng-if="main.isAuthenticated()">
+          <a class="navLink first after" ui-sref="postsNew"> Post </a>
+        </li>
+
+        <li ng-if="main.isAuthenticated()">
+          <a class="navLink first after" ui-sref="profile({ id: main.currentUserId })" > Profile </a>
+        </li>
       </div>
     </ul>
   </nav>
