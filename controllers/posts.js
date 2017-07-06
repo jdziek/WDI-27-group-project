@@ -44,6 +44,9 @@ function postUpdate(req, res, next) {
   .catch(next);
 }
 
+
+
+
 function postDelete(req, res, next) {
   Post
   .findById(req.params.id)

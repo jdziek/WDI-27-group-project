@@ -75,7 +75,7 @@
             <p class="control">
               <label  for="info">Information</label>
             </p>
-            <textarea  id="info" type="text" class="input" name="info" ng-model="postsNew.post.info" required></textarea>
+            <textarea id="info" type="text" class="input" name="info" ng-model="postsNew.post.info" required></textarea>
 
             <div ng-messages="postsNew.postForm.info.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.info.$touched">
               <div ng-message="required" class="notificationThin">Information is required</div>
@@ -86,8 +86,7 @@
             <p class="control">
               <label  for="title">Select location</label>
                 </p>
-              <input autocomplete type="text" class="input"  name="postcode" coordinates="postsNew.post.coordinates"
-            >
+              <input autocomplete type="text" class="input"  name="postcode" coordinates="postsNew.post.coordinates" ng-model="postsNew.post.postcode">
           </div>
 
           <div class="field">
