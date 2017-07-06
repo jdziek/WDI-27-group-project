@@ -97,20 +97,20 @@ function PostsShowCtrl($state, Post, PostComment) {
 }
 
 
-
-
 PostsNewCtrl.$inject = ['$state', 'Post'];
 function PostsNewCtrl($state, Post) {
   const vm  = this;
   vm.create = postsCreate;
 
   function postsCreate(){
-    Post
-    .save(vm.post)
-    .$promise
-    .then(() => {
-      $state.go('postsIndex');
-    });
+    if (vm.postForm.$valid) {
+      Post
+      .save(vm.post)
+      .$promise
+      .then(() => {
+        $state.go('postsIndex');
+      });
+    }
   }
 
   vm.update = function() {
@@ -134,17 +134,6 @@ function PostsEditCtrl($state, Post) {
   const vm = this;
   vm.post = {};
   vm.update = postsUpdate;
-
-  postsShow();
-
-  function postsShow(){
-    Post
-    .get($state.params)
-    .$promise
-    .then((post) => {
-      vm.post = post;
-    });
-  }
 
   function postsUpdate(){
     Post

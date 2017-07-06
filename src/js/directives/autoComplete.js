@@ -9,7 +9,7 @@ autocomplete.$inject = [];
 function autocomplete() {
   return {
     restrict: 'A',
-    require: 'ngModel',
+
     scope: {
       coordinates: '='
     },
