@@ -22,7 +22,7 @@ const postSchema = new mongoose.Schema({
   postType: {type: String, required: true},
   title: {type: String, required: true},
   info: {type: String, required: true},
-  location: {type: String, required: true},
+
   date: {type: Date, required: true},
   time: {type: String, required: true},
   coordinates: { lat: Number, lng: Number},
