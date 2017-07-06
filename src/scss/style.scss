@@ -182,11 +182,8 @@ span{
 }
 
 .notificationThin{
-  margin: 16px auto;
-  background-color: $delete;
-  color: white;
-  padding: 8px;
-  border-radius: 4px;
+  margin: 8px 4px;
+  color: $delete;
 }
 
 
@@ -599,6 +596,10 @@ textarea{
   }
 }
 
+.formRight{
+  height: 55vh;
+}
+
 //PROFILE PAGE
 
 .profileImage{
@@ -679,6 +680,7 @@ textarea{
   height: auto;
 }
 
+
 .mapSide{
   margin: 24px 0px;
   height:  50vh;
@@ -703,7 +705,7 @@ textarea{
 
 
 #map-new {
-  height: 350px;
+  height: 100%;
 }
 
 //POST SHOW COMMENTS
