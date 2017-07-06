@@ -4,7 +4,7 @@
 
       <h2> New Post </h2>
       <form ng-submit="postsNew.create()" name="postsNew.postForm" novalidate>
-        <div class="formLeft col-lg-7">
+        <div class="formLeft col-lg-6">
 
           <div class="field">
             <p class="control">
@@ -37,26 +37,29 @@
             </div>
           </div>
 
-
-          <div class="field fieldTogether">
-            <p class="control">
-              <label for="date">Date</label>
-            </p>
-            <input pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" type="date" class="input" id="date" name="date" ng-model="postsNew.post.date" required>
-            <div ng-messages="postsNew.postForm.date.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.date.$touched">
-              <div ng-message="required" class="notificationThin">Date is required.</div>
+          <div class="row">
+            <div class="col-12">
+            <div class=" col-5 field fieldTogether">
+              <p class="control">
+                <label for="date">Date</label>
+              </p>
+              <input pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" type="date" class="input col-12" id="date" name="date" ng-model="postsNew.post.date" required>
+              <div ng-messages="postsNew.postForm.date.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.date.$touched">
+                <div ng-message="required" class="notificationThin">Date is required.</div>
+              </div>
             </div>
-          </div>
 
 
-          <div class="field fieldTogether">
-            <p class="control">
-              <label  for="time">Time</label>
-            </p>
-            <input placeholder="E.g. 10:30am" pattern="(1[012]|[1-9]):[0-5][0-9](\\s)?(?i)(am|pm)" id="time" type="text" class="input" name="time" ng-model="postsNew.post.time" required>
+            <div class="col-5 field fieldTogether">
+              <p class="control">
+                <label  for="time">Time</label>
+              </p>
+              <input placeholder="E.g. 10:30am" pattern="(1[012]|[1-9]):[0-5][0-9](\\s)?(?i)(am|pm)" id="time" type="text" class="input col-12" name="time" ng-model="postsNew.post.time" required>
 
-            <div ng-messages="postsNew.postForm.time.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.time.$touched">
-              <div ng-message="required" class="notificationThin">Time is required</div>
+              <div ng-messages="postsNew.postForm.time.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.time.$touched">
+                <div ng-message="required" class="notificationThin">Time is required</div>
+              </div>
+            </div>
             </div>
           </div>
 
@@ -64,18 +67,18 @@
             <p class="control">
               <label  for="info">About</label>
             </p>
-            <textarea type="text" class="input" name="info" ng-model="postsNew.post.info" required></textarea>
+            <textarea type="text" class=" col-10" row="40" col="40" name="info" ng-model="postsNew.post.info" required></textarea>
 
             <div ng-messages="postsNew.postForm.info.$error" ng-show="postsNew.postForm.$submitted || postsNew.postForm.info.$touched">
               <div ng-message="required" class="notificationThin">About is required</div>
             </div>
           </div>
 
-          <div class="field ">
+          <div class="field">
             <p class="control">
               <label  for="title">Select location</label>
-                </p>
-              <input autocomplete type="text" class="input"  name="postcode" coordinates="postsNew.post.coordinates"
+            </p>
+            <input autocomplete type="text" class="input col-10"  name="postcode" coordinates="postsNew.post.coordinates"
             >
           </div>
 
@@ -87,7 +90,7 @@
 
         </div>
 
-        <div class="formRight col-lg-5">
+        <div class="formRight col-lg-6">
           <div class="marker" id="map-new">
             <google-map center="postsNew.post.coordinates" coordinates="postsNew.post.coordinates" geo="postsNew.post.coordinates" ></google-map>
           </div>
