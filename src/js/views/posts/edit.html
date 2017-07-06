@@ -1,3 +1,5 @@
+<h1>Edit Post</h1>
+{{postsEdit.post}}
 <section class="section">
   <div class="row">
     <div class="formBox col-lg-10">
@@ -77,7 +79,7 @@
               <label  for="title">Select location</label>
                 </p>
               <input autocomplete type="text" class="input"  name="postcode" coordinates="postsEdit.post.coordinates"
-            >
+            ng-model="postsEdit.post.co">
           </div>
 
           <div class="field">
