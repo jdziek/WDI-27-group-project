@@ -53,6 +53,19 @@ function PostsIndexCtrl(Post, filterFilter, $scope, orderByFilter) {
   }
   vm.lowerThan = lowerThan;
 
+  function dateFilter(from, to) {
+    if(from && to) {
+      return function(item) {
+        const dateFrom = from.getTime();
+        const dateTo = to.getTime();
+        const postDate = new Date(item.date).getTime();
+        if (postDate > dateFrom && postDate < dateTo)  return true;
+      };
+    }
+  }
+
+  vm.dateFilter = dateFilter;
+
 
 
   $scope.$watchGroup([
