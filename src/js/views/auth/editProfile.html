@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<div class="col col-5 formBox shadow">
+<div class="container col-10">
+<div class="formBox col-lg-8 col-sm-12">
+
   <form ng-submit="profileEdit.update()" name="profileEdit.postForm">
 
     <div class="formTitle">
       <h3> Edit Profile </h3>
     </div>
 
-    <div class="field fieldTogether">
+    <div class="field fieldTogether col-md-6 col-sm-12">
+      <label class="label" for="firstName">First Name</label>
       <p class="control">
         <input placeholder="First Name" class="input col-12" type="text" name="firstName" id="firstName" ng-model="profileEdit.user.firstName">
       </p>
     </div>
 
-    <div class="field fieldTogether">
+    <div class="field fieldTogether col-md-6 col-sm-12">
+      <label class="label" for="lastName">Last Name</label>
       <p class="control">
         <input class="input col-12" placeholder="Last Name" type="text" name="lastName" id="lastName" ng-model="profileEdit.user.lastName">
       </p>
@@ -21,42 +25,43 @@
     <div class="field">
       <label class="label" for="username">Username</label>
       <p class="control">
-        <input class="input" type="text" name="username" id="username" ng-model="profileEdit.user.username">
+        <input class="input col-12" type="text" name="username" id="username" ng-model="profileEdit.user.username">
       </p>
     </div>
 
 
     <div class="field">
-      <label class="label" for="email">Email</label>
+      <label class="label " for="email">Email</label>
       <p class="control">
-        <input class="input" type="text" name="email" id="email" ng-model="profileEdit.user.email">
+        <input class="input col-12" type="text" name="email" id="email" ng-model="profileEdit.user.email">
       </p>
     </div>
 
     <div class="field">
       <label class="label" for="jobTitle">Job Title</label>
       <p class="control">
-        <input class="input" type="text" name="jobTitle" id="jobTitle" ng-model="profileEdit.user.jobTitle">
+        <input class="input col-12" type="text" name="jobTitle" id="jobTitle" ng-model="profileEdit.user.jobTitle">
       </p>
     </div>
 
     <div class="field">
       <label class="label" for="bio">Bio</label>
       <p class="control">
-        <textarea class="input" type="textarea" name="bio" id="bio" ng-model="profileEdit.user.bio"></textarea>
+        <textarea class="textarea col-12" type="textarea" name="bio" id="bio" ng-model="profileEdit.user.bio"></textarea>
       </p>
     </div>
 
     <div class="form-group">
       <label for="image">Image</label>
-      <input base64 type="file" name="image" id="image" ng-model="profileEdit.user.base64" class="form-control">
-      <img ng-src="{{ profileEdit.user.base64 }}">
+      <input base64 type="file" name="image" id="image" ng-model="profileEdit.user.base64" class="imgUpload">
+      <img class="imgUploadImg" ng-src="{{ profileEdit.user.base64 }}">
     </div>
 
     <div class="field">
       <p class="control">
-        <input type="submit" class="button is-primary is-fullwidth" value="Save Changes">
+        <input type="submit" class="button primary fullwidth" value="Save Changes">
       </p>
     </div>
   </form>
+</div>
 </div>
