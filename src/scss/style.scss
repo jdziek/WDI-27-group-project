@@ -596,13 +596,13 @@ input:-webkit-autofill {
   }
 }
 
-textarea{
-  width: 100%;
+.textarea{
   height: 100px;
   padding: 16px;
   outline: none;
   border: 1px solid $borderColor;
-  &textarea:focus{
+  &.textarea:focus{
+    outline:0;
     border: 1px solid $highLight;
   }
 }

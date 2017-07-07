@@ -68,7 +68,7 @@
             <p class="control">
               <label  for="info">About</label>
             </p>
-            <textarea type="text" class="input" name="info" ng-model="postsEdit.post.info" required></textarea>
+            <textarea type="text" class="textarea col-10" name="info" ng-model="postsEdit.post.info" required></textarea>
 
             <div ng-messages="postsEdit.postForm.info.$error" ng-show="postsEdit.postForm.$submitted || postsEdit.postForm.info.$touched">
               <div ng-message="required" class="notificationThin">About is required</div>
