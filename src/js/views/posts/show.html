@@ -10,35 +10,28 @@
 
 
 
-  <div class="col-7 showInfo shadow">
+  <div class="col-lg-7 col-md-10 col-sm-12 showInfo shadow">
 
     <div class="row">
       <h2>{{ postsShow.post.title}}</h2>
-
     </div>
 
+<!-- <distance location-a="postsShow.geoShow" location-b="postsShow.post.coordinates" ng-model="postsShow.distance"></distance> -->
 
-
-
-<distance location-a="postsShow.geoShow" location-b="postsShow.post.coordinates" ng-model="postsShow.distance"></distance>
 
   <a ui-sref="profile({ id: post.createdBy.id })" class="cursor marginTop">
     <h4 class=" marginTop">Posted by - <span>{{ postsShow.post.createdBy.username }} </span></h4>
   </a>
 
-
-
-
-
     <div class="row marginTop">
-      <div class="col-5 showInfoBio">
+      <div class="col-lg-6 col-md-6 col-12 col-sm-16 showInfoBio">
         <h3> About </h3>
         <div class="postInfo">
           <p>{{postsShow.post.info}}</p>
         </div>
       </div>
 
-      <div class=" col-6 showInfoStats">
+      <div class=" col-lg-6 col-md-6 col-sm-16 col-12 showInfoStats">
 
         <div class="geo-code"><h3>
           <i class="fa fa-map-marker" aria-hidden="true"></i>

@@ -323,6 +323,7 @@ nav a.before:hover:before,a.after:hover:after{
   margin: 24px 0px;
   padding: 0px 16px;
   min-height: 130px;
+  overflow: hidden;
 }
 
 .slideFilter{
@@ -332,15 +333,18 @@ nav a.before:hover:before,a.after:hover:after{
 }
 
 .sliderInfo{
+  margin: 0 auto;
   color: white;
   background-color:$highLight;
-  display: inline-block;
+  display: block;
   padding: 8px 0px;
   border-radius: 8px;
   text-align: center;
-  width: calc(15% - 5px);
+  width: calc(20% - 5px);
 }
-
+.sliderInfoBox{
+  margin: 24px auto;
+}
 .l-box{
   margin: 16px 0px;
 }
@@ -417,7 +421,7 @@ input[type=radio]:checked + label {
 
 input[type=range]{
   -webkit-appearance: none;
-  width: 80%;
+  width: 100%;
   display: inline-block;
 }
 
@@ -788,22 +792,96 @@ textarea{
   margin-bottom: -50px;
 }
 
-footer.footer{
-  height: 50px;
-  clear: both;
-  bottom: 0;
-  position: sticky;
-  width: 100%;
-  background-color: $textColor;
-  color: white;
-}
-.push {
-  height: 10px;
-  margin-bottom: 100px;
-}
+// footer.footer{
+//   height: 50px;
+//   clear: both;
+//   bottom: 0;
+//   position: sticky;
+//   width: 100%;
+//   background-color: $textColor;
+//   color: white;
+// }
+// .push {
+//   height: 10px;
+//   margin-bottom: 100px;
+// }
 
 .showMobile{
   display:none;
+}
+
+.arrow-up {
+  margin: 0 auto;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid $highLight;
+}
+
+
+  @media only screen and (max-width: 750px) {
+
+    .profileImage{
+      width: 100%;
+      height: 50vh;
+      object-fit: cover;
+      display: block;
+      margin: 0px auto;
+      background-position: bottom;
+    }
+
+    .arrow-up {
+      margin: 0 auto;
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 8px solid $highLight;
+    }
+    .sliderInfoBox{
+      margin: 0px auto;
+    }
+
+    input[type=range] {
+      width: 100%;
+      margin-bottom:32px;
+    }
+
+    .slideFilter {
+      margin: 16px 0px 0px 0px;
+      height: 30px;
+      display: inline-block;
+  }
+
+    .sliderInfo{
+      color: white;
+      background-color:$highLight;
+      display: block;
+      padding: 8px 0px;
+      border-radius: 8px;
+      text-align: center;
+      width: 100%;
+      margin: 0px 0px 16px 0px;
+    }
+
+}
+
+@media only screen and (max-width: 767px) {
+
+  .showInfoStats{
+    padding-left: 8px;
+    margin-top:16px;
+  }
+}
+@media only screen and (max-width: 600px) {
+
+
+
+  .radioSelect{
+    margin-top: 16px;
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 520px) {

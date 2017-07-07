@@ -2,9 +2,8 @@
 
 <div class="container col-10 profileContainer">
   <div class="row">
-    <div class="col col-md-4">
+    <div class="col-12 col-md-4 col-lg-4">
       <div class="profilePhotoContainer">
-
 
         <img ng-src="{{ profile.user.imageSRC }}" alt="profile.user.imageSRC" class="profileImage">
 
@@ -20,10 +19,9 @@
     </div>
 
 
-    <div class="col col-md-7 profileInfo">
+    <div class="col-12 col-md-8 col-lg-7 profileInfo">
 
       <h2 ng-if="profile.user"> {{ profile.user.username }}  – <span> {{ profile.user.jobTitle }}</span></h2>
-
       <h2 ng-if="profile.user.facebookId"><strong></strong><span>{{ profile.user.firstName }} {{ profile.user.lastName }} </span></h2>
 
 
@@ -39,11 +37,11 @@
 
         <h3>User Reviews</h3>
 
-          <div ng-if="(profile.user.comments).length === 0" class="noRating"> This user currently has no reviews, you can add one below. </div>
+        <div ng-if="(profile.user.comments).length === 0" class="noRating"> This user currently has no reviews, you can add one below. </div>
 
-        <ul ng-if="(profile.user.comments).length !== 0" class="reviewSection">
+        <ul ng-if="(profile.user.comments).length !== 0" class="reviewSection col-lg-12 col-sm-12">
 
-          <li ng-repeat="comment in profile.user.comments track by $index" class="col-md-5 commentsCard card shadow">
+          <li ng-repeat="comment in profile.user.comments track by $index" class="col-md-11  col-lg-5 col-11 commentsCard card shadow">
             <strong>{{ comment.createdBy.username }}</strong>
             <div class="reviewText">
               <p> {{ comment.text }} </p>
@@ -56,9 +54,6 @@
             <button class="delete" ng-click="profile.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete Review</button>
           </li>
         </ul>
-
-
-
 
         <div class="reviewInput" ng-if="(main.currentUserId !== profile.user.id )">
           <h3>Write a Review</h3>
@@ -73,10 +68,6 @@
             <button class="button primary marginTop">Post Review</button>
           </form>
         </div>
-
-
-
-
       </div>
     </div>
   </div>
