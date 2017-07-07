@@ -106,9 +106,13 @@
 <div class="container col-10">
   <div class="row">
 
-        <div ng-if="(postsIndex.filtered).length === 0" class="noRating"> <h2> Sorry...</h2>
+        <div ng-if="(postsIndex.filtered).length === 0" class="noRating">
+
+          <h2> Sorry...</h2>
           <br>
-          There doesn't appear to be any results for your search. Please broaden your search filter or search for something else. </div>
+          There doesn't appear to be any results for your search. Please broaden your search filter or search for something else.
+
+        </div>
 
     <div class="indexCard col-lg-4 col-md-6 col-sm-12" ng-repeat="post in postsIndex.filtered | filter: postsIndex.lowerThan('distance', postsIndex.slider) | filter: postsIndex.dateFilter(postsIndex.dateStart, postsIndex.dateEnd)">
 

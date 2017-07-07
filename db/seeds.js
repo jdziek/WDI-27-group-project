@@ -97,8 +97,8 @@ User
     postType: 'Teaching',
     title: 'I am a farmer and would love share my knowledge with someone willing to learn',
     info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.',
-    location: 'Shc',
-    date: '25/08/2017',
+    location: 'Sychdyn',
+    date: '2017-08/25',
     time: '15:20pm',
     coordinates: { lat: 53.1886749, lng: -3.1317736999999397 },
     createdBy: users[0]
@@ -106,8 +106,8 @@ User
     postType: 'Learning',
     title: 'Want to Learn about Stocks Monday Night',
     info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.',
-    location: 'Somewhere',
-    date: '12/12/2018',
+    location: 'Sychdyn',
+    date: '2018-12-12',
     time: '19:15pm',
     coordinates: { lat: 51.5221596, lng: -0.0521308 },
     createdBy: users[3]
@@ -116,7 +116,7 @@ User
     title: 'I love cooking, I want to share this passion of mine!',
     info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.',
     location: 'Sydney',
-    date: '06/09/2017',
+    date: '2017-06-09',
     time: '19:15pm',
     coordinates: { lat: -33.8688197, lng: 151.20929550000005 },
     createdBy: users[0]
@@ -125,7 +125,7 @@ User
     title: 'I would love to speak to someone interested in surfing',
     info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.',
     location: 'Bali',
-    date: '12/07/2017',
+    date: '2017-12-12',
     time: '13:00pm',
     coordinates: { lat: -8.6478175, lng: 115.13851920000002 },
     createdBy: users[1]
@@ -134,7 +134,7 @@ User
     title: 'If anyone wants to learn about otters I love them (a bit too much)',
     info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.',
     location: 'London',
-    date: '02/11/2017',
+    date: '2017-02-11',
     time: '19:15pm',
     coordinates: { lat: 51.5221596, lng: -0.0521308 },
     createdBy: users[0]
@@ -143,7 +143,7 @@ User
     title: 'If anyone can teach me about fashion would love to learn!',
     info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.',
     location: 'Paris',
-    date: '10/08/2017',
+    date: '2017-08-10',
     time: '14:00pm',
     coordinates: { lat: 48.856614, lng: -2.3522219000000177 },
     createdBy: users[3]
@@ -152,7 +152,7 @@ User
     title: 'I really want to learn more about property investment',
     info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.',
     location: 'Hong Kong',
-    date: '29/07/2017',
+    date: '2017-07-19',
     time: '20:00pm',
     coordinates: { lat: 22.39642, lng: 114.10949700000003 },
     createdBy: users[1]
@@ -161,7 +161,7 @@ User
     title: 'I would love to find out how Crystal Palace FC are so good!',
     info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit pharetra mauris et fringilla. Aenean ut nibh porta, lacinia ex vel, facilisis leo. Sed feugiat imperdiet nibh, eget sagittis diam tincidunt at. Curabitur id diam eget dolor vestibulum aliquam vel efficitur nibh. Maecenas porttitor tincidunt commodo. Morbi tincidunt viverra sodales. Nulla gravida augue lacus, quis interdum est auctor nec.',
     location: 'Croydon',
-    date: '18/07/2017',
+    date: '2017-07-28',
     time: '09:30am',
     coordinates: { lat: 51.376165, lng: -0.09823400000004767 },
     createdBy: users[0]
