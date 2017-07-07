@@ -1,3 +1,4 @@
+/* global google */
 angular
   .module('groupProject')
   .directive('reverseGeocode', reverseGeocode);
@@ -9,7 +10,7 @@ function reverseGeocode() {
     scope: {
       coordinates: '='
     },
-    link: function (scope, element, attrs) {
+    link: function (scope, element) {
       const geocoder = new google.maps.Geocoder();
       // const latlng = new google.maps.LatLng(attrs.lat, attrs.lng);
 

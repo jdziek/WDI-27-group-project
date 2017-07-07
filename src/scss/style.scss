@@ -791,16 +791,15 @@ textarea{
 footer.footer{
   height: 50px;
   clear: both;
-  right: 0;
   bottom: 0;
-  left: 0;
-  position: fixed;
+  position: sticky;
   width: 100%;
   background-color: $textColor;
   color: white;
 }
 .push {
-  height: 50px;
+  height: 10px;
+  margin-bottom: 100px;
 }
 
 .showMobile{
