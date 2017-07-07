@@ -13,9 +13,14 @@ $inputColor: #d8d4d4;
 $grid-gutter-width: 16px;
 
 //OVERALL STYLES
-
+html {
+  height: 100%;
+  margin: 0;
+}
 body{
   overflow-x: hidden;
+  height: 100%;
+  margin: 0;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -791,19 +796,27 @@ textarea{
 .spaceBottom{
   margin-bottom: 42px;
 }
+.wrapper {
+  min-height: 100%;
 
-footer{
-  clear: both;
-  position:fixed;
-  bottom:0;
-  height: 50px;
-  width: 100%;
-  background-color: $textColor;
-  color: white;
-  margin-top: 48px;
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -50px;
 }
 
-
+// footer.footer{
+//   height: 50px;
+//   clear: both;
+//   bottom: 0;
+//   position: sticky;
+//   width: 100%;
+//   background-color: $textColor;
+//   color: white;
+// }
+// .push {
+//   height: 10px;
+//   margin-bottom: 100px;
+// }
 
 .showMobile{
   display:none;
