@@ -35,7 +35,7 @@
           </label>
 
           <input class="hidden" type="radio" id="teaching" name="name" ng-model="postsIndex.postType" value="Teaching">
-          <label for="teaching" class="radioSelect ShowPagemargin">
+          <label for="teaching" class="radioSelect">
             <i class="fa fa-comments spaceRight" aria-hidden="true"></i>
             Teaching
           </label>
@@ -52,22 +52,18 @@
 
 
           <div class="l-box">
+            <input type="checkbox" id="date" name="date" ng-click="datePicker = !datePicker" ng-model="postsIndex.useDate">
+
+            <label for="date" class="datePickerLabel">
+              <div class="checkBox">
+                <i class="fa fa-calendar-plus-o " aria-hidden="true"></i>
+              </div>
+              <div class="checkboxLabel"> Filter by date </div>
+            </label>
+
             <div class="datePickerBox">
-
-
-              <input type="checkbox" id="date" name="date" ng-click="datePicker = !datePicker" ng-model="postsIndex.useDate">
-
-              <label for="date" class="datePickerLabel">
-                <div class="checkBox">
-                  <i class="fa fa-calendar-plus-o " aria-hidden="true"></i>
-                </div>
-                <div class="checkboxLabel"> Filter by date </div>
-              </label>
-
-
               <input type="date" ng-model="postsIndex.dateStart" ng-show="datePicker">
               <input type="date" ng-model="postsIndex.dateEnd" ng-show="datePicker">
-
             </div>
 
             <input type="checkbox" id="slider" ng-click="slideFilter = !slideFilter" ng-model="postsIndex.useSlider">
@@ -80,27 +76,30 @@
             </label>
 
 
-            <div class="col col-12 slideFilter" ng-show="slideFilter">
+            <div class="col-12 slideFilter" ng-show="slideFilter">
 
-                  <input type="range" class="col-12" ng-click="postsIndex.useSlider" ng-model="postsIndex.slider" min="1" max="100" ng-disabled="!postsIndex.useSlider">
+              <input type="range" class="col-lg-12 col-mg-12 col-sm-12" ng-click="postsIndex.useSlider" ng-model="postsIndex.slider" min="1" max="100" ng-disabled="!postsIndex.useSlider">
+
+<div class="sliderInfoBox">
+  <div class="arrow-up"></div>
+  <div class="sliderInfo">
+    {{postsIndex.slider}} km from you
+  </div>
+</div>
 
 
-                <div class="sliderInfo">
-                  {{postsIndex.slider}} km from you
-                </div>
-
-              </div>
             </div>
-
           </div>
+
         </div>
-
-
-
-
       </div>
+
+
+
+
     </div>
   </div>
+</div>
 
 
 
@@ -128,35 +127,35 @@
               <p>{{ post.timeAgo}} <i class="fa fa-clock-o" aria-hidden="true"></i> –  <a ui-sref="profile({ id: post.createdBy.id })"> <span>
                 {{ post.createdBy.username }}</span></a></p>
 
-              <div class="cardLocation">
-                <distance location-a="postsIndex.geo" location-b="post.coordinates" ng-model="post.distance"></distance>
+                <div class="cardLocation">
+                  <distance location-a="postsIndex.geo" location-b="post.coordinates" ng-model="post.distance"></distance>
+                </div>
+              </div>
+
+
+              <div class="cardInfo">
+                <h4>Date</h4>  <p>{{ post.date | date }}</p>
+
+              </div>
+
+              <div class="cardInfo">
+                <h4>Time</h4>  <p>{{ post.time }}</p>
               </div>
             </div>
-
-
-            <div class="cardInfo">
-              <h4>Date</h4>  <p>{{ post.date | date }}</p>
-
-            </div>
-
-            <div class="cardInfo">
-              <h4>Time</h4>  <p>{{ post.time }}</p>
-            </div>
           </div>
+
+
+          <button class="button primary" ui-sref="postsShow({ id: post.id })">View</button>
+
+
+
         </div>
-
-
-        <button class="button primary" ui-sref="postsShow({ id: post.id })">View</button>
-
-
-
       </div>
     </div>
   </div>
-</div>
 
 
-<div class="marker" id="map-new" hidden>
-  <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" geo="postsIndex.geo" ></google-map>
+  <div class="marker" id="map-new" hidden>
+    <google-map center="{ lat: 51.5221596, lng: -0.0521308 }" geo="postsIndex.geo" ></google-map>
 
-</div>
+  </div>

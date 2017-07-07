@@ -118,7 +118,7 @@ strong{
   margin-top: 16px;
   margin-left: 8px;
   text-align: center;
-width: calc(20% - 5px);
+  width: calc(20% - 5px);
   &.editPostButton:hover{
     background-color: darken($borderColor, 10%);
   }
@@ -318,6 +318,7 @@ nav a.before:hover:before,a.after:hover:after{
   margin: 24px 0px;
   padding: 0px 16px;
   min-height: 130px;
+  overflow: hidden;
 }
 
 .slideFilter{
@@ -327,15 +328,18 @@ nav a.before:hover:before,a.after:hover:after{
 }
 
 .sliderInfo{
+  margin: 0 auto;
   color: white;
   background-color:$highLight;
-  display: inline-block;
+  display: block;
   padding: 8px 0px;
   border-radius: 8px;
   text-align: center;
-  width: calc(15% - 5px);
+  width: calc(20% - 5px);
 }
-
+.sliderInfoBox{
+  margin: 24px auto;
+}
 .l-box{
   margin: 16px 0px;
 }
@@ -376,7 +380,7 @@ input[type=radio]:checked + label {
 }
 
 [type="checkbox"]:hover + label{
-    color: $highLight;
+  color: $highLight;
 }
 [type="checkbox"]:checked + label {
   position: relative;
@@ -411,45 +415,45 @@ input[type=radio]:checked + label {
 // slider styling
 
 input[type=range]{
-    -webkit-appearance: none;
-    width: 80%;
-    display: inline-block;
+  -webkit-appearance: none;
+  width: 100%;
+  display: inline-block;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
 
-    height: 8px;
-    background: #ddd;
-    border: none;
-    border-radius: 3px;
+  height: 8px;
+  background: #ddd;
+  border: none;
+  border-radius: 3px;
 
 }
 
 input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    cursor:grab;
-    border: none;
-    height: 24px;
-    width: 24px;
-    border-radius: 50%;
-    background: $highLight;
-    margin-top: -8px;
-  }
+  -webkit-appearance: none;
+  cursor:grab;
+  border: none;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: $highLight;
+  margin-top: -8px;
+}
 
-    input[type=range]:hover::-webkit-slider-thumb{
-      background: darken($highLight, 10%);
-    }
+input[type=range]:hover::-webkit-slider-thumb{
+  background: darken($highLight, 10%);
+}
 
 input[type=range]:focus {
-    outline: none;
+  outline: none;
 }
 
 input[type=range]:hover {
-    outline: none;
+  outline: none;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #ccc;
+  background: #ccc;
 }
 
 
@@ -662,7 +666,7 @@ textarea{
 //POST SHOW
 
 .showInfoStats{
- padding-left: 42px;
+  padding-left: 42px;
 }
 
 .showInfoBio{
@@ -793,6 +797,80 @@ footer{
   display:none;
 }
 
+.arrow-up {
+  margin: 0 auto;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid $highLight;
+}
+
+
+  @media only screen and (max-width: 750px) {
+
+    .profileImage{
+      width: 100%;
+      height: 50vh;
+      object-fit: cover;
+      display: block;
+      margin: 0px auto;
+      background-position: bottom;
+    }
+
+    .arrow-up {
+      margin: 0 auto;
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 8px solid $highLight;
+    }
+    .sliderInfoBox{
+      margin: 0px auto;
+    }
+
+    input[type=range] {
+      width: 100%;
+      margin-bottom:32px;
+    }
+
+    .slideFilter {
+      margin: 16px 0px 0px 0px;
+      height: 30px;
+      display: inline-block;
+  }
+
+    .sliderInfo{
+      color: white;
+      background-color:$highLight;
+      display: block;
+      padding: 8px 0px;
+      border-radius: 8px;
+      text-align: center;
+      width: 100%;
+      margin: 0px 0px 16px 0px;
+    }
+
+}
+
+@media only screen and (max-width: 767px) {
+
+  .showInfoStats{
+    padding-left: 8px;
+    margin-top:16px;
+  }
+}
+@media only screen and (max-width: 600px) {
+
+
+
+  .radioSelect{
+    margin-top: 16px;
+    width: 100%;
+  }
+}
+
 @media only screen and (max-width: 520px) {
 
   nav ul li{
@@ -806,34 +884,34 @@ footer{
     overflow-x: hidden;
   }
 
-.dropdown{
-  overflow-y: hidden;
-  overflow-x: hidden;
-  border: 1px solid $borderColor;
-  background-color: white;
-  height: 48px;
-  position: fixed;
-  bottom: 0;
-  left:0;
-  z-index: 99;
-  width: 100%;
-  margin: 0 auto;
-}
+  .dropdown{
+    overflow-y: hidden;
+    overflow-x: hidden;
+    border: 1px solid $borderColor;
+    background-color: white;
+    height: 48px;
+    position: fixed;
+    bottom: 0;
+    left:0;
+    z-index: 99;
+    width: 100%;
+    margin: 0 auto;
+  }
 
-.mobileNav{
-  overflow-y: hidden;
-  overflow-x: hidden;
-  margin: 0 auto;
-  width: 90%;
-  display: flex;
-  justify-content: space-around;
-}
+  .mobileNav{
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+  }
 
-.showMobile{
-  display:inline;
-}
+  .showMobile{
+    display:inline;
+  }
 
-footer{
-  display:none;
-}
+  footer{
+    display:none;
+  }
 }
