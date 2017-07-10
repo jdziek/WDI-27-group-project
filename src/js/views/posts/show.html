@@ -19,7 +19,7 @@
 <!-- <distance location-a="postsShow.geoShow" location-b="postsShow.post.coordinates" ng-model="postsShow.distance"></distance> -->
 
 
-  <a ui-sref="profile({ id: post.createdBy.id })" class="cursor marginTop">
+  <a ui-sref="profile({ id: postsShow.post.createdBy.id })" class="cursor marginTop">
     <h4 class=" marginTop">Posted by - <span>{{ postsShow.post.createdBy.username }} </span></h4>
   </a>
 
@@ -74,7 +74,7 @@
 
             <div class="commentInput">
               <form ng-if="main.isAuthenticated()" ng-submit="postsShow.addComment()">
-                <textarea class="col-12 commentBox" placeholder="Write a comment" ng-model="postsShow.newComment.text"></textarea>
+                <textarea class="col-12 textarea commentBox" placeholder="Write a comment" ng-model="postsShow.newComment.text"></textarea>
                 <button class="button primary marginTop">Comment</button>
               </form>
 

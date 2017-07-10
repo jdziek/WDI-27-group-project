@@ -64,10 +64,12 @@
           </div>
 
           <form ng-if="main.isAuthenticated()" ng-submit="profile.addComment()">
-            <textarea class="reviewBox" placeholder="Write a user review" ng-model="profile.newComment.text"></textarea>
+            <textarea class="reviewBox textarea col-12" placeholder="Write a user review" ng-model="profile.newComment.text"></textarea>
             <button class="button primary marginTop">Post Review</button>
           </form>
+
         </div>
+
       </div>
     </div>
   </div>
