@@ -1,5 +1,5 @@
 const port          = process.env.PORT || 4000;
-const env           = process.env.NODE_ENV || 'development';
+const env           = process.env.NODE_ENV || 'production';
 const dbURI         = process.env.MONGODB_URI || 'mongodb://localhost:27017/WDI-27-group-project';
 const secret = process.env.SECRET || 'shhhhhhhhhhhh';
 
