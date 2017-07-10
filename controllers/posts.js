@@ -33,8 +33,6 @@ function postUpdate(req, res, next) {
   .findById(req.params.id)
   .exec()
   .then((post) => {
-  
-
     for(const field in req.body) {
       post[field] = req.body[field];
     }
