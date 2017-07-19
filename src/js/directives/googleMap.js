@@ -53,7 +53,7 @@ function googleMap() {
             lat: position.coords.latitude,
             lng: position.coords.longitude
           };
-          if(newMap && !newMap.classList.contains('index') && !newMap.classList.contains('new')) {
+          if(newMap && !newMap.classList.contains('index') && !newMap.classList.contains('new') && !newMap.classList.contains('edit')) {
             scope.geoShow = { lat: position.coords.latitude, lng: position.coords.longitude };
             console.log(scope.geoShow);
             scope.$apply();
