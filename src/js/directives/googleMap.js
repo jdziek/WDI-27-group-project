@@ -53,18 +53,21 @@ function googleMap() {
             lat: position.coords.latitude,
             lng: position.coords.longitude
           };
-          scope.geoShow = { lat: position.coords.latitude, lng: position.coords.longitude };
-          console.log(scope.geoShow);
-          scope.$apply();
-
+          if(newMap && !newMap.classList.contains('index') && !newMap.classList.contains('new')) {
+            scope.geoShow = { lat: position.coords.latitude, lng: position.coords.longitude };
+            console.log(scope.geoShow);
+            scope.$apply();
+          }
           if(newMap && newMap.classList.contains('marker')) {
             map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
             marker.setPosition(pos);
             map.setCenter(pos);
           }
-          scope.infoGeoLoc = marker.getPosition();
-          scope.geo = { lat: scope.infoGeoLoc.lat(), lng: scope.infoGeoLoc.lng() };///doesnt like it but it works necesaryfor distance
-          scope.$apply();
+          if(newMap && !newMap.classList.contains('show')) {
+            scope.infoGeoLoc = marker.getPosition();
+            scope.geo = { lat: scope.infoGeoLoc.lat(), lng: scope.infoGeoLoc.lng() };///doesnt like it but it works necesaryfor distance
+            scope.$apply();
+          }
         });
       }
 
