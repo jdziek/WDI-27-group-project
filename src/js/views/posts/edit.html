@@ -9,6 +9,7 @@
             <p class="control">
               <label for="postType">Post Type</label>
             </p>
+
             <input class="hidden" type="radio" id="teaching" name="postType" value="Teaching" ng-model="postsEdit.post.postType" required>
             <label for="teaching" class="radioSelect">
               <i class="fa fa-comments spaceRight" aria-hidden="true"></i>
@@ -23,6 +24,7 @@
               <div ng-message="required" class="notificationThin" required>Post type is required.</div>
             </div>
           </div>
+
           <div class="field">
             <p class="control">
               <label for="location">Title</label>
@@ -32,6 +34,7 @@
               <div ng-message="required" class="notificationThin ">Title is required.</div>
             </div>
           </div>
+          
           <div class="field fieldTogether">
             <p class="control">
               <label for="date">Date</label>
