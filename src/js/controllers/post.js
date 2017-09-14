@@ -5,8 +5,8 @@ angular
 .controller('PostsShowCtrl', PostsShowCtrl)
 .controller('PostsEditCtrl', PostsEditCtrl);
 
-PostsIndexCtrl.$inject = ['Post','filterFilter', '$scope', 'orderByFilter'];
-function PostsIndexCtrl(Post, filterFilter, $scope, orderByFilter) {
+PostsIndexCtrl.$inject = ['Post','filterFilter', '$scope'];
+function PostsIndexCtrl(Post, filterFilter, $scope) {
   const vm = this;
   vm.delete = postsDelete;
   vm.all = [];
@@ -39,7 +39,7 @@ function PostsIndexCtrl(Post, filterFilter, $scope, orderByFilter) {
 
     vm.filtered = filterFilter(vm.all, params);
 
-    vm.filtered = orderByFilter(vm.filtered);
+
 
   }
   function lowerThan(prop, val){
